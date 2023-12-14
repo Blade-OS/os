@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    customization-overview -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="managing-a-configuration.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-package-installation.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Customizing contents
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#357" class="lnkocn">357</a></label>
+  <h1 class="norm" id="357"><a name="357"></a>
+    7. Customization overview
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#358" class="lnkocn">358</a></label>
+  <p class="i0" id="358">
+    This chapter gives an overview of the various ways in which you may customize a live system.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#359" class="lnkocn">359</a></label>
+  <p class="bold" id="359"><a name="359"></a> <a id="hc7.1"></a>
+    <a name="c7.1" ></a><a name="h7.1" ></a>7.1 Build time vs. boot time configuration
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#360" class="lnkocn">360</a></label>
+  <p class="i0" id="360">
+    Live system configuration options are divided into build-time options which are options that are applied at build time and boot-time options which are applied at boot time. Boot-time options are further divided into those occurring early in the boot, applied by the <i>live-boot</i> package, and those that happen later in the boot, applied by <i>live-config</i>. Any boot-time option may be modified by the user by specifying it at the boot prompt. The image may also be built with default boot parameters so users can normally just boot directly to the live system without specifying any options when all of the defaults are suitable. In particular, the argument to <tt>lb --bootappend-live</tt> consists of any default kernel command line options for the Live system, such as persistence, keyboard layouts, or timezone. See  <a href="customizing-run-time-behaviours.en.html#customizing-locale-and-language">Customizing locale and language</a>,  for example.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#361" class="lnkocn">361</a></label>
+  <p class="i0" id="361">
+    Build-time configuration options are described in the <tt>lb config</tt> man page. Boot-time options are described in the man pages for <i>live-boot</i> and <i>live-config</i>. Although the <i>live-boot</i> and <i>live-config</i> packages are installed within the live system you are building, it is recommended that you also install them on your build system for easy reference when you are working on your configuration. It is safe to do so, as none of the scripts contained within them are executed unless the system is configured as a live system.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#362" class="lnkocn">362</a></label>
+  <p class="bold" id="362"><a name="362"></a> <a id="hstages-of-the-build"></a>
+    <a name="h7.2" ></a><a name="stages-of-the-build" ></a>7.2 Stages of the build
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#363" class="lnkocn">363</a></label>
+  <p class="i0" id="363">
+    The build process is divided into stages, with various customizations applied in sequence in each. The first stage to run is the <b>bootstrap</b> stage. This is the initial phase of populating the chroot directory with packages to make a barebones Debian system. This is followed by the <b>chroot</b> stage, which completes the construction of chroot directory, populating it with all of the packages listed in the configuration, along with any other materials. Most customization of content occurs in this stage. The final stage of preparing the live image is the <b>binary</b> stage, which builds a bootable image, using the contents of the chroot directory to construct the root filesystem for the Live system, and including the installer and any other additional material on the target medium outside of the Live system's filesystem. After the live image is built, if enabled, the source tarball is built in the <b>source</b> stage.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#364" class="lnkocn">364</a></label>
+  <p class="i0" id="364">
+    Within each of these stages, there is a particular sequence in which commands are applied. These are arranged in such a way as to ensure customizations can be layered in a reasonable fashion. For example, within the <b>chroot</b> stage, preseeds are applied before any packages are installed, packages are installed before any locally included files are copied, and hooks are run later, after all of the materials are in place.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#365" class="lnkocn">365</a></label>
+  <p class="bold" id="365"><a name="365"></a> <a id="hc7.3"></a>
+    <a name="c7.3" ></a><a name="h7.3" ></a>7.3 Supplement lb config with files
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#366" class="lnkocn">366</a></label>
+  <p class="i0" id="366">
+    Although <tt>lb config</tt> creates a skeletal configuration in the <tt>config/</tt> directory, to accomplish your goals, you may need to provide additional files in subdirectories of <tt>config/</tt>. Depending on where the files are stored in the configuration, they may be copied into the live system's filesystem or into the binary image filesystem, or may provide build-time configurations of the system that would be cumbersome to pass as command-line options. You may include things such as custom lists of packages, custom artwork, or hook scripts to run either at build time or at boot time, boosting the already considerable flexibility of debian-live with code of your own.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#367" class="lnkocn">367</a></label>
+  <p class="bold" id="367"><a name="367"></a> <a id="hc7.4"></a>
+    <a name="c7.4" ></a><a name="h7.4" ></a>7.4 Customization tasks
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#368" class="lnkocn">368</a></label>
+  <p class="i0" id="368">
+    The following chapters are organized by the kinds of customization task users typically perform:  <a href="customizing-package-installation.en.html#customizing-package-installation">Customizing package installation</a>,   <a href="customizing-contents.en.html#customizing-contents">Customizing contents</a>  and  <a href="customizing-run-time-behaviours.en.html#customizing-locale-and-language">Customizing locale and language</a>  cover just a few of the things you might want to do.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="managing-a-configuration.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-package-installation.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

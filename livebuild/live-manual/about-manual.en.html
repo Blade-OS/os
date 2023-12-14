@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    about-manual -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="about-project.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    About this manual
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#4" class="lnkocn">4</a></label>
+  <h1 class="norm" id="4"><a name="4"></a>
+    1. About this manual
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#5" class="lnkocn">5</a></label>
+  <p class="i0" id="5">
+    This manual serves as a single access point to all documentation related to the Live Systems Project and in particular applies to the software produced by the project for the Debian 9.0 "<b>stretch</b>" release. An up-to-date version can always be found at ‹<a href="http://debian-live.alioth.debian.org/" target="_top">http://debian-live.alioth.debian.org/</a>›
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#6" class="lnkocn">6</a></label>
+  <p class="i0" id="6">
+    While <i>live-manual</i> is primarily focused on helping you build a live system and not on end-user topics, an end user may find some useful information in these sections:  <a href="the-basics.en.html#the-basics">The Basics</a>  covers downloading prebuilt images and preparing images to be booted from media or the network, either using the web builder or running <i>live-build</i> directly on your system.  <a href="customizing-run-time-behaviours.en.html#customizing-run-time-behaviours">Customizing run time behaviours</a>  describes some options that may be specified at the boot prompt, such as selecting a keyboard layout and locale, and using persistence.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#7" class="lnkocn">7</a></label>
+  <p class="i0" id="7">
+    Some of the commands mentioned in the text must be executed with superuser privileges which can be obtained by becoming the root user via <tt>su</tt> or by using <tt>sudo</tt>. To distinguish between commands which may be executed by an unprivileged user and those requiring superuser privileges, commands are prepended by <tt>$</tt> or <tt>#</tt> respectively. This symbol is not a part of the command.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#8" class="lnkocn">8</a></label>
+  <p class="bold" id="8"><a name="8"></a> <a id="hc1.1"></a>
+    <a name="c1.1" ></a><a name="h1.1" ></a>1.1 For the impatient
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#9" class="lnkocn">9</a></label>
+  <p class="i0" id="9">
+    While we believe that everything in this manual is important to at least some of our users, we realize it is a lot of material to cover and that you may wish to experience early success using the software before delving into the details. Therefore, we suggest reading in the following order.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#10" class="lnkocn">10</a></label>
+  <p class="i0" id="10">
+    First, read this chapter,  <a href="about-manual.en.html#about-manual">About this manual</a>,  from the beginning and ending with the  <a href="about-manual.en.html#terms">Terms</a>  section. Next, skip to the three tutorials at the front of the  <a href="examples.en.html#examples">Examples</a>  section designed to teach you image building and customization basics. Read  <a href="examples.en.html#using-the-examples">Using the examples</a>  first, followed by  <a href="examples.en.html#tutorial-1">Tutorial 1: A default image</a>,   <a href="examples.en.html#tutorial-2">Tutorial 2: A web browser utility</a>  and finally  <a href="examples.en.html#tutorial-3">Tutorial 3: A personalized image</a>.  By the end of these tutorials, you will have a taste of what can be done with live systems.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#11" class="lnkocn">11</a></label>
+  <p class="i0" id="11">
+    We encourage you to return to more in-depth study of the manual, perhaps next reading  <a href="the-basics.en.html#the-basics">The basics</a>,  skimming or skipping  <a href="the-basics.en.html#building-netboot-image">Building a netboot image</a>,  and finishing by reading the  <a href="customization-overview.en.html#customization-overview">Customization overview</a>  and the chapters that follow it. By this point, we hope you are thoroughly excited by what can be done with live systems and motivated to read the rest of the manual, cover-to-cover.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#12" class="lnkocn">12</a></label>
+  <p class="bold" id="12"><a name="12"></a> <a id="hterms"></a>
+    <a name="h1.2" ></a><a name="terms" ></a>1.2 Terms
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#13" class="lnkocn">13</a></label>
+  <ul>
+  <li class="bullet" id="13">
+    <b>Live system</b>: An operating system that can boot without installation to a hard drive. Live systems do not alter local operating system(s) or file(s) already installed on the computer hard drive unless instructed to do so. Live systems are typically booted from media such as CDs, DVDs or USB sticks. Some may also boot over the network (via netboot images, see  <a href="the-basics.en.html#building-netboot-image">Building a netboot image</a>),  and over the Internet (via the boot parameter <tt>fetch=URL</tt>, see  <a href="the-basics.en.html#webbooting">Webbooting</a>).
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#14" class="lnkocn">14</a></label>
+  <ul>
+  <li class="bullet" id="14">
+    <b>Live medium</b>: As distinct from live system, the live medium refers to the CD, DVD or USB stick where the binary produced by <i>live-build</i> and used to boot the live system is written. More broadly, the term also refers to any place where this binary resides for the purposes of booting the live system, such as the location for the network boot files.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#15" class="lnkocn">15</a></label>
+  <ul>
+  <li class="bullet" id="15">
+    <b>Live Systems Project</b>: The project which maintains, among others, the <i>live-boot</i>, <i>live-build</i>, <i>live-config</i>, <i>live-tools</i> and <i>live-manual</i> packages.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#16" class="lnkocn">16</a></label>
+  <ul>
+  <li class="bullet" id="16">
+    <b>Host system</b>: The environment used to create the live system.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#17" class="lnkocn">17</a></label>
+  <ul>
+  <li class="bullet" id="17">
+    <b>Target system</b>: The environment used to run the live system.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#18" class="lnkocn">18</a></label>
+  <ul>
+  <li class="bullet" id="18">
+    <b><i>live-boot</i></b>: A collection of scripts used to boot live systems.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#19" class="lnkocn">19</a></label>
+  <ul>
+  <li class="bullet" id="19">
+    <b><i>live-build</i></b>: A collection of scripts used to build customized live systems.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#20" class="lnkocn">20</a></label>
+  <ul>
+  <li class="bullet" id="20">
+    <b><i>live-config</i></b>: A collection of scripts used to configure a live system during the boot process.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#21" class="lnkocn">21</a></label>
+  <ul>
+  <li class="bullet" id="21">
+    <b><i>live-tools</i></b>: A collection of additional scripts used to perform useful tasks within a running live system.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#22" class="lnkocn">22</a></label>
+  <ul>
+  <li class="bullet" id="22">
+    <b><i>live-manual</i></b>: This document is maintained in a package called <i>live-manual</i>.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#23" class="lnkocn">23</a></label>
+  <ul>
+  <li class="bullet" id="23">
+    <b>Debian Installer (d-i)</b>: The official installation system for the Debian distribution.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#24" class="lnkocn">24</a></label>
+  <ul>
+  <li class="bullet" id="24">
+    <b>Boot parameters</b>: Parameters that can be entered at the bootloader prompt to influence the kernel or <i>live-config</i>.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#25" class="lnkocn">25</a></label>
+  <ul>
+  <li class="bullet" id="25">
+    <b>chroot</b>: The <i>chroot</i> program, <tt>chroot(8)</tt>, enables us to run different instances of the GNU/Linux environment on a single system simultaneously without rebooting.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#26" class="lnkocn">26</a></label>
+  <ul>
+  <li class="bullet" id="26">
+    <b>Binary image</b>: A file containing the live system, such as live-image-i386.hybrid.iso or live-image-i386.img.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#27" class="lnkocn">27</a></label>
+  <ul>
+  <li class="bullet" id="27">
+    <b>Target distribution</b>: The distribution upon which your live system will be based. This can differ from the distribution of your host system.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#28" class="lnkocn">28</a></label>
+  <ul>
+  <li class="bullet" id="28">
+    <b>stable/testing/unstable</b>: The <b>stable</b> distribution, currently codenamed <b>stretch</b>, contains the latest officially released distribution of Debian. The <b>testing</b> distribution, temporarily codenamed <b>buster</b>, is the staging area for the next <b>stable</b> release. A major advantage of using this distribution is that it has more recent versions of software relative to the <b>stable</b> release. The <b>unstable</b> distribution, permanently codenamed <b>sid</b>, is where active development of Debian occurs. Generally, this distribution is run by developers and those who like to live on the edge. Throughout the manual, we tend to use codenames for the releases, such as <b>buster</b> or <b>sid</b>, as that is what is supported by the tools themselves.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#29" class="lnkocn">29</a></label>
+  <p class="bold" id="29"><a name="29"></a> <a id="hc1.3"></a>
+    <a name="c1.3" ></a><a name="h1.3" ></a>1.3 Authors
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#30" class="lnkocn">30</a></label>
+  <p class="i0" id="30">
+    A list of authors (in alphabetical order):
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#31" class="lnkocn">31</a></label>
+  <ul>
+  <li class="bullet" id="31">
+    Ben Armstrong
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#32" class="lnkocn">32</a></label>
+  <ul>
+  <li class="bullet" id="32">
+    Brendan Sleight
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#33" class="lnkocn">33</a></label>
+  <ul>
+  <li class="bullet" id="33">
+    Carlos Zuferri
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#34" class="lnkocn">34</a></label>
+  <ul>
+  <li class="bullet" id="34">
+    Chris Lamb
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#35" class="lnkocn">35</a></label>
+  <ul>
+  <li class="bullet" id="35">
+    Daniel Baumann
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#36" class="lnkocn">36</a></label>
+  <ul>
+  <li class="bullet" id="36">
+    Franklin Piat
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#37" class="lnkocn">37</a></label>
+  <ul>
+  <li class="bullet" id="37">
+    Jonas Stein
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#38" class="lnkocn">38</a></label>
+  <ul>
+  <li class="bullet" id="38">
+    Kai Hendry
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#39" class="lnkocn">39</a></label>
+  <ul>
+  <li class="bullet" id="39">
+    Marco Amadori
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#40" class="lnkocn">40</a></label>
+  <ul>
+  <li class="bullet" id="40">
+    Mathieu Geli
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#41" class="lnkocn">41</a></label>
+  <ul>
+  <li class="bullet" id="41">
+    Matthias Kirschner
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#42" class="lnkocn">42</a></label>
+  <ul>
+  <li class="bullet" id="42">
+    Richard Nelson
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#43" class="lnkocn">43</a></label>
+  <ul>
+  <li class="bullet" id="43">
+    Trent W. Buck
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#44" class="lnkocn">44</a></label>
+  <p class="bold" id="44"><a name="44"></a> <a id="hhow-to-contribute"></a>
+    <a name="h1.4" ></a><a name="how-to-contribute" ></a>1.4 Contributing to this document
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#45" class="lnkocn">45</a></label>
+  <p class="i0" id="45">
+    This manual is intended as a community project and all proposals for improvements and contributions are extremely welcome. Please see the section  <a href="contributing-to-project.en.html#contributing-to-project">Contributing to the project</a>  for detailed information on how to fetch the commit key and make good commits.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#46" class="lnkocn">46</a></label>
+  <p class="bold" id="46"><a name="46"></a> <a id="happlying-changes"></a>
+    <a name="h1.4.1" ></a><a name="applying-changes" ></a>1.4.1 Applying changes
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#47" class="lnkocn">47</a></label>
+  <p class="i0" id="47">
+    In order to make changes to the English manual you have to edit the right files in <tt>manual/en/</tt> but prior to the submission of your contribution, please preview your work. To preview the <i>live-manual</i>, ensure the packages needed for building it are installed by executing:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#48" class="lnkocn">48</a></label>
+  <p class="code" id="48">
+    # apt-get install make po4a ruby ruby-nokogiri sisu-complete<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#49" class="lnkocn">49</a></label>
+  <p class="i0" id="49">
+    You may build the <i>live-manual</i> from the top level directory of your Git checkout by executing:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#50" class="lnkocn">50</a></label>
+  <p class="code" id="50">
+    $ make build<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#51" class="lnkocn">51</a></label>
+  <p class="i0" id="51">
+    Since it takes a while to build the manual in all supported languages, authors may find it convenient to use one of the fast proofing shortcuts when reviewing the new documentation they have added to the English manual. Using <tt>PROOF=1</tt> builds <i>live-manual</i> in html format, but without the segmented html files, and using <tt>PROOF=2</tt> builds <i>live-manual</i> in pdf format, but only the A4 and letter portraits. That is why using either of the <tt>PROOF=</tt> possibilities can save up a considerable amount of time, e.g:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#52" class="lnkocn">52</a></label>
+  <p class="code" id="52">
+    $ make build PROOF=1<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#53" class="lnkocn">53</a></label>
+  <p class="i0" id="53">
+    When proofing one of the translations it is possible to build only one language by executing, e.g:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#54" class="lnkocn">54</a></label>
+  <p class="code" id="54">
+    $ make build LANGUAGES=de<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#55" class="lnkocn">55</a></label>
+  <p class="i0" id="55">
+    It is also possible to build by document type, e.g:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#56" class="lnkocn">56</a></label>
+  <p class="code" id="56">
+    $ make build FORMATS=pdf<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#57" class="lnkocn">57</a></label>
+  <p class="i0" id="57">
+    Or combine both, e.g:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#58" class="lnkocn">58</a></label>
+  <p class="code" id="58">
+    $ make build LANGUAGES=de FORMATS=html<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#59" class="lnkocn">59</a></label>
+  <p class="i0" id="59">
+    After revising your work and making sure that everything is fine, do not use <tt>make commit</tt> unless you are updating translations in the commit, and in that case, do not mix changes to the English manual and translations in the same commit, but use separate commits for each. See the  <a href="about-manual.en.html#translation">Translation</a>  section for more details.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#60" class="lnkocn">60</a></label>
+  <p class="bold" id="60"><a name="60"></a> <a id="htranslation"></a>
+    <a name="h1.4.2" ></a><a name="translation" ></a>1.4.2 Translation
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#61" class="lnkocn">61</a></label>
+  <p class="i0" id="61">
+    <b>Note:</b>  For the translation of the man pages see  <a href="contributing-to-project.en.html#translation-of-manpages">Translation of man pages</a>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#62" class="lnkocn">62</a></label>
+  <p class="i0" id="62">
+    In order to translate <i>live-manual</i>, follow these steps depending on whether you are starting a translation from scratch or continue working on an already existing one:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#63" class="lnkocn">63</a></label>
+  <ul>
+  <li class="bullet" id="63">
+    Start a new translation from scratch
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#64" class="lnkocn">64</a></label>
+  <ul>
+  <li class="i2" id="64">
+    Translate the <b>about_manual.ssi.pot</b>, <b>about_project.ssi.pot</b> and <b>index.html.in.pot</b> files in <tt>manual/pot/</tt> to your language with your favourite editor (such as <i>poedit</i>) and send the translated <tt>.po</tt> files to the mailing list to check their integrity. <i>live-manual</i>'s integrity check not only ensures that the <tt>.po</tt> files are 100% translated but it also detects possible errors.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#65" class="lnkocn">65</a></label>
+  <ul>
+  <li class="i2" id="65">
+    Once checked, to enable a new language in the autobuild it is enough to add the initial translated files to <tt>manual/po/${LANGUAGE}/</tt> and run <tt>make commit</tt>. And then, edit <tt>manual/_sisu/home/index.html</tt> adding the name of the language and its name in English between brackets.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#66" class="lnkocn">66</a></label>
+  <ul>
+  <li class="bullet" id="66">
+    Continue with an already started translation
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#67" class="lnkocn">67</a></label>
+  <ul>
+  <li class="i2" id="67">
+    If your target language has already been added, you can randomly continue translating the remaining .po files in <tt>manual/po/${LANGUAGE}/</tt> using your favourite editor (such as <i>poedit</i>) .
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#68" class="lnkocn">68</a></label>
+  <ul>
+  <li class="i2" id="68">
+    Do not forget that you need to run <tt>make commit</tt> to ensure that the translated manuals are updated from the .po files and then you can review your changes launching <tt>make build</tt> before <tt>git add .</tt>, <tt>git commit -m "Translating..."</tt> and <tt>git push</tt>. Remember that since <tt>make build</tt> can take a considerable amount of time, you can proofread languages individually as explained in  <a href="about-manual.en.html#applying-changes">Applying changes</a>
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#69" class="lnkocn">69</a></label>
+  <p class="i0" id="69">
+    After running <tt>make commit</tt> you will see some text scroll by. These are basically informative messages about the processing status and also some hints about what can be done in order to improve <i>live-manual</i>. Unless you see a fatal error, you usually can proceed and submit your contribution.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#70" class="lnkocn">70</a></label>
+  <p class="i0" id="70">
+    <i>live-manual</i> comes with two utilities that can greatly help translators to find untranslated and changed strings. The first one is "make translate". It launches an script that tells you in detail how many untranslated strings there are in each .po file. The second one, the "make fixfuzzy" target, only acts upon changed strings but it helps you to find and fix them one by one.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#71" class="lnkocn">71</a></label>
+  <p class="i0" id="71">
+    Keep in mind that even though these utilities might be really helpful to do translation work on the command line, the use of an specialized tool like <i>poedit</i> is the recommended way to do the task. It is also a good idea to read the Debian localization (l10n) documentation and, specifically to <i>live-manual</i>, the  <a href="style-guide.en.html#guidelines-translators">Guidelines for translators</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#72" class="lnkocn">72</a></label>
+  <p class="i0" id="72">
+    <b>Note:</b> You can use <tt>make clean</tt> to clean your git tree before pushing. This step is not compulsory thanks to the .gitignore file but it is a good practice to avoid committing files involuntarily.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="about-project.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

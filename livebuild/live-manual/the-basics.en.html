@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    the-basics -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="installation.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="overview-of-tools.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    The basics
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#159" class="lnkocn">159</a></label>
+  <h1 class="norm" id="159"><a name="159"></a>
+    4. The basics
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#160" class="lnkocn">160</a></label>
+  <p class="i0" id="160">
+    This chapter contains a brief overview of the build process and instructions for using the three most commonly used image types. The most versatile image type, <tt>iso-hybrid</tt>, may be used on a virtual machine, optical medium or USB portable storage device. In certain special cases, as explained later, the <tt>hdd</tt> type may be more suitable. The chapter includes detailed instructions for building and using a <tt>netboot</tt> type image, which is a bit more involved due to the setup required on the server. This is an slightly advanced topic for anyone who is not already familiar with netbooting, but it is included here because once the setup is done, it is a very convenient way to test and deploy images for booting on the local network without the hassle of dealing with image media.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#161" class="lnkocn">161</a></label>
+  <p class="i0" id="161">
+    The section finishes with a quick introduction to  <a href="the-basics.en.html#webbooting">webbooting</a>  which is, perhaps, the easiest way of using different images for different purposes, switching from one to the other as needed using the internet as a means.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#162" class="lnkocn">162</a></label>
+  <p class="i0" id="162">
+    Throughout the chapter, we will often refer to the default filenames produced by <i>live-build</i>. If you are  <a href="the-basics.en.html#downloading-prebuilt-images">downloading a prebuilt image</a>  instead, the actual filenames may vary.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#163" class="lnkocn">163</a></label>
+  <p class="bold" id="163"><a name="163"></a> <a id="hwhat-is-live"></a>
+    <a name="h4.1" ></a><a name="what-is-live" ></a>4.1 What is a live system?
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#164" class="lnkocn">164</a></label>
+  <p class="i0" id="164">
+    A live system usually means an operating system booted on a computer from a removable medium, such as a CD-ROM or USB stick, or from a network, ready to use without any installation on the usual drive(s), with auto-configuration done at run time (see  <a href="about-manual.en.html#terms">Terms</a>).
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#165" class="lnkocn">165</a></label>
+  <p class="i0" id="165">
+    With live systems, it's an operating system, built for one of the supported architectures (currently amd64 and i386). It is made from the following parts:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#166" class="lnkocn">166</a></label>
+  <ul>
+  <li class="bullet" id="166">
+    <b>Linux kernel image</b>, usually named <tt>vmlinuz*</tt>
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#167" class="lnkocn">167</a></label>
+  <ul>
+  <li class="bullet" id="167">
+    <b>Initial RAM disk image (initrd)</b>: a RAM disk set up for the Linux boot, containing modules possibly needed to mount the System image and some scripts to do it.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#168" class="lnkocn">168</a></label>
+  <ul>
+  <li class="bullet" id="168">
+    <b>System image</b>: The operating system's filesystem image. Usually, a SquashFS compressed filesystem is used to minimize the live system image size. Note that it is read-only. So, during boot the live system will use a RAM disk and 'union' mechanism to enable writing files within the running system. However, all modifications will be lost upon shutdown unless optional persistence is used (see  <a href="customizing-run-time-behaviours.en.html#persistence">Persistence</a>).
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#169" class="lnkocn">169</a></label>
+  <ul>
+  <li class="bullet" id="169">
+    <b>Bootloader</b>: A small piece of code crafted to boot from the chosen medium, possibly presenting a prompt or menu to allow selection of options/configuration. It loads the Linux kernel and its initrd to run with an associated system filesystem. Different solutions can be used, depending on the target medium and format of the filesystem containing the previously mentioned components: isolinux to boot from a CD or DVD in ISO9660 format, syslinux for HDD or USB drive booting from a VFAT partition, extlinux for ext2/3/4 and btrfs partitions, pxelinux for PXE netboot, GRUB for ext2/3/4 partitions, etc.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#170" class="lnkocn">170</a></label>
+  <p class="i0" id="170">
+    You can use <i>live-build</i> to build the system image from your specifications, set up a Linux kernel, its initrd, and a bootloader to run them, all in one medium-dependant format (ISO9660 image, disk image, etc.).
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#171" class="lnkocn">171</a></label>
+  <p class="bold" id="171"><a name="171"></a> <a id="hdownloading-prebuilt-images"></a>
+    <a name="h4.2" ></a><a name="downloading-prebuilt-images" ></a>4.2 Downloading prebuilt images
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#172" class="lnkocn">172</a></label>
+  <p class="i0" id="172">
+    While the focus of this manual is developing and building your own live images, you may simply wish to try one of our prebuilt images, either as an introduction to their use or instead of building your own. These images are built using our  <a href="managing-a-configuration.en.html#clone-configuration-via-git"><i>live-images</i> git repository</a>  and official stable releases are published at ‹<a href="https://www.debian.org/CD/live/" target="_top">https://www.debian.org/CD/live/</a>›. In addition, older and upcoming releases, and unofficial images containing non-free firmware and drivers are available at ‹<a href="http://debian-live.alioth.debian.org/cdimage/release/" target="_top">http://debian-live.alioth.debian.org/cdimage/release/</a>›.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#173" class="lnkocn">173</a></label>
+  <p class="bold" id="173"><a name="173"></a> <a id="husing-web-builder"></a>
+    <a name="h4.3" ></a><a name="using-web-builder" ></a>4.3 Using the web live image builder
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#174" class="lnkocn">174</a></label>
+  <p class="i0" id="174">
+    As a service to the community, we run a web-based live image builder service at ‹<a href="http://debian-live.alioth.debian.org/build/" target="_top">http://debian-live.alioth.debian.org/build/</a>›. This site is maintained on a best effort basis. That is, although we strive to keep it up-to-date and operational at all times, and do issue notices for significant operational outages, we cannot guarantee 100% availability or fast image building, and the service may occasionally have issues that take some time to resolve. If you have problems or questions about the service, please  <a href="about-project.en.html#contact">contact us</a>,  providing us with the link to your build.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#175" class="lnkocn">175</a></label>
+  <p class="bold" id="175"><a name="175"></a> <a id="hc4.3.1"></a>
+    <a name="c4.3.1" ></a><a name="h4.3.1" ></a>4.3.1 Web builder usage and caveats
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#176" class="lnkocn">176</a></label>
+  <p class="i0" id="176">
+    The web interface currently makes no provision to prevent the use of invalid combinations of options, and in particular, where changing an option would normally (i.e. using <i>live-build</i> directly) change defaults of other options listed in the web form, the web builder does not change these defaults. Most notably, if you change <tt>--architectures</tt> from the default <tt>i386</tt> to <tt>amd64</tt>, you must change the corresponding option <tt>--linux-flavours</tt> from the default <tt>586</tt> to <tt>amd64</tt>. See the <tt>lb_config</tt> man page for the version of <i>live-build</i> installed on the web builder for more details. The version number of <i>live-build</i> is listed at the bottom of the web builder page.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#177" class="lnkocn">177</a></label>
+  <p class="i0" id="177">
+    The time estimate given by the web builder is a crude estimate only and may not reflect how long your build actually takes. Nor is the estimate updated once it is displayed. Please be patient. Do not refresh the page you land on after submitting the build, as this will resubmit a new build with the same parameters. You should  <a href="about-project.en.html#contact">contact us</a>  if you don't receive notification of your build only once you are certain you've waited long enough and verified the notification e-mail did not get caught by your own e-mail spam filter.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#178" class="lnkocn">178</a></label>
+  <p class="i0" id="178">
+    The web builder is limited in the kinds of images it can build. This keeps it simple and efficient to use and maintain. If you would like to make customizations that are not provided for by the web interface, the rest of this manual explains how to build your own images using <i>live-build</i>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#179" class="lnkocn">179</a></label>
+  <p class="bold" id="179"><a name="179"></a> <a id="hbuilding-iso-hybrid"></a>
+    <a name="h4.4" ></a><a name="building-iso-hybrid" ></a>4.4 First steps: building an ISO hybrid image
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#180" class="lnkocn">180</a></label>
+  <p class="i0" id="180">
+    Regardless of the image type, you will need to perform the same basic steps to build an image each time. As a first example, create a build directory, change to that directory and then execute the following sequence of <i>live-build</i> commands to create a basic ISO hybrid image containing a default live system without X.org. It is suitable for burning to CD or DVD media, and also to copy onto a USB stick.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#181" class="lnkocn">181</a></label>
+  <p class="i0" id="181">
+    The name of the working directory is absolutely up to you, but if you take a look at the examples used throughout <i>live-manual</i>, it is a good idea to use a name that helps you identify the image you are working with in each directory, especially if you are working or experimenting with different image types. In this case you are going to build a default system so let's call it, for example, live-default.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#182" class="lnkocn">182</a></label>
+  <p class="code" id="182">
+    $ mkdir live-default &amp;&amp; cd live-default<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#183" class="lnkocn">183</a></label>
+  <p class="i0" id="183">
+    Then, run the <tt>lb config</tt> command. This will create a "config/" hierarchy in the current directory for use by other commands:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#184" class="lnkocn">184</a></label>
+  <p class="code" id="184">
+    $ lb config<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#185" class="lnkocn">185</a></label>
+  <p class="i0" id="185">
+    No parameters are passed to these commands, so defaults for all of their various options will be used. See  <a href="overview-of-tools.en.html#lb-config">The lb config command</a>  for more details.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#186" class="lnkocn">186</a></label>
+  <p class="i0" id="186">
+    Now that the "config/" hierarchy exists, build the image with the <tt>lb build</tt> command:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#187" class="lnkocn">187</a></label>
+  <p class="code" id="187">
+    # lb build<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#188" class="lnkocn">188</a></label>
+  <p class="i0" id="188">
+    This process can take a while, depending on the speed of your computer and your network connection. When it is complete, there should be a <tt>live-image-i386.hybrid.iso</tt> image file, ready to use, in the current directory.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#189" class="lnkocn">189</a></label>
+  <p class="i0" id="189">
+    <b>Note:</b> If you are building on an amd64 system the name of the resulting image will be <tt>live-image-amd64.hybrid.iso</tt>. Keep in mind this naming convention throughout the manual.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#190" class="lnkocn">190</a></label>
+  <p class="bold" id="190"><a name="190"></a> <a id="husing-iso-hybrid"></a>
+    <a name="h4.5" ></a><a name="using-iso-hybrid" ></a>4.5 Using an ISO hybrid live image
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#191" class="lnkocn">191</a></label>
+  <p class="i0" id="191">
+    After either building or downloading an ISO hybrid image, which can be obtained at ‹<a href="https://www.debian.org/CD/live/" target="_top">https://www.debian.org/CD/live/</a>›, the usual next step is to prepare your medium for booting, either CD-R(W) or DVD-R(W) optical media or a USB stick.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#192" class="lnkocn">192</a></label>
+  <p class="bold" id="192"><a name="192"></a> <a id="hburning-iso-image"></a>
+    <a name="h4.5.1" ></a><a name="burning-iso-image" ></a>4.5.1 Burning an ISO image to a physical medium
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#193" class="lnkocn">193</a></label>
+  <p class="i0" id="193">
+    Burning an ISO image is easy. Just install <i>xorriso</i> and use it from the command-line to burn the image. For instance:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#194" class="lnkocn">194</a></label>
+  <p class="code" id="194">
+    # apt-get install xorriso<br>
+$ xorriso -as cdrecord -v dev=/dev/sr0 blank=as_needed live-image-i386.hybrid.iso<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#195" class="lnkocn">195</a></label>
+  <p class="bold" id="195"><a name="195"></a> <a id="hcopying-iso-hybrid-to-usb"></a>
+    <a name="h4.5.2" ></a><a name="copying-iso-hybrid-to-usb" ></a>4.5.2 Copying an ISO hybrid image to a USB stick
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#196" class="lnkocn">196</a></label>
+  <p class="i0" id="196">
+    ISO images prepared with <tt>xorriso</tt>, can be simply copied to a USB stick with the <tt>cp</tt> program or an equivalent. Plug in a USB stick with a size large enough for your image file and determine which device it is, which we hereafter refer to as <tt>${USBSTICK}</tt>. This is the device file of your key, such as <tt>/dev/sdb</tt>, not a partition, such as <tt>/dev/sdb1</tt>! You can find the right device name by looking in <tt>dmesg</tt>'s output after plugging in the stick, or better yet, <tt>ls -l /dev/disk/by-id</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#197" class="lnkocn">197</a></label>
+  <p class="i0" id="197">
+    Once you are certain you have the correct device name, use the <tt>cp</tt> command to copy the image to the stick. <b>This will definitely overwrite any previous contents on your stick!</b>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#198" class="lnkocn">198</a></label>
+  <p class="code" id="198">
+    $ cp live-image-i386.hybrid.iso ${USBSTICK}<br>
+$ sync<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#199" class="lnkocn">199</a></label>
+  <p class="i0" id="199">
+    <b>Note:</b> The <i>sync</i> command is useful to ensure that all the data, which is stored in memory by the kernel while copying the image, is written to the USB stick.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#200" class="lnkocn">200</a></label>
+  <p class="bold" id="200"><a name="200"></a> <a id="husing-usb-extra-space"></a>
+    <a name="h4.5.3" ></a><a name="using-usb-extra-space" ></a>4.5.3 Using the space left on a USB stick
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#201" class="lnkocn">201</a></label>
+  <p class="i0" id="201">
+    After copying the <tt>live-image-i386.hybrid.iso</tt> to a USB stick, the first partition on the device will be filled up by the live system. To use the remaining free space, use a partitioning tool such as <i>gparted</i> or <i>parted</i> to create a new partition on the stick.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#202" class="lnkocn">202</a></label>
+  <p class="code" id="202">
+    # gparted ${USBSTICK}<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#203" class="lnkocn">203</a></label>
+  <p class="i0" id="203">
+    After the partition is created, where <tt>${PARTITION}</tt> is the name of the partition, such as <tt>/dev/sdb2</tt>, you have to create a filesystem on it. One possible choice would be ext4.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#204" class="lnkocn">204</a></label>
+  <p class="code" id="204">
+    # mkfs.ext4 ${PARTITION}<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#205" class="lnkocn">205</a></label>
+  <p class="i0" id="205">
+    <b>Note:</b>  If you want to use the extra space with Windows, apparently that OS cannot normally access any partitions but the first. Some solutions to this problem have been discussed on our  <a href="about-project.en.html#contact">mailing list</a>,  but it seems there are no easy answers.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#206" class="lnkocn">206</a></label>
+  <p class="i0" id="206">
+    <b>Remember: Every time you install a new live-image-i386.hybrid.iso on the stick, all data on the stick will be lost because the partition table is overwritten by the contents of the image, so back up your extra partition first to restore again after updating the live image.</b>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#207" class="lnkocn">207</a></label>
+  <p class="bold" id="207"><a name="207"></a> <a id="hbooting-live-medium"></a>
+    <a name="h4.5.4" ></a><a name="booting-live-medium" ></a>4.5.4 Booting the live medium
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#208" class="lnkocn">208</a></label>
+  <p class="i0" id="208">
+    The first time you boot your live medium, whether CD, DVD, USB key, or PXE boot, some setup in your computer's BIOS may be needed first. Since BIOSes vary greatly in features and key bindings, we cannot get into the topic in depth here. Some BIOSes provide a key to bring up a menu of boot devices at boot time, which is the easiest way if it is available on your system. Otherwise, you need to enter the BIOS configuration menu and change the boot order to place the boot device for the live system before your normal boot device.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#209" class="lnkocn">209</a></label>
+  <p class="i0" id="209">
+    Once you've booted the medium, you are presented with a boot menu. If you just press enter here, the system will boot using the default entry, <tt>Live</tt> and default options. For more information about boot options, see the "help" entry in the menu and also the <i>live-boot</i> and <i>live-config</i> man pages found within the live system.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#210" class="lnkocn">210</a></label>
+  <p class="i0" id="210">
+    Assuming you've selected <tt>Live</tt> and booted a default desktop live image, after the boot messages scroll by, you should be automatically logged into the <tt>user</tt> account and see a desktop, ready to use. If you have booted a console-only image, such as a <tt>standard</tt> flavour  <a href="the-basics.en.html#downloading-prebuilt-images">prebuilt image</a>,  you should be automatically logged in on the console to the <tt>user</tt> account and see a shell prompt, ready to use.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#211" class="lnkocn">211</a></label>
+  <p class="bold" id="211"><a name="211"></a> <a id="husing-virtual-machine"></a>
+    <a name="h4.6" ></a><a name="using-virtual-machine" ></a>4.6 Using a virtual machine for testing
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#212" class="lnkocn">212</a></label>
+  <p class="i0" id="212">
+    It can be a great time-saver for the development of live images to run them in a virtual machine (VM). This is not without its caveats:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#213" class="lnkocn">213</a></label>
+  <ul>
+  <li class="bullet" id="213">
+    Running a VM requires enough RAM for both the guest OS and the host and a CPU with hardware support for virtualization is recommended.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#214" class="lnkocn">214</a></label>
+  <ul>
+  <li class="bullet" id="214">
+    There are some inherent limitations to running on a VM, e.g. poor video performance, limited choice of emulated hardware.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#215" class="lnkocn">215</a></label>
+  <ul>
+  <li class="bullet" id="215">
+    When developing for specific hardware, there is no substitute for running on the hardware itself.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#216" class="lnkocn">216</a></label>
+  <ul>
+  <li class="bullet" id="216">
+    Occasionally there are bugs that relate only to running in a VM. When in doubt, test your image directly on the hardware.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#217" class="lnkocn">217</a></label>
+  <p class="i0" id="217">
+    Provided you can work within these constraints, survey the available VM software and choose one that is suitable for your needs.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#218" class="lnkocn">218</a></label>
+  <p class="bold" id="218"><a name="218"></a> <a id="htesting-iso-with-qemu"></a>
+    <a name="h4.6.1" ></a><a name="testing-iso-with-qemu" ></a>4.6.1 Testing an ISO image with QEMU
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#219" class="lnkocn">219</a></label>
+  <p class="i0" id="219">
+    The most versatile VM in Debian is QEMU. If your processor has hardware support for virtualization, use the <i>qemu-kvm</i> package; the <i>qemu-kvm</i> package description briefly lists the requirements.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#220" class="lnkocn">220</a></label>
+  <p class="i0" id="220">
+    First, install <i>qemu-kvm</i> if your processor supports it. If not, install <i>qemu</i>, in which case the program name is <tt>qemu</tt> instead of <tt>kvm</tt> in the following examples. The <i>qemu-utils</i> package is also valuable for creating virtual disk images with <tt>qemu-img</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#221" class="lnkocn">221</a></label>
+  <p class="code" id="221">
+    # apt-get install qemu-kvm qemu-utils<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#222" class="lnkocn">222</a></label>
+  <p class="i0" id="222">
+    Booting an ISO image is simple:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#223" class="lnkocn">223</a></label>
+  <p class="code" id="223">
+    $ kvm -cdrom live-image-i386.hybrid.iso<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#224" class="lnkocn">224</a></label>
+  <p class="i0" id="224">
+    See the man pages for more details.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#225" class="lnkocn">225</a></label>
+  <p class="bold" id="225"><a name="225"></a> <a id="htesting-iso-with-virtualbox"></a>
+    <a name="h4.6.2" ></a><a name="testing-iso-with-virtualbox" ></a>4.6.2 Testing an ISO image with VirtualBox
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#226" class="lnkocn">226</a></label>
+  <p class="i0" id="226">
+    In order to test the ISO with <i>virtualbox</i>:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#227" class="lnkocn">227</a></label>
+  <p class="code" id="227">
+    # apt-get install virtualbox virtualbox-qt virtualbox-dkms<br>
+$ virtualbox<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#228" class="lnkocn">228</a></label>
+  <p class="i0" id="228">
+    Create a new virtual machine, change the storage settings to use <tt>live-image-i386.hybrid.iso</tt> as the CD/DVD device, and start the machine.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#229" class="lnkocn">229</a></label>
+  <p class="i0" id="229">
+    <b>Note:</b> For live systems containing X.org that you want to test with <i>virtualbox</i>, you may wish to include the VirtualBox X.org driver package, <i>virtualbox-guest-dkms</i> and <i>virtualbox-guest-x11</i>, in your <i>live-build</i> configuration. Otherwise, the resolution is limited to 800x600.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#230" class="lnkocn">230</a></label>
+  <p class="code" id="230">
+    $ echo "virtualbox-guest-dkms virtualbox-guest-x11" &gt;&gt; config/package-lists/my.list.chroot<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#231" class="lnkocn">231</a></label>
+  <p class="i0" id="231">
+    In order to make the dkms package work, also the kernel headers for the kernel flavour used in your image need to be installed. Instead of manually listing the correct <i>linux-headers</i> package in above created package list, the selection of the right package can be done automatically by <i>live-build</i>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#232" class="lnkocn">232</a></label>
+  <p class="code" id="232">
+    &nbsp;&nbsp;$ lb config --linux-packages "linux-image linux-headers"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#233" class="lnkocn">233</a></label>
+  <p class="bold" id="233"><a name="233"></a> <a id="husing-hdd-image"></a>
+    <a name="h4.7" ></a><a name="using-hdd-image" ></a>4.7 Building and using an HDD image
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#234" class="lnkocn">234</a></label>
+  <p class="i0" id="234">
+    Building an HDD image is similar to an ISO hybrid one in all respects except you specify <tt>-b hdd</tt> and the resulting filename is <tt>live-image-i386.img</tt> which cannot be burnt to optical media. It is suitable for booting from USB sticks, USB hard drives, and various other portable storage devices. Normally, an ISO hybrid image can be used for this purpose instead, but if you have a BIOS which does not handle hybrid images properly, you need an HDD image.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#235" class="lnkocn">235</a></label>
+  <p class="i0" id="235">
+    <b>Note:</b>  if you created an ISO hybrid image with the previous example, you will need to clean up your working directory with the <tt>lb clean</tt> command (see  <a href="overview-of-tools.en.html#lb-clean">The lb clean command</a>):
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#236" class="lnkocn">236</a></label>
+  <p class="code" id="236">
+    # lb clean --binary<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#237" class="lnkocn">237</a></label>
+  <p class="i0" id="237">
+    Run the <tt>lb config</tt> command as before, except this time specifying the HDD image type:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#238" class="lnkocn">238</a></label>
+  <p class="code" id="238">
+    $ lb config -b hdd<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#239" class="lnkocn">239</a></label>
+  <p class="i0" id="239">
+    Now build the image with the <tt>lb build</tt> command:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#240" class="lnkocn">240</a></label>
+  <p class="code" id="240">
+    # lb build<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#241" class="lnkocn">241</a></label>
+  <p class="i0" id="241">
+    When the build finishes, a <tt>live-image-i386.img</tt> file should be present in the current directory.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#242" class="lnkocn">242</a></label>
+  <p class="i0" id="242">
+    The generated binary image contains a VFAT partition and the syslinux bootloader, ready to be directly written on a USB device. Once again, using an HDD image is just like using an ISO hybrid one on USB. Follow the instructions in  <a href="the-basics.en.html#using-iso-hybrid">Using an ISO hybrid live image</a>,  except use the filename <tt>live-image-i386.img</tt> instead of <tt>live-image-i386.hybrid.iso</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#243" class="lnkocn">243</a></label>
+  <p class="i0" id="243">
+    Likewise, to test an HDD image with Qemu, install <i>qemu</i> as described above in  <a href="the-basics.en.html#testing-iso-with-qemu">Testing an ISO image with QEMU</a>.  Then run <tt>kvm</tt> or <tt>qemu</tt>, depending on which version your host system needs, specifying <tt>live-image-i386.img</tt> as the first hard drive.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#244" class="lnkocn">244</a></label>
+  <p class="code" id="244">
+    $ kvm -hda live-image-i386.img<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#245" class="lnkocn">245</a></label>
+  <p class="bold" id="245"><a name="245"></a> <a id="hbuilding-netboot-image"></a>
+    <a name="h4.8" ></a><a name="building-netboot-image" ></a>4.8 Building a netboot image
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#246" class="lnkocn">246</a></label>
+  <p class="i0" id="246">
+    The following sequence of commands will create a basic netboot image containing a default live system without X.org. It is suitable for booting over the network.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#247" class="lnkocn">247</a></label>
+  <p class="i0" id="247">
+    <b>Note:</b> if you performed any previous examples, you will need to clean up your working directory with the <tt>lb clean</tt> command:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#248" class="lnkocn">248</a></label>
+  <p class="code" id="248">
+    # lb clean<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#249" class="lnkocn">249</a></label>
+  <p class="i0" id="249">
+    In this specific case, a <tt>lb clean --binary</tt> would not be enough to clean up the necessary stages. The cause for this is that in netboot setups, a different initramfs configuration needs to be used which <i>live-build</i> performs automatically when building netboot images. Since the initramfs creation belongs to the chroot stage, switching to netboot in an existing build directory means to rebuild the chroot stage too. Therefore, <tt>lb clean</tt> (which will remove the chroot stage, too) needs to be used.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#250" class="lnkocn">250</a></label>
+  <p class="i0" id="250">
+    Run the <tt>lb config</tt> command as follows to configure your image for netbooting:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#251" class="lnkocn">251</a></label>
+  <p class="code" id="251">
+    $ lb config -b netboot --net-root-path "/srv/debian-live" --net-root-server "192.168.0.2"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#252" class="lnkocn">252</a></label>
+  <p class="i0" id="252">
+    In contrast with the ISO and HDD images, netbooting does not, itself, serve the filesystem image to the client, so the files must be served via NFS. Different network filesystems can be chosen through lb config. The <tt>--net-root-path</tt> and <tt>--net-root-server</tt> options specify the location and server, respectively, of the NFS server where the filesystem image will be located at boot time. Make sure these are set to suitable values for your network and server.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#253" class="lnkocn">253</a></label>
+  <p class="i0" id="253">
+    Now build the image with the <tt>lb build</tt> command:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#254" class="lnkocn">254</a></label>
+  <p class="code" id="254">
+    # lb build<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#255" class="lnkocn">255</a></label>
+  <p class="i0" id="255">
+    In a network boot, the client runs a small piece of software which usually resides on the EPROM of the Ethernet card. This program sends a DHCP request to get an IP address and information about what to do next. Typically, the next step is getting a higher level bootloader via the TFTP protocol. That could be pxelinux, GRUB, or even boot directly to an operating system like Linux.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#256" class="lnkocn">256</a></label>
+  <p class="i0" id="256">
+    For example, if you unpack the generated <tt>live-image-i386.netboot.tar</tt> archive in the <tt>/srv/debian-live</tt> directory, you'll find the filesystem image in <tt>live/filesystem.squashfs</tt> and the kernel, initrd and pxelinux bootloader in <tt>tftpboot/</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#257" class="lnkocn">257</a></label>
+  <p class="i0" id="257">
+    We must now configure three services on the server to enable netbooting: the DHCP server, the TFTP server and the NFS server.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#258" class="lnkocn">258</a></label>
+  <p class="bold" id="258"><a name="258"></a> <a id="hc4.8.1"></a>
+    <a name="c4.8.1" ></a><a name="h4.8.1" ></a>4.8.1 DHCP server
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#259" class="lnkocn">259</a></label>
+  <p class="i0" id="259">
+    We must configure our network's DHCP server to be sure to give an IP address to the netbooting client system, and to advertise the location of the PXE bootloader.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#260" class="lnkocn">260</a></label>
+  <p class="i0" id="260">
+    Here is an example for inspiration, written for the ISC DHCP server <tt>isc-dhcp-server</tt> in the <tt>/etc/dhcp/dhcpd.conf</tt> configuration file:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#261" class="lnkocn">261</a></label>
+  <p class="code" id="261">
+    # /etc/dhcp/dhcpd.conf - configuration file for isc-dhcp-server<br><br>
+ddns-update-style none;<br><br>
+option domain-name "example.org";<br>
+option domain-name-servers ns1.example.org, ns2.example.org;<br><br>
+default-lease-time 600;<br>
+max-lease-time 7200;<br><br>
+log-facility local7;<br><br>
+subnet 192.168.0.0 netmask 255.255.255.0 {<br>
+&nbsp;&nbsp;&nbsp;range 192.168.0.1 192.168.0.254;<br>
+&nbsp;&nbsp;&nbsp;filename "pxelinux.0";<br>
+&nbsp;&nbsp;&nbsp;next-server 192.168.0.2;<br>
+&nbsp;&nbsp;&nbsp;option subnet-mask 255.255.255.0;<br>
+&nbsp;&nbsp;&nbsp;option broadcast-address 192.168.0.255;<br>
+&nbsp;&nbsp;&nbsp;option routers 192.168.0.1;<br>
+}<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#262" class="lnkocn">262</a></label>
+  <p class="bold" id="262"><a name="262"></a> <a id="hc4.8.2"></a>
+    <a name="c4.8.2" ></a><a name="h4.8.2" ></a>4.8.2 TFTP server
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#263" class="lnkocn">263</a></label>
+  <p class="i0" id="263">
+    This serves the kernel and initial ramdisk to the system at run time.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#264" class="lnkocn">264</a></label>
+  <p class="i0" id="264">
+    You should install the <i>tftpd-hpa</i> package. It can serve all files contained inside a root directory, usually <tt>/srv/tftp</tt>. To let it serve files inside <tt>/srv/debian-live/tftpboot</tt>, run as root the following command:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#265" class="lnkocn">265</a></label>
+  <p class="code" id="265">
+    # dpkg-reconfigure -plow tftpd-hpa<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#266" class="lnkocn">266</a></label>
+  <p class="i0" id="266">
+    and fill in the new tftp server directory when being asked about it.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#267" class="lnkocn">267</a></label>
+  <p class="bold" id="267"><a name="267"></a> <a id="hc4.8.3"></a>
+    <a name="c4.8.3" ></a><a name="h4.8.3" ></a>4.8.3 NFS server
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#268" class="lnkocn">268</a></label>
+  <p class="i0" id="268">
+    Once the guest computer has downloaded and booted a Linux kernel and loaded its initrd, it will try to mount the Live filesystem image through a NFS server.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#269" class="lnkocn">269</a></label>
+  <p class="i0" id="269">
+    You need to install the <i>nfs-kernel-server</i> package.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#270" class="lnkocn">270</a></label>
+  <p class="i0" id="270">
+    Then, make the filesystem image available through NFS by adding a line like the following to <tt>/etc/exports</tt>:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#271" class="lnkocn">271</a></label>
+  <p class="code" id="271">
+    /srv/debian-live *(ro,async,no_root_squash,no_subtree_check)<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#272" class="lnkocn">272</a></label>
+  <p class="i0" id="272">
+    and tell the NFS server about this new export with the following command:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#273" class="lnkocn">273</a></label>
+  <p class="code" id="273">
+    # exportfs -rv<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#274" class="lnkocn">274</a></label>
+  <p class="i0" id="274">
+    Setting up these three services can be a little tricky. You might need some patience to get all of them working together. For more information, see the syslinux wiki at ‹<a href="http://www.syslinux.org/wiki/index.php/PXELINUX" target="_top">http://www.syslinux.org/wiki/index.php/PXELINUX</a>› or the Debian Installer Manual's TFTP Net Booting section at ‹<a href="http://d-i.alioth.debian.org/manual/en.i386/ch04s05.html" target="_top">http://d-i.alioth.debian.org/manual/en.i386/ch04s05.html</a>›. They might help, as their processes are very similar.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#275" class="lnkocn">275</a></label>
+  <p class="bold" id="275"><a name="275"></a> <a id="hc4.8.4"></a>
+    <a name="c4.8.4" ></a><a name="h4.8.4" ></a>4.8.4 Netboot testing HowTo
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#276" class="lnkocn">276</a></label>
+  <p class="i0" id="276">
+    Netboot image creation is made easy with <i>live-build</i>, but testing the images on physical machines can be really time consuming.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#277" class="lnkocn">277</a></label>
+  <p class="i0" id="277">
+    To make our life easier, we can use virtualization.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#278" class="lnkocn">278</a></label>
+  <p class="bold" id="278"><a name="278"></a> <a id="hc4.8.5"></a>
+    <a name="c4.8.5" ></a><a name="h4.8.5" ></a>4.8.5 Qemu
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#279" class="lnkocn">279</a></label>
+  <ul>
+  <li class="bullet" id="279">
+    Install <i>qemu</i>, <i>bridge-utils</i>, <i>sudo</i>.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#280" class="lnkocn">280</a></label>
+  <p class="i0" id="280">
+    Edit <tt>/etc/qemu-ifup</tt>:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#281" class="lnkocn">281</a></label>
+  <p class="code" id="281">
+    #!/bin/sh<br>
+sudo -p "Password for $0:" /sbin/ifconfig $1 172.20.0.1<br>
+echo "Executing /etc/qemu-ifup"<br>
+echo "Bringing up $1 for bridged mode..."<br>
+sudo /sbin/ifconfig $1 0.0.0.0 promisc up<br>
+echo "Adding $1 to br0..."<br>
+sudo /usr/sbin/brctl addif br0 $1<br>
+sleep 2<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#282" class="lnkocn">282</a></label>
+  <p class="i0" id="282">
+    Get, or build a <tt>grub-floppy-netboot</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#283" class="lnkocn">283</a></label>
+  <p class="i0" id="283">
+    Launch <tt>qemu</tt> with "<tt>-net nic,vlan=0 -net tap,vlan=0,ifname=tun0</tt>"
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#284" class="lnkocn">284</a></label>
+  <p class="bold" id="284"><a name="284"></a> <a id="hwebbooting"></a>
+    <a name="h4.9" ></a><a name="webbooting" ></a>4.9 Webbooting
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#285" class="lnkocn">285</a></label>
+  <p class="i0" id="285">
+    Webbooting is a convenient way of retrieving and booting live systems using the internet as a means. The requirements for webbooting are very few. On the one hand, you need a medium with a bootloader, an initial ramdisk and a kernel. On the other hand, a web server to store the squashfs files which contain the filesystem.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#286" class="lnkocn">286</a></label>
+  <p class="bold" id="286"><a name="286"></a> <a id="hc4.9.1"></a>
+    <a name="c4.9.1" ></a><a name="h4.9.1" ></a>4.9.1 Getting the webboot files
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#287" class="lnkocn">287</a></label>
+  <p class="i0" id="287">
+    As usual, you can build the images yourself or use the prebuilt files, which are available on the project's homepage at ‹<a href="http://debian-live.alioth.debian.org/" target="_top">http://debian-live.alioth.debian.org/</a>›. Using prebuilt images would be handy for doing initial testing until one can fine tune their own needs. If you have built a live image you will find the files needed for webbooting in the build directory under <tt>binary/live/</tt>. The files are called <tt>vmlinuz</tt>, <tt>initrd.img</tt> and <tt>filesystem.squashfs</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#288" class="lnkocn">288</a></label>
+  <p class="i0" id="288">
+    It is also possible to extract those files from an already existing iso image. In order to achieve that, loopback mount the image as follows:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#289" class="lnkocn">289</a></label>
+  <p class="code" id="289">
+    # mount -o loop image.iso /mnt<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#290" class="lnkocn">290</a></label>
+  <p class="i0" id="290">
+    The files are to be found under the <tt>live/</tt> directory. In this specific case, it would be <tt>/mnt/live/</tt>. This method has the disadvantage that you need to be root to be able to mount the image. However, it has the advantage that it is easily scriptable and thus, easily automatized.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#291" class="lnkocn">291</a></label>
+  <p class="i0" id="291">
+    But undoubtedly, the easiest way of extracting the files from an iso image and uploading it to the web server at the same time, is using the midnight commander or <i>mc</i>. If you have the <i>genisoimage</i> package installed, the two-pane file manager allows you to browse the contents of an iso file in one pane and upload the files via ftp in the other pane. Even though this method requires manual work, it does not require root privileges.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#292" class="lnkocn">292</a></label>
+  <p class="bold" id="292"><a name="292"></a> <a id="hc4.9.2"></a>
+    <a name="c4.9.2" ></a><a name="h4.9.2" ></a>4.9.2 Booting webboot images
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#293" class="lnkocn">293</a></label>
+  <p class="i0" id="293">
+    While some users will prefer virtualization to test webbooting, we refer to real hardware here to match the following possible use case which should only be considered as an example.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#294" class="lnkocn">294</a></label>
+  <p class="i0" id="294">
+    In order to boot a webboot image it is enough to have the components mentioned above, i.e. <tt>vmlinuz</tt> and <tt>initrd.img</tt> in a usb stick inside a directory named <tt>live/</tt> and install syslinux as bootloader. Then boot from the usb stick and type <tt>fetch=URL/PATH/TO/FILE</tt> at the boot options. <i>live-boot</i> will retrieve the squashfs file and store it into ram. This way, it is possible to use the downloaded compressed filesystem as a regular live system. For example:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#295" class="lnkocn">295</a></label>
+  <p class="code" id="295">
+    append boot=live components fetch=http://192.168.2.50/images/webboot/filesystem.squashfs<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#296" class="lnkocn">296</a></label>
+  <p class="i0" id="296">
+    <b>Use case:</b> You have a web server in which you have stored two squashfs files, one which contains a full desktop, like for example gnome, and a standard one. If you need a graphical environment for one machine, you can plug your usb stick in and webboot the gnome image. If you need one of the tools included in the second type of image, perhaps for another machine, you can webboot the standard one.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="installation.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="overview-of-tools.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

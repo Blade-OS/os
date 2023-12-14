@@ -1,0 +1,11 @@
+PRETTY_NAME="Blade OS"
+NAME="Blade OS"
+VERSION_ID="12"
+VERSION="12 (bookworm)"
+VERSION_CODENAME=bookworm
+ID=blade
+ID_LIKE=debian
+LOGO=bladeos
+HOME_URL="https://www.bladeos.xyz/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"

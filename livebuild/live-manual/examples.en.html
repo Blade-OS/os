@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    examples -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="git-repositories.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="style-guide.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Examples
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#835" class="lnkocn">835</a></label>
+  <h1 class="norm" id="835"><a name="835"></a>
+    18. Examples
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#836" class="lnkocn">836</a></label>
+  <p class="i0" id="836">
+    This chapter covers example builds for specific use cases with live systems. If you are new to building your own live system images, we recommend you first look at the three tutorials in sequence, as each one teaches new techniques that will help you use and understand the remaining examples.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#837" class="lnkocn">837</a></label>
+  <p class="bold" id="837"><a name="837"></a> <a id="husing-the-examples"></a>
+    <a name="h18.1" ></a><a name="using-the-examples" ></a>18.1 Using the examples
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#838" class="lnkocn">838</a></label>
+  <p class="i0" id="838">
+    To use these examples you need a system to build them on that meets the requirements listed in  <a href="installation.en.html#requirements">Requirements</a>  and has <i>live-build</i> installed as described in  <a href="installation.en.html#installing-live-build">Installing live-build</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#839" class="lnkocn">839</a></label>
+  <p class="i0" id="839">
+    Note that, for the sake of brevity, in these examples we do not specify a local mirror to use for the build. You can speed up downloads considerably if you use a local mirror. You may specify the options when you use <tt>lb config</tt>, as described in  <a href="customizing-package-installation.en.html#distribution-mirrors-build-time">Distribution mirrors used at build time</a>,  or for more convenience, set the default for your build system in <tt>/etc/live/build.conf</tt>. Simply create this file and in it, set the corresponding <tt>LB_MIRROR_*</tt> variables to your preferred mirror. All other mirrors used in the build will be defaulted from these values. For example:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#840" class="lnkocn">840</a></label>
+  <p class="code" id="840">
+    LB_MIRROR_BOOTSTRAP="http://mirror/debian/" <br>
+LB_MIRROR_CHROOT_SECURITY="http://mirror/debian-security/" <br>
+LB_MIRROR_CHROOT_BACKPORTS="http://mirror/debian-backports/"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#841" class="lnkocn">841</a></label>
+  <p class="bold" id="841"><a name="841"></a> <a id="htutorial-1"></a>
+    <a name="h18.2" ></a><a name="tutorial-1" ></a>18.2 Tutorial 1: A default image
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#842" class="lnkocn">842</a></label>
+  <p class="i0" id="842">
+    <b>Use case:</b> Create a simple first image, learning the basics of <i>live-build</i>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#843" class="lnkocn">843</a></label>
+  <p class="i0" id="843">
+    In this tutorial, we will build a default ISO hybrid live system image containing only base packages (no Xorg) and some live system support packages, as a first exercise in using <i>live-build</i>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#844" class="lnkocn">844</a></label>
+  <p class="i0" id="844">
+    You can't get much simpler than this:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#845" class="lnkocn">845</a></label>
+  <p class="code" id="845">
+    $ mkdir tutorial1 ; cd tutorial1 ; lb config<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#846" class="lnkocn">846</a></label>
+  <p class="i0" id="846">
+    Examine the contents of the <tt>config/</tt> directory if you wish. You will see stored here a skeletal configuration, ready to customize or, in this case, use immediately to build a default image.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#847" class="lnkocn">847</a></label>
+  <p class="i0" id="847">
+    Now, as superuser, build the image, saving a log as you build with <tt>tee</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#848" class="lnkocn">848</a></label>
+  <p class="code" id="848">
+    # lb build 2&gt;&amp;1 | tee build.log<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#849" class="lnkocn">849</a></label>
+  <p class="i0" id="849">
+    Assuming all goes well, after a while, the current directory will contain <tt>live-image-i386.hybrid.iso</tt>. This ISO hybrid image can be booted directly in a virtual machine as described in  <a href="the-basics.en.html#testing-iso-with-qemu">Testing an ISO image with Qemu</a>  and  <a href="the-basics.en.html#testing-iso-with-virtualbox">Testing an ISO image with VirtualBox</a>,  or else imaged onto optical media or a USB flash device as described in  <a href="the-basics.en.html#burning-iso-image">Burning an ISO image to a physical medium</a>  and  <a href="the-basics.en.html#copying-iso-hybrid-to-usb">Copying an ISO hybrid image to a USB stick</a>,  respectively.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#850" class="lnkocn">850</a></label>
+  <p class="bold" id="850"><a name="850"></a> <a id="htutorial-2"></a>
+    <a name="h18.3" ></a><a name="tutorial-2" ></a>18.3 Tutorial 2: A web browser utility
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#851" class="lnkocn">851</a></label>
+  <p class="i0" id="851">
+    <b>Use case:</b> Create a web browser utility image, learning how to apply customizations.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#852" class="lnkocn">852</a></label>
+  <p class="i0" id="852">
+    In this tutorial, we will create an image suitable for use as a web browser utility, serving as an introduction to customizing live system images.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#853" class="lnkocn">853</a></label>
+  <p class="code" id="853">
+    $ mkdir tutorial2<br>
+$ cd tutorial2<br>
+$ lb config<br>
+$ echo "task-lxde-desktop iceweasel" &gt;&gt; config/package-lists/my.list.chroot<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#854" class="lnkocn">854</a></label>
+  <p class="i0" id="854">
+    Our choice of LXDE for this example reflects our desire to provide a minimal desktop environment, since the focus of the image is the single use we have in mind, the web browser. We could go even further and provide a default configuration for the web browser in <tt>config/includes.chroot/etc/iceweasel/profile/</tt>, or additional support packages for viewing various kinds of web content, but we leave this as an exercise for the reader.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#855" class="lnkocn">855</a></label>
+  <p class="i0" id="855">
+    Build the image, again as superuser, keeping a log as in  <a href="examples.en.html#tutorial-1">Tutorial 1</a>:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#856" class="lnkocn">856</a></label>
+  <p class="code" id="856">
+    # lb build 2&gt;&amp;1 | tee build.log<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#857" class="lnkocn">857</a></label>
+  <p class="i0" id="857">
+    Again, verify the image is OK and test, as in  <a href="examples.en.html#tutorial-1">Tutorial 1</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#858" class="lnkocn">858</a></label>
+  <p class="bold" id="858"><a name="858"></a> <a id="htutorial-3"></a>
+    <a name="h18.4" ></a><a name="tutorial-3" ></a>18.4 Tutorial 3: A personalized image
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#859" class="lnkocn">859</a></label>
+  <p class="i0" id="859">
+    <b>Use case:</b> Create a project to build a personalized image, containing your favourite software to take with you on a USB stick wherever you go, and evolving in successive revisions as your needs and preferences change.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#860" class="lnkocn">860</a></label>
+  <p class="i0" id="860">
+    Since we will be changing our personalized image over a number of revisions, and we want to track those changes, trying things experimentally and possibly reverting them if things don't work out, we will keep our configuration in the popular <tt>git</tt> version control system. We will also use the best practice of autoconfiguration via <tt>auto</tt> scripts as described in  <a href="managing-a-configuration.en.html#managing-a-configuration">Managing a configuration</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#861" class="lnkocn">861</a></label>
+  <p class="bold" id="861"><a name="861"></a> <a id="hc18.4.1"></a>
+    <a name="c18.4.1" ></a><a name="h18.4.1" ></a>18.4.1 First revision
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#862" class="lnkocn">862</a></label>
+  <p class="code" id="862">
+    $ mkdir -p tutorial3/auto<br>
+$ cp /usr/share/doc/live-build/examples/auto/* tutorial3/auto/<br>
+$ cd tutorial3<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#863" class="lnkocn">863</a></label>
+  <p class="i0" id="863">
+    Edit <tt>auto/config</tt> to read as follows:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#864" class="lnkocn">864</a></label>
+  <p class="code" id="864">
+    #!/bin/sh<br><br>
+lb config noauto \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--architectures i386 \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--linux-flavours 686-pae \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"${@}"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#865" class="lnkocn">865</a></label>
+  <p class="i0" id="865">
+    Perform <tt>lb config</tt> to generate the config tree, using the <tt>auto/config</tt> script you just created:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#866" class="lnkocn">866</a></label>
+  <p class="code" id="866">
+    $ lb config<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#867" class="lnkocn">867</a></label>
+  <p class="i0" id="867">
+    Now populate your local package list:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#868" class="lnkocn">868</a></label>
+  <p class="code" id="868">
+    $ echo "task-lxde-desktop iceweasel xchat" &gt;&gt; config/package-lists/my.list.chroot<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#869" class="lnkocn">869</a></label>
+  <p class="i0" id="869">
+    First, <tt>--architectures i386</tt> ensures that on our <tt>amd64</tt> build system, we build a 32-bit version suitable for use on most machines. Second, we use <tt>--linux-flavours 686-pae</tt> because we don't anticipate using this image on much older systems. Third, we have chosen the <i>lxde</i> task metapackage to give us a minimal desktop. And finally, we have added two initial favourite packages: <i>iceweasel</i> and <i>xchat</i>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#870" class="lnkocn">870</a></label>
+  <p class="i0" id="870">
+    Now, build the image:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#871" class="lnkocn">871</a></label>
+  <p class="code" id="871">
+    # lb build<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#872" class="lnkocn">872</a></label>
+  <p class="i0" id="872">
+    Note that unlike in the first two tutorials, we no longer have to type <tt>2&gt;&amp;1 | tee build.log</tt> as that is now included in <tt>auto/build</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#873" class="lnkocn">873</a></label>
+  <p class="i0" id="873">
+    Once you've tested the image (as in  <a href="examples.en.html#tutorial-1">Tutorial 1</a>)  and are satisfied it works, it's time to initialize our <tt>git</tt> repository, adding only the auto scripts we just created, and then make the first commit:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#874" class="lnkocn">874</a></label>
+  <p class="code" id="874">
+    $ git init<br>
+$ cp /usr/share/doc/live-build/examples/gitignore .gitignore<br>
+$ git add .<br>
+$ git commit -m "Initial import."<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#875" class="lnkocn">875</a></label>
+  <p class="bold" id="875"><a name="875"></a> <a id="hc18.4.2"></a>
+    <a name="c18.4.2" ></a><a name="h18.4.2" ></a>18.4.2 Second revision
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#876" class="lnkocn">876</a></label>
+  <p class="i0" id="876">
+    In this revision, we're going to clean up from the first build, add the <i>vlc</i> package to our configuration, rebuild, test and commit.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#877" class="lnkocn">877</a></label>
+  <p class="i0" id="877">
+    The <tt>lb clean</tt> command will clean up all generated files from the previous build except for the cache, which saves having to re-download packages. This ensures that the subsequent <tt>lb build</tt> will re-run all stages to regenerate the files from our new configuration.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#878" class="lnkocn">878</a></label>
+  <p class="code" id="878">
+    # lb clean<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#879" class="lnkocn">879</a></label>
+  <p class="i0" id="879">
+    Now append the <i>vlc</i> package to our local package list in <tt>config/package-lists/my.list.chroot</tt>:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#880" class="lnkocn">880</a></label>
+  <p class="code" id="880">
+    $ echo vlc &gt;&gt; config/package-lists/my.list.chroot<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#881" class="lnkocn">881</a></label>
+  <p class="i0" id="881">
+    Build again:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#882" class="lnkocn">882</a></label>
+  <p class="code" id="882">
+    # lb build<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#883" class="lnkocn">883</a></label>
+  <p class="i0" id="883">
+    Test, and when you're satisfied, commit the next revision:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#884" class="lnkocn">884</a></label>
+  <p class="code" id="884">
+    $ git commit -a -m "Adding vlc media player."<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#885" class="lnkocn">885</a></label>
+  <p class="i0" id="885">
+    Of course, more complicated changes to the configuration are possible, perhaps adding files in subdirectories of <tt>config/</tt>. When you commit new revisions, just take care not to hand edit or commit the top-level files in <tt>config</tt> containing <tt>LB_*</tt> variables, as these are build products, too, and are always cleaned up by <tt>lb clean</tt> and re-created with <tt>lb config</tt> via their respective <tt>auto</tt> scripts.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#886" class="lnkocn">886</a></label>
+  <p class="i0" id="886">
+    We've come to the end of our tutorial series. While many more kinds of customization are possible, even just using the few features explored in these simple examples, an almost infinite variety of different images can be created. The remaining examples in this section cover several other use cases drawn from the collected experiences of users of live systems.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#887" class="lnkocn">887</a></label>
+  <p class="bold" id="887"><a name="887"></a> <a id="hc18.5"></a>
+    <a name="c18.5" ></a><a name="h18.5" ></a>18.5 A VNC Kiosk Client
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#888" class="lnkocn">888</a></label>
+  <p class="i0" id="888">
+    <b>Use case:</b> Create an image with <i>live-build</i> to boot directly to a VNC server.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#889" class="lnkocn">889</a></label>
+  <p class="i0" id="889">
+    Make a build directory and create an skeletal configuration inside it, disabling recommends to make a minimal system. And then create two initial package lists: the first one generated with a script provided by <i>live-build</i> named <tt>Packages</tt> (see  <a href="customizing-package-installation.en.html#generated-package-lists">Generated package lists</a>),  and the second one including <i>xorg</i>, <i>gdm3</i>, <i>metacity</i> and <i>xvnc4viewer</i>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#890" class="lnkocn">890</a></label>
+  <p class="code" id="890">
+    $ mkdir vnc-kiosk-client<br>
+$ cd vnc-kiosk-client<br>
+$ lb config -a i386 -k 686-pae --apt-recommends false<br>
+$ echo '! Packages Priority standard' &gt; config/package-lists/standard.list.chroot<br>
+$ echo "xorg gdm3 metacity xvnc4viewer" &gt; config/package-lists/my.list.chroot<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#891" class="lnkocn">891</a></label>
+  <p class="i0" id="891">
+    As explained in  <a href="customizing-package-installation.en.html#tweaking-apt-to-save-space">Tweaking APT to save space</a>  you may need to re-add some recommended packages to make your image work properly.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#892" class="lnkocn">892</a></label>
+  <p class="i0" id="892">
+    An easy way to list recommends is using <i>apt-cache</i>. For example:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#893" class="lnkocn">893</a></label>
+  <p class="code" id="893">
+    $ apt-cache depends live-config live-boot<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#894" class="lnkocn">894</a></label>
+  <p class="i0" id="894">
+    In this example we found out that we had to re-include several packages recommended by <i>live-config</i> and <i>live-boot</i>: <tt>user-setup</tt> to make autologin work and <tt>sudo</tt> as an essential program to shutdown the system. Besides, it could be handy to add <tt>live-tools</tt> to be able to copy the image to RAM and <tt>eject</tt> to eventually eject the live medium. So:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#895" class="lnkocn">895</a></label>
+  <p class="code" id="895">
+    $ echo "live-tools user-setup sudo eject" &gt; config/package-lists/recommends.list.chroot<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#896" class="lnkocn">896</a></label>
+  <p class="i0" id="896">
+    After that, create the directory <tt>/etc/skel</tt> in <tt>config/includes.chroot</tt> and put a custom <tt>.xsession</tt> in it for the default user that will launch <i>metacity</i> and start <i>xvncviewer</i>, connecting to port <tt>5901</tt> on a server at <tt>192.168.1.2</tt>:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#897" class="lnkocn">897</a></label>
+  <p class="code" id="897">
+    $ mkdir -p config/includes.chroot/etc/skel<br>
+$ cat &gt; config/includes.chroot/etc/skel/.xsession &lt;&lt; EOF<br>
+#!/bin/sh<br><br>
+/usr/bin/metacity &amp;<br>
+/usr/bin/xvncviewer 192.168.1.2:1<br><br>
+exit<br>
+EOF<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#898" class="lnkocn">898</a></label>
+  <p class="i0" id="898">
+    Build the image:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#899" class="lnkocn">899</a></label>
+  <p class="code" id="899">
+    # lb build<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#900" class="lnkocn">900</a></label>
+  <p class="i0" id="900">
+    Enjoy.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#901" class="lnkocn">901</a></label>
+  <p class="bold" id="901"><a name="901"></a> <a id="hc18.6"></a>
+    <a name="c18.6" ></a><a name="h18.6" ></a>18.6 A base image for a 128MB USB key
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#902" class="lnkocn">902</a></label>
+  <p class="i0" id="902">
+    <b>Use case:</b> Create a default image with some components removed in order to fit on a 128MB USB key with a little space left over to use as you see fit.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#903" class="lnkocn">903</a></label>
+  <p class="i0" id="903">
+    When optimizing an image to fit a certain media size, you need to understand the tradeoffs you are making between size and functionality. In this example, we trim only so much as to make room for additional material within a 128MB media size, but without doing anything to destroy the integrity of the packages contained within, such as the purging of locale data via the <i>localepurge</i> package, or other such "intrusive" optimizations. Of particular note, we use <tt>--debootstrap-options</tt> to create a minimal system from scratch.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#904" class="lnkocn">904</a></label>
+  <p class="code" id="904">
+    $ lb config --apt-indices false --apt-recommends false --debootstrap-options "--variant=minbase" --firmware-chroot false --memtest none<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#905" class="lnkocn">905</a></label>
+  <p class="i0" id="905">
+    To make the image work properly, we must re-add, at least, two recommended packages which are left out by the <tt>--apt-recommends false</tt> option. See  <a href="customizing-package-installation.en.html#tweaking-apt-to-save-space">Tweaking APT to save space</a>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#906" class="lnkocn">906</a></label>
+  <p class="code" id="906">
+    $ echo "user-setup sudo" &gt; config/package-lists/recommends.list.chroot<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#907" class="lnkocn">907</a></label>
+  <p class="i0" id="907">
+    Now, build the image in the usual way:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#908" class="lnkocn">908</a></label>
+  <p class="code" id="908">
+    # lb build 2&gt;&amp;1 | tee build.log<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#909" class="lnkocn">909</a></label>
+  <p class="i0" id="909">
+    On the author's system at the time of writing this, the above configuration produced a 110MB image. This compares favourably with the 192MB image produced by the default configuration in  <a href="examples.en.html#tutorial-1">Tutorial 1</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#910" class="lnkocn">910</a></label>
+  <p class="i0" id="910">
+    Leaving off APT's indices with <tt>--apt-indices false</tt> saves a fair amount of space, the tradeoff being that you need to do an <tt>apt-get update</tt> before using <i>apt</i> in the live system. Dropping recommended packages with <tt>--apt-recommends false</tt> saves some additional space, at the expense of omitting some packages you might otherwise expect to be there. <tt>--debootstrap-options "--variant=minbase"</tt> bootstraps a minimal system from the start. Not automatically including firmware packages with <tt>--firmware-chroot false</tt> saves some space too. And finally, <tt>--memtest none</tt> prevents the installation of a memory tester.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#911" class="lnkocn">911</a></label>
+  <p class="i0" id="911">
+    <b>Note:</b> A minimal system can also be achieved using hooks, like for example the <tt>stripped.hook.chroot</tt> hook found in <tt>/usr/share/doc/live-build/examples/hooks</tt>. It may shave off additional small amounts of space and produce an image of 91MB. However, it does so by removal of documentation and other files from packages installed on the system. This violates the integrity of those packages and that, as the comment header warns, may have unforeseen consequences. That is why using a minimal <i>debootstrap</i> is the recommended way of achieving this goal.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#912" class="lnkocn">912</a></label>
+  <p class="bold" id="912"><a name="912"></a> <a id="hc18.7"></a>
+    <a name="c18.7" ></a><a name="h18.7" ></a>18.7 A localized GNOME desktop and installer
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#913" class="lnkocn">913</a></label>
+  <p class="i0" id="913">
+    <b>Use case:</b> Create a GNOME desktop image, localized for Switzerland and including an installer.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#914" class="lnkocn">914</a></label>
+  <p class="i0" id="914">
+    We want to make an iso-hybrid image for i386 architecture using our preferred desktop, in this case GNOME, containing all of the same packages that would be installed by the standard Debian installer for GNOME.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#915" class="lnkocn">915</a></label>
+  <p class="i0" id="915">
+    Our initial problem is the discovery of the names of the appropriate language tasks. Currently, <i>live-build</i> cannot help with this. While we might get lucky and find this by trial-and-error, there is a tool, <tt>grep-dctrl</tt>, which can be used to dig it out of the task descriptions in tasksel-data, so to prepare, make sure you have both of those things:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#916" class="lnkocn">916</a></label>
+  <p class="code" id="916">
+    # apt-get install dctrl-tools tasksel-data<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#917" class="lnkocn">917</a></label>
+  <p class="i0" id="917">
+    Now we can search for the appropriate tasks, first with:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#918" class="lnkocn">918</a></label>
+  <p class="code" id="918">
+    $ grep-dctrl -FTest-lang de /usr/share/tasksel/descs/debian-tasks.desc -sTask<br>
+Task: german<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#919" class="lnkocn">919</a></label>
+  <p class="i0" id="919">
+    By this command, we discover the task is called, plainly enough, german. Now to find the related tasks:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#920" class="lnkocn">920</a></label>
+  <p class="code" id="920">
+    $ grep-dctrl -FEnhances german /usr/share/tasksel/descs/debian-tasks.desc -sTask<br>
+Task: german-desktop<br>
+Task: german-kde-desktop<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#921" class="lnkocn">921</a></label>
+  <p class="i0" id="921">
+    At boot time we will generate the <b>de_CH.UTF-8</b> locale and select the <b>ch</b> keyboard layout. Now let's put the pieces together. Recalling from  <a href="customizing-package-installation.en.html#using-metapackages">Using metapackages</a>  that task metapackages are prefixed <tt>task-</tt>, we just specify these language boot parameters, then add standard priority packages and all our discovered task metapackages to our package list as follows:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#922" class="lnkocn">922</a></label>
+  <p class="code" id="922">
+    $ mkdir live-gnome-ch<br>
+$ cd live-gnome-ch<br>
+$ lb config \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-a i386 \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--bootappend-live "boot=live components locales=de_CH.UTF-8 keyboard-layouts=ch" \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--debian-installer live<br>
+$ echo '! Packages Priority standard' &gt; config/package-lists/standard.list.chroot<br>
+$ echo task-gnome-desktop task-german task-german-desktop &gt;&gt; config/package-lists/desktop.list.chroot<br>
+$ echo debian-installer-launcher &gt;&gt; config/package-lists/installer.list.chroot<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#923" class="lnkocn">923</a></label>
+  <p class="i0" id="923">
+    Note that we have included the <i>debian-installer-launcher</i> package to launch the installer from the live desktop. The <tt>586</tt> kernel flavour, which is currently necessary for the launcher to work properly, will be included by default.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="git-repositories.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="style-guide.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

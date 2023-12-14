@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+# Change installer icon name to Blade
+
+	sed -i -e 's|Debian|Blade|g' /usr/share/applications/install-debian.desktop
+	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/BladeNoText.svg|' /usr/share/applications/install-debian.desktop
+
+# Change hostname
+	rm /etc/hostname
+	echo "blade" >> /etc/hostname
+
+# Change live user
+	ln -sf /etc/skel/.face /etc/skel/.face.icon
+
+# Add logos
+	mkdir -p /usr/share/icons/desktop-base/emblems/
+	mkdir -p /usr/share/pixmaps/
+	cp /usr/share/icons/BladeNoText.svg /usr/share/icons/desktop-base/emblems/emblem-debian.svg
+	cp /usr/share/icons/bladeOS.png /usr/share/pixmaps/debian-logo.png
+
+# Remove un-needed packages
+	/usr/bin/apt purge -y systemsettings
+	/usr/bin/apt autoremove -y

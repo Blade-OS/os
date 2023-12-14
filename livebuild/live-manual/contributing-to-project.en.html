@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    contributing-to-project -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-installer.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="bugs.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Contributing to the project
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#655" class="lnkocn">655</a></label>
+  <h1 class="norm" id="655"><a name="655"></a>
+    13. Contributing to the project
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#656" class="lnkocn">656</a></label>
+  <p class="i0" id="656">
+    When submitting a contribution, please clearly identify its copyright holder and include any applicable licensing statement. Note that to be accepted, the contribution must be licensed under the same license as the rest of the documents, namely, GPL version 3 or later.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#657" class="lnkocn">657</a></label>
+  <p class="i0" id="657">
+    Contributions to the project, such as translations and patches, are greatly welcome. Anyone can directly commit to the repositories, however, we ask you to send bigger changes to the mailing list to discuss them first. See the section  <a href="about-project.en.html#contact">Contact</a>  for more information.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#658" class="lnkocn">658</a></label>
+  <p class="i0" id="658">
+    The Live Systems Project uses Git as version control system and source code management. As explained in  <a href="git-repositories.en.html#git-repositories">Git repositories</a>  there are two main development branches: <b>debian</b> and <b>debian-next</b>. Everybody can commit to the debian-next branches of the <i>live-boot</i>, <i>live-build</i>, <i>live-config</i>, <i>live-images</i>, <i>live-manual</i> and <i>live-tools</i> repositories.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#659" class="lnkocn">659</a></label>
+  <p class="i0" id="659">
+    However, there are certain restrictions. The server will reject:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#660" class="lnkocn">660</a></label>
+  <ul>
+  <li class="bullet" id="660">
+    Non fast-forward pushes.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#661" class="lnkocn">661</a></label>
+  <ul>
+  <li class="bullet" id="661">
+    Merge commits.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#662" class="lnkocn">662</a></label>
+  <ul>
+  <li class="bullet" id="662">
+    Adding or removing tags or branches.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#663" class="lnkocn">663</a></label>
+  <p class="i0" id="663">
+    Even though all commits might be revised, we ask you to use your common sense and make good commits with good commit messages.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#664" class="lnkocn">664</a></label>
+  <ul>
+  <li class="bullet" id="664">
+    Write commit messages that consist of complete, meaningful sentences in English, starting with a capital letter and ending with a full stop. Usually, these will start with the form "Fixing/Adding/Removing/Correcting/Translating/...".
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#665" class="lnkocn">665</a></label>
+  <ul>
+  <li class="bullet" id="665">
+    Write good commit messages. The first line must be an accurate summary of the contents of the commit which will be included in the changelog. If you need to make some further explanations, write them below leaving a blank line after the first one and then another blank line after each paragraph. Lines of paragraphs should not exceed 80 characters in length.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#666" class="lnkocn">666</a></label>
+  <ul>
+  <li class="bullet" id="666">
+    Commit atomically, this is to say, do not mix unrelated things in the same commit. Make one different commit for each change you make.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#667" class="lnkocn">667</a></label>
+  <p class="bold" id="667"><a name="667"></a> <a id="hc13.1"></a>
+    <a name="c13.1" ></a><a name="h13.1" ></a>13.1 Making changes
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#668" class="lnkocn">668</a></label>
+  <p class="i0" id="668">
+    In order to push to the repositories, you must follow the following procedure. Here we use <i>live-manual</i> as an example so replace it with the name of the repository you want to work with. For detailed information on how to edit <i>live-manual</i> see  <a href="about-manual.en.html#how-to-contribute">Contributing to this document</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#669" class="lnkocn">669</a></label>
+  <ul>
+  <li class="bullet" id="669">
+    Fetch the public commit key:
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#670" class="lnkocn">670</a></label>
+  <p class="code" id="670">
+    $ mkdir -p ~/.ssh/keys<br>
+$ wget http://debian-live.alioth.debian.org/other/keys/git@debian-live.alioth.debian.org -O ~/.ssh/keys/git@debian-live.alioth.debian.org<br>
+$ wget http://debian-live.alioth.debian.org/other/keys/git@debian-live.alioth.debian.org.pub -O ~/.ssh/keys/git@debian-live.alioth.debian.org.pub<br>
+$ chmod 0600 ~/.ssh/keys/git@debian-live.alioth.debian.org*<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#671" class="lnkocn">671</a></label>
+  <ul>
+  <li class="bullet" id="671">
+    Add the following section to your openssh-client config:
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#672" class="lnkocn">672</a></label>
+  <p class="code" id="672">
+    $ cat &gt;&gt; ~/.ssh/config &lt;&lt; EOF<br>
+Host debian-live.alioth.debian.org<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hostname debian-live.alioth.debian.org<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User git<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IdentitiesOnly yes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IdentityFile ~/.ssh/keys/git@debian-live.alioth.debian.org<br>
+EOF<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#673" class="lnkocn">673</a></label>
+  <ul>
+  <li class="bullet" id="673">
+    Check out a clone of <i>live-manual</i> through ssh:
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#674" class="lnkocn">674</a></label>
+  <p class="code" id="674">
+    $ git clone ssh://git.debian.org/git/debian-live/live-manual.git<br>
+$ cd live-manual &amp;&amp; git checkout debian-next<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#675" class="lnkocn">675</a></label>
+  <ul>
+  <li class="bullet" id="675">
+    Make sure you have Git author and email set:
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#676" class="lnkocn">676</a></label>
+  <p class="code" id="676">
+    &nbsp;&nbsp;$ git config user.name "John Doe"<br>
+&nbsp;&nbsp;$ git config user.email john@example.org<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#677" class="lnkocn">677</a></label>
+  <p class="i0" id="677">
+    <b>Important:</b> Remember that you should commit any changes on the <b>debian-next</b> branch.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#678" class="lnkocn">678</a></label>
+  <ul>
+  <li class="bullet" id="678">
+    Make your changes. In this example you would first write a new section dealing with applying patches and then prepare to commit adding the files and writing your commit message like this:
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#679" class="lnkocn">679</a></label>
+  <p class="code" id="679">
+    $ git commit -a -m "Adding a section on applying patches."<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#680" class="lnkocn">680</a></label>
+  <ul>
+  <li class="bullet" id="680">
+    Push the commit to the server:
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#681" class="lnkocn">681</a></label>
+  <p class="code" id="681">
+    $ git push<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#682" class="lnkocn">682</a></label>
+  <p class="bold" id="682"><a name="682"></a> <a id="htranslation-of-manpages"></a>
+    <a name="h13.2" ></a><a name="translation-of-manpages" ></a>13.2 Translation of man pages
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#683" class="lnkocn">683</a></label>
+  <p class="i0" id="683">
+    You can also contribute to the project working on the translation of the man pages for the different live-* packages that the project maintains. The procedure is different depending on whether you are starting a translation from scratch or continue working on an already existing one:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#684" class="lnkocn">684</a></label>
+  <ul>
+  <li class="bullet" id="684">
+    Working on an already existing translation
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#685" class="lnkocn">685</a></label>
+  <p class="i0" id="685">
+    If you want to maintain the translation of an already existing language you have to make your changes to your <tt>manpages/po/${LANGUAGE}/*.po</tt> file or files and then run <tt>make rebuild</tt> from inside the <tt>manpages/</tt> directory. This will update the actual man pages in <tt>manpages/${LANGUAGE}/*</tt>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#686" class="lnkocn">686</a></label>
+  <ul>
+  <li class="bullet" id="686">
+    Starting a new translation from scratch
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#687" class="lnkocn">687</a></label>
+  <p class="i0" id="687">
+    In order to add a new translation of any of the project's man pages you have to follow a similar procedure. It could be summarized as follows:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#688" class="lnkocn">688</a></label>
+  <ul>
+  <li class="i2" id="688">
+    Open the <tt>manpages/pot/</tt> file or files in your favourite editor, such as <i>poedit</i>, and save it as a .po file in <tt>manpages/po/${LANGUAGE}/</tt>. (You will have to create your <tt>${LANGUAGE}/</tt> directory).
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#689" class="lnkocn">689</a></label>
+  <ul>
+  <li class="i2" id="689">
+    Run <tt>make rebuild</tt> from inside the <tt>manpages/</tt> directory to create the <tt>manpages/${LANGUAGE}/</tt> files which will contain the actual man pages.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#690" class="lnkocn">690</a></label>
+  <p class="i0" id="690">
+    Remember that you will have to add all the directories and files, then make the commit and finally push to the git server.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-installer.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="bugs.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

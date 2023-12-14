@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    managing-a-configuration -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="overview-of-tools.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="customization-overview.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Managing a configuration
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#331" class="lnkocn">331</a></label>
+  <h1 class="norm" id="331"><a name="331"></a>
+    6. Managing a configuration
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#332" class="lnkocn">332</a></label>
+  <p class="i0" id="332">
+    This chapter explains how to manage a live configuration from initial creation, through successive revisions and successive releases of both the <i>live-build</i> software and the live image itself.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#333" class="lnkocn">333</a></label>
+  <p class="bold" id="333"><a name="333"></a> <a id="hc6.1"></a>
+    <a name="c6.1" ></a><a name="h6.1" ></a>6.1 Dealing with configuration changes
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#334" class="lnkocn">334</a></label>
+  <p class="i0" id="334">
+    Live configurations rarely are perfect on the first try. It may be fine to pass <tt>lb config</tt> options from the command-line to perform a single build, but it is more typical to revise those options and build again until you are satisfied. To support these changes, you will need auto scripts which ensure your configuration is kept in a consistent state.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#335" class="lnkocn">335</a></label>
+  <p class="bold" id="335"><a name="335"></a> <a id="hc6.1.1"></a>
+    <a name="c6.1.1" ></a><a name="h6.1.1" ></a>6.1.1 Why use auto scripts? What do they do?
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#336" class="lnkocn">336</a></label>
+  <p class="i0" id="336">
+    The <tt>lb config</tt> command stores the options you pass to it in <tt>config/*</tt> files along with many other options set to default values. If you run <tt>lb config</tt> again, it will not reset any option that was defaulted based on your initial options. So, for example, if you run <tt>lb config</tt> again with a new value for <tt>--binary-images</tt>, any dependent options that were defaulted for the old image type may no longer work with the new ones. Nor are these files intended to be read or edited. They store values for over a hundred options, so nobody, let alone yourself, will be able to see in these which options you actually specified. And finally, if you run <tt>lb config</tt>, then upgrade <i>live-build</i> and it happens to rename an option, <tt>config/*</tt> would still contain variables named after the old option that are no longer valid.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#337" class="lnkocn">337</a></label>
+  <p class="i0" id="337">
+    For all these reasons, <tt>auto/*</tt> scripts will make your life easier. They are simple wrappers to the <tt>lb config</tt>, <tt>lb build</tt> and <tt>lb clean</tt> commands that are designed to help you manage your configuration. The <tt>auto/config</tt> script stores your <tt>lb config</tt> command with all desired options, the <tt>auto/clean</tt> script removes the files containing configuration variable values, and the <tt>auto/build</tt> script keeps a <tt>build.log</tt> of each build. Each of these scripts is run automatically every time you run the corresponding <tt>lb</tt> command. By using these scripts, your configuration is easier to read and is kept internally consistent from one revision to the next. Also, it will be much easier for you identify and fix options which need to change when you upgrade <i>live-build</i> after reading the updated documentation.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#338" class="lnkocn">338</a></label>
+  <p class="bold" id="338"><a name="338"></a> <a id="hc6.1.2"></a>
+    <a name="c6.1.2" ></a><a name="h6.1.2" ></a>6.1.2 Use example auto scripts
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#339" class="lnkocn">339</a></label>
+  <p class="i0" id="339">
+    For your convenience, <i>live-build</i> comes with example auto shell scripts to copy and edit. Start a new, default configuration, then copy the examples into it:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#340" class="lnkocn">340</a></label>
+  <p class="code" id="340">
+    $ mkdir mylive &amp;&amp; cd mylive &amp;&amp; lb config<br>
+$ mkdir auto<br>
+$ cp /usr/share/doc/live-build/examples/auto/* auto/<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#341" class="lnkocn">341</a></label>
+  <p class="i0" id="341">
+    Edit <tt>auto/config</tt>, adding any options as you see fit. For instance:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#342" class="lnkocn">342</a></label>
+  <p class="code" id="342">
+    #!/bin/sh<br>
+lb config noauto \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--architectures i386 \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--linux-flavours 686-pae \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--binary-images hdd \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--mirror-bootstrap http://ftp.ch.debian.org/debian/ \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--mirror-binary http://ftp.ch.debian.org/debian/ \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"${@}"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#343" class="lnkocn">343</a></label>
+  <p class="i0" id="343">
+    Now, each time you use <tt>lb config</tt>, <tt>auto/config</tt> will reset the configuration based on these options. When you want to make changes to them, edit the options in this file instead of passing them to <tt>lb config</tt>. When you use <tt>lb clean</tt>, <tt>auto/clean</tt> will clean up the <tt>config/*</tt> files along with any other build products. And finally, when you use <tt>lb build</tt>, a log of the build will be written by <tt>auto/build</tt> in <tt>build.log</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#344" class="lnkocn">344</a></label>
+  <p class="i0" id="344">
+    <b>Note:</b> A special <tt>noauto</tt> parameter is used here to suppress another call to <tt>auto/config</tt>, thereby preventing infinite recursion. Make sure you don't accidentally remove it when making edits. Also, take care to ensure when you split the <tt>lb config</tt> command across multiple lines for readability, as shown in the example above, that you don't forget the backslash (\) at the end of each line that continues to the next.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#345" class="lnkocn">345</a></label>
+  <p class="bold" id="345"><a name="345"></a> <a id="hclone-configuration-via-git"></a>
+    <a name="h6.2" ></a><a name="clone-configuration-via-git" ></a>6.2 Clone a configuration published via Git
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#346" class="lnkocn">346</a></label>
+  <p class="i0" id="346">
+    Use the <tt>lb config --config</tt> option to clone a Git repository that contains a live system configuration. If you would like to base your configuration on one maintained by the Live Systems Project, look at ‹<a href="http://http://anonscm.debian.org/cgit/debian-live/" target="_top">http://http://anonscm.debian.org/cgit/debian-live/</a>› for the repository named <tt>live-images</tt> in the category <tt>Packages</tt>. This repository contains the configurations for the live systems  <a href="the-basics.en.html#downloading-prebuilt-images">prebuilt images</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#347" class="lnkocn">347</a></label>
+  <p class="i0" id="347">
+    For example, to build a standard image, use the <tt>live-images</tt> repository as follows:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#348" class="lnkocn">348</a></label>
+  <p class="code" id="348">
+    $ mkdir live-images &amp;&amp; cd live-images<br>
+$ lb config --config git://http://anonscm.debian.org/git/debian-live/live-images.git <br>
+$ cd images/standard<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#349" class="lnkocn">349</a></label>
+  <p class="i0" id="349">
+    Edit <tt>auto/config</tt> and any other things you need in the <tt>config</tt> tree to suit your needs. For example, the unofficial non-free prebuilt images are made by simply adding <tt>--archive-areas "main contrib non-free"</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#350" class="lnkocn">350</a></label>
+  <p class="i0" id="350">
+    You may optionally define a shortcut in your Git configuration by adding the following to your <tt>${HOME}/.gitconfig</tt>:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#351" class="lnkocn">351</a></label>
+  <p class="code" id="351">
+    [url "git://http://anonscm.debian.org/git/debian-live/"] <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;insteadOf = lso:<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#352" class="lnkocn">352</a></label>
+  <p class="i0" id="352">
+    This enables you to use <tt>lso:</tt> anywhere you need to specify the address of a <tt>debian-live.alioth.debian.org</tt> git repository. If you also drop the optional <tt>.git</tt> suffix, starting a new image using this configuration is as easy as:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#353" class="lnkocn">353</a></label>
+  <p class="code" id="353">
+    $ lb config --config lso:live-images<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#354" class="lnkocn">354</a></label>
+  <p class="i0" id="354">
+    Cloning the entire <tt>live-images</tt> repository pulls the configurations used for several images. If you feel like building a different image after you have finished with the first one, change to another directory and again and optionally, make any changes to suit your needs.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#355" class="lnkocn">355</a></label>
+  <p class="i0" id="355">
+    In any case, remember that every time you will have to build the image as superuser: <tt>lb build</tt>
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="overview-of-tools.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="customization-overview.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

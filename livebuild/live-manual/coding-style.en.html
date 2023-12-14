@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    coding-style -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="bugs.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="procedures.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Coding Style
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#749" class="lnkocn">749</a></label>
+  <h1 class="norm" id="749"><a name="749"></a>
+    15. Coding Style
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#750" class="lnkocn">750</a></label>
+  <p class="i0" id="750">
+    This chapter documents the coding style used in live systems.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#751" class="lnkocn">751</a></label>
+  <p class="bold" id="751"><a name="751"></a> <a id="hc15.1"></a>
+    <a name="c15.1" ></a><a name="h15.1" ></a>15.1 Compatibility
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#752" class="lnkocn">752</a></label>
+  <ul>
+  <li class="bullet" id="752">
+    Don't use syntax or semantics that are unique to the Bash shell. For example, the use of array constructs.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#753" class="lnkocn">753</a></label>
+  <ul>
+  <li class="bullet" id="753">
+    Only use the POSIX subset - for example, use $(foo) over `foo`.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#754" class="lnkocn">754</a></label>
+  <ul>
+  <li class="bullet" id="754">
+    You can check your scripts with 'sh -n' and 'checkbashisms'.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#755" class="lnkocn">755</a></label>
+  <ul>
+  <li class="bullet" id="755">
+    Make sure all shell code runs with 'set -e'.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#756" class="lnkocn">756</a></label>
+  <p class="bold" id="756"><a name="756"></a> <a id="hc15.2"></a>
+    <a name="c15.2" ></a><a name="h15.2" ></a>15.2 Indenting
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#757" class="lnkocn">757</a></label>
+  <ul>
+  <li class="bullet" id="757">
+    Always use tabs over spaces.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#758" class="lnkocn">758</a></label>
+  <p class="bold" id="758"><a name="758"></a> <a id="hc15.3"></a>
+    <a name="c15.3" ></a><a name="h15.3" ></a>15.3 Wrapping
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#759" class="lnkocn">759</a></label>
+  <ul>
+  <li class="bullet" id="759">
+    Generally, lines are 80 chars at maximum.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#760" class="lnkocn">760</a></label>
+  <ul>
+  <li class="bullet" id="760">
+    Use the "Linux style" of line breaks:
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#761" class="lnkocn">761</a></label>
+  <p class="i0" id="761">
+    Bad:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#762" class="lnkocn">762</a></label>
+  <p class="code" id="762">
+    if foo; then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar<br>
+fi<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#763" class="lnkocn">763</a></label>
+  <p class="i0" id="763">
+    Good:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#764" class="lnkocn">764</a></label>
+  <p class="code" id="764">
+    if foo<br>
+then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar<br>
+fi<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#765" class="lnkocn">765</a></label>
+  <ul>
+  <li class="bullet" id="765">
+    The same holds for functions:
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#766" class="lnkocn">766</a></label>
+  <p class="i0" id="766">
+    Bad:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#767" class="lnkocn">767</a></label>
+  <p class="code" id="767">
+    Foo () {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar<br>
+}<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#768" class="lnkocn">768</a></label>
+  <p class="i0" id="768">
+    Good:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#769" class="lnkocn">769</a></label>
+  <p class="code" id="769">
+    Foo ()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar<br>
+}<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#770" class="lnkocn">770</a></label>
+  <p class="bold" id="770"><a name="770"></a> <a id="hc15.4"></a>
+    <a name="c15.4" ></a><a name="h15.4" ></a>15.4 Variables
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#771" class="lnkocn">771</a></label>
+  <ul>
+  <li class="bullet" id="771">
+    Variables are always in capital letters.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#772" class="lnkocn">772</a></label>
+  <ul>
+  <li class="bullet" id="772">
+    Variables used in <i>live-build</i> always start with <tt>LB_</tt> prefix.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#773" class="lnkocn">773</a></label>
+  <ul>
+  <li class="bullet" id="773">
+    Internal temporary variables in <i>live-build</i> should start with the <tt>&#095;LB_</tt> prefix.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#774" class="lnkocn">774</a></label>
+  <ul>
+  <li class="bullet" id="774">
+    Local variables start with <i>live-build</i> <tt>&#095;&#095;LB_</tt> prefix.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#775" class="lnkocn">775</a></label>
+  <ul>
+  <li class="bullet" id="775">
+    Variables in connection to a boot parameter in <i>live-config</i> start with <tt>LIVE_</tt>.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#776" class="lnkocn">776</a></label>
+  <ul>
+  <li class="bullet" id="776">
+    All other variables in <i>live-config</i> start with <tt>_</tt> prefix.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#777" class="lnkocn">777</a></label>
+  <ul>
+  <li class="bullet" id="777">
+    Use braces around variables; e.g. write <tt>${FOO}</tt> instead of <tt>$FOO</tt>.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#778" class="lnkocn">778</a></label>
+  <ul>
+  <li class="bullet" id="778">
+    Always protect variables with quotes to respect potential whitespaces: write <tt>"${FOO}"</tt> not <tt>${FOO}</tt>.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#779" class="lnkocn">779</a></label>
+  <ul>
+  <li class="bullet" id="779">
+    For consistency reasons, always use quotes when assigning values to variables:
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#780" class="lnkocn">780</a></label>
+  <p class="i0" id="780">
+    Bad:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#781" class="lnkocn">781</a></label>
+  <p class="code" id="781">
+    FOO=bar<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#782" class="lnkocn">782</a></label>
+  <p class="i0" id="782">
+    Good:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#783" class="lnkocn">783</a></label>
+  <p class="code" id="783">
+    FOO="bar"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#784" class="lnkocn">784</a></label>
+  <ul>
+  <li class="bullet" id="784">
+    If multiple variables are used, quote the full expression:
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#785" class="lnkocn">785</a></label>
+  <p class="i0" id="785">
+    Bad:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#786" class="lnkocn">786</a></label>
+  <p class="code" id="786">
+    if [ -f "${FOO}"/foo/"${BAR}"/bar ]<br>
+then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foobar<br>
+fi<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#787" class="lnkocn">787</a></label>
+  <p class="i0" id="787">
+    Good:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#788" class="lnkocn">788</a></label>
+  <p class="code" id="788">
+    if [ -f "${FOO}/foo/${BAR}/bar" ]<br>
+then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foobar<br>
+fi<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#789" class="lnkocn">789</a></label>
+  <p class="bold" id="789"><a name="789"></a> <a id="hc15.5"></a>
+    <a name="c15.5" ></a><a name="h15.5" ></a>15.5 Miscellaneous
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#790" class="lnkocn">790</a></label>
+  <ul>
+  <li class="bullet" id="790">
+    Use "<tt>|</tt>" (without the surround quotes) as a separator in calls to sed, e.g. "<tt>sed -e 's|foo|bar|'</tt>" (without "").
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#791" class="lnkocn">791</a></label>
+  <ul>
+  <li class="bullet" id="791">
+    Don't use the <tt>test</tt> command for comparisons or tests, use "<tt>[</tt>" "<tt>]</tt>" (without ""); e.g. "<tt>if [ -x /bin/foo ]; ...</tt>" and not "<tt>if test -x /bin/foo; ...</tt>".
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#792" class="lnkocn">792</a></label>
+  <ul>
+  <li class="bullet" id="792">
+    Use <tt>case</tt> wherever possible over <tt>test</tt>, as it's easier to read and faster in execution.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#793" class="lnkocn">793</a></label>
+  <ul>
+  <li class="bullet" id="793">
+    Use capitalized names for functions to limit messing with the users environment.
+  </li>
+  </ul>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="bugs.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="procedures.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

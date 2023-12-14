@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    customizing-binary -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-run-time-behaviours.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-installer.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Customizing the binary image
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#618" class="lnkocn">618</a></label>
+  <h1 class="norm" id="618"><a name="618"></a>
+    11. Customizing the binary image
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#619" class="lnkocn">619</a></label>
+  <p class="bold" id="619"><a name="619"></a> <a id="hc11.1"></a>
+    <a name="c11.1" ></a><a name="h11.1" ></a>11.1 Bootloaders
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#620" class="lnkocn">620</a></label>
+  <p class="i0" id="620">
+    <i>live-build</i> uses <i>syslinux</i> and some of its derivatives (depending on the image type) as bootloaders by default. They can be easily customized to suit your needs.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#621" class="lnkocn">621</a></label>
+  <p class="i0" id="621">
+    In order to use a full theme, copy <tt>/usr/share/live/build/bootloaders</tt> into <tt>config/bootloaders</tt> and edit the files in there. If you do not want to bother modifying all supported bootloader configurations, only providing a local customized copy of one of the bootloaders, e.g. <b>isolinux</b> in <tt>config/bootloaders/isolinux</tt> is enough too, depending on your use case.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#622" class="lnkocn">622</a></label>
+  <p class="i0" id="622">
+    When modifying one of the default themes, if you want to use a personalized background image that will be displayed together with the boot menu, add a splash.png picture of 640x480 pixels. Then, remove the splash.svg file.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#623" class="lnkocn">623</a></label>
+  <p class="i0" id="623">
+    There are many possibilities when it comes to making changes. For instance, syslinux derivatives are configured by default with a timeout of 0 (zero) which means that they will pause indefinitely at their splash screen until you press a key.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#624" class="lnkocn">624</a></label>
+  <p class="i0" id="624">
+    To modify the boot timeout of a default <tt>iso-hybrid</tt> image just edit a default <b>isolinux.cfg</b> file specifying the timeout in units of 1/10 seconds. A modified <b>isolinux.cfg</b> to boot after five seconds would be similar to this:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#625" class="lnkocn">625</a></label>
+  <p class="code" id="625">
+    include menu.cfg<br>
+default vesamenu.c32<br>
+prompt 0<br>
+timeout 50<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#626" class="lnkocn">626</a></label>
+  <p class="bold" id="626"><a name="626"></a> <a id="hc11.2"></a>
+    <a name="c11.2" ></a><a name="h11.2" ></a>11.2 ISO metadata
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#627" class="lnkocn">627</a></label>
+  <p class="i0" id="627">
+    When creating an ISO9660 binary image, you can use the following options to add various textual metadata for your image. This can help you easily identify the version or configuration of an image without booting it.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#628" class="lnkocn">628</a></label>
+  <ul>
+  <li class="bullet" id="628">
+    <tt>LB_ISO_APPLICATION/--iso-application NAME</tt>: This should describe the application that will be on the image. The maximum length for this field is 128 characters.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#629" class="lnkocn">629</a></label>
+  <ul>
+  <li class="bullet" id="629">
+    <tt>LB_ISO_PREPARER/--iso-preparer NAME</tt>: This should describe the preparer of the image, usually with some contact details. The default for this option is the <i>live-build</i> version you are using, which may help with debugging later. The maximum length for this field is 128 characters.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#630" class="lnkocn">630</a></label>
+  <ul>
+  <li class="bullet" id="630">
+    <tt>LB_ISO_PUBLISHER/--iso-publisher NAME</tt>: This should describe the publisher of the image, usually with some contact details. The maximum length for this field is 128 characters.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#631" class="lnkocn">631</a></label>
+  <ul>
+  <li class="bullet" id="631">
+    <tt>LB_ISO_VOLUME/--iso-volume NAME</tt>: This should specify the volume ID of the image. This is used as a user-visible label on some platforms such as Windows and Apple Mac OS. The maximum length for this field is 32 characters.
+  </li>
+  </ul>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-run-time-behaviours.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-installer.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "id" : "org.gtk.Gtk3theme.adw-gtk3",
+  "branch" : "3.22",
+  "runtime" : "org.freedesktop.Platform",
+  "runtime-version" : "21.08",
+  "runtime-commit" : "8745946eed14ab6da3e21a642a467c994fe0f2bea1ad27a933464dca63ceabe4",
+  "sdk" : "org.freedesktop.Sdk",
+  "sdk-commit" : "6d6d5cb020cefade8c46a53b005d917658945160c0bb6dcc6bad9b4cca36fa4a",
+  "modules" : [
+    {
+      "name" : "adw-gtk3",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "url" : "https://github.com/lassekongo83/adw-gtk3/releases/download/v5.1/adw-gtk3v5-1.tar.xz",
+          "sha256" : "8f11325d5f849c012a2c2b8304431ffd90e01a3073a3d2d26cf85018a697bbaf",
+          "strip-components" : 0,
+          "x-checker-data" : {
+            "type" : "json",
+            "url" : "https://api.github.com/repos/lassekongo83/adw-gtk3/releases/latest",
+            "version-query" : ".tag_name | sub(\"v\"; \"\") | gsub(\"\\\\.\"; \"-\")",
+            "url-query" : ".assets[] | select(.name==\"adw-gtk3v\" + $version + \".tar.xz\") | .browser_download_url"
+          },
+          "type" : "archive"
+        }
+      ],
+      "build-commands" : [
+        "install -d /usr/share/runtime/share/themes/adw-gtk3",
+        "cp -a adw-gtk3/gtk-3.0 /usr/share/runtime/share/themes/adw-gtk3"
+      ]
+    },
+    {
+      "name" : "appdata",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "path" : "org.gtk.Gtk3theme.adw-gtk3.appdata.xml",
+          "type" : "file"
+        }
+      ],
+      "build-commands" : [
+        "install -Dm644 ${FLATPAK_ID}.appdata.xml -t ${FLATPAK_DEST}/share/appdata",
+        "appstream-compose --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} --origin=flatpak ${FLATPAK_ID}"
+      ]
+    }
+  ],
+  "build-extension" : true,
+  "separate-locales" : false,
+  "appstream-compose" : false,
+  "source-date-epoch" : 1697836638
+}

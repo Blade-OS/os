@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    installation -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="about-project.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="the-basics.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Installation
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#109" class="lnkocn">109</a></label>
+  <h1 class="norm" id="109"><a name="109"></a>
+    3. Installation
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#110" class="lnkocn">110</a></label>
+  <p class="bold" id="110"><a name="110"></a> <a id="hrequirements"></a>
+    <a name="h3.1" ></a><a name="requirements" ></a>3.1 Requirements
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#111" class="lnkocn">111</a></label>
+  <p class="i0" id="111">
+    Building live system images has very few system requirements:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#112" class="lnkocn">112</a></label>
+  <ul>
+  <li class="bullet" id="112">
+    Superuser (root) access
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#113" class="lnkocn">113</a></label>
+  <ul>
+  <li class="bullet" id="113">
+    An up-to-date version of <i>live-build</i>
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#114" class="lnkocn">114</a></label>
+  <ul>
+  <li class="bullet" id="114">
+    A POSIX-compliant shell, such as <i>bash</i> or <i>dash</i>
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#115" class="lnkocn">115</a></label>
+  <ul>
+  <li class="bullet" id="115">
+    <i>debootstrap</i>
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#116" class="lnkocn">116</a></label>
+  <ul>
+  <li class="bullet" id="116">
+    Linux 2.6 or newer.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#117" class="lnkocn">117</a></label>
+  <p class="i0" id="117">
+    Note that using Debian or a Debian-derived distribution is not required - <i>live-build</i> will run on almost any distribution with the above requirements.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#118" class="lnkocn">118</a></label>
+  <p class="bold" id="118"><a name="118"></a> <a id="hinstalling-live-build"></a>
+    <a name="h3.2" ></a><a name="installing-live-build" ></a>3.2 Installing live-build
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#119" class="lnkocn">119</a></label>
+  <p class="i0" id="119">
+    You can install <i>live-build</i> in a number of different ways:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#120" class="lnkocn">120</a></label>
+  <ul>
+  <li class="bullet" id="120">
+    From the Debian repository
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#121" class="lnkocn">121</a></label>
+  <ul>
+  <li class="bullet" id="121">
+    From source
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#122" class="lnkocn">122</a></label>
+  <ul>
+  <li class="bullet" id="122">
+    From snapshots
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#123" class="lnkocn">123</a></label>
+  <p class="i0" id="123">
+    If you are using Debian, the recommended way is to install <i>live-build</i> via the Debian repository.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#124" class="lnkocn">124</a></label>
+  <p class="bold" id="124"><a name="124"></a> <a id="hc3.2.1"></a>
+    <a name="c3.2.1" ></a><a name="h3.2.1" ></a>3.2.1 From the Debian repository
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#125" class="lnkocn">125</a></label>
+  <p class="i0" id="125">
+    Simply install <i>live-build</i> like any other package:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#126" class="lnkocn">126</a></label>
+  <p class="code" id="126">
+    # apt-get install live-build<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#127" class="lnkocn">127</a></label>
+  <p class="bold" id="127"><a name="127"></a> <a id="hc3.2.2"></a>
+    <a name="c3.2.2" ></a><a name="h3.2.2" ></a>3.2.2 From source
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#128" class="lnkocn">128</a></label>
+  <p class="i0" id="128">
+    <i>live-build</i> is developed using the Git version control system. On Debian based systems, this is provided by the <i>git</i> package. To check out the latest code, execute:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#129" class="lnkocn">129</a></label>
+  <p class="code" id="129">
+    $ git clone git://http://anonscm.debian.org/git/debian-live/live-build.git<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#130" class="lnkocn">130</a></label>
+  <p class="i0" id="130">
+    You can build and install your own Debian package by executing:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#131" class="lnkocn">131</a></label>
+  <p class="code" id="131">
+    $ cd live-build<br>
+$ dpkg-buildpackage -b -uc -us<br>
+$ cd ..<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#132" class="lnkocn">132</a></label>
+  <p class="i0" id="132">
+    Now install whichever of the freshly built <tt>.deb</tt> files you were interested in, e.g.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#133" class="lnkocn">133</a></label>
+  <p class="code" id="133">
+    # dpkg -i live-build_4.0-1_all.deb<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#134" class="lnkocn">134</a></label>
+  <p class="i0" id="134">
+    You can also install <i>live-build</i> directly to your system by executing:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#135" class="lnkocn">135</a></label>
+  <p class="code" id="135">
+    # make install<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#136" class="lnkocn">136</a></label>
+  <p class="i0" id="136">
+    and uninstall it with:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#137" class="lnkocn">137</a></label>
+  <p class="code" id="137">
+    # make uninstall<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#138" class="lnkocn">138</a></label>
+  <p class="bold" id="138"><a name="138"></a> <a id="hc3.2.3"></a>
+    <a name="c3.2.3" ></a><a name="h3.2.3" ></a>3.2.3 From 'snapshots'
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#139" class="lnkocn">139</a></label>
+  <p class="i0" id="139">
+    If you do not wish to build or install <i>live-build</i> from source, you can use snapshots. These are built automatically from the latest version in Git and are available on ‹<a href="http://debian-live.alioth.debian.org/debian/" target="_top">http://debian-live.alioth.debian.org/debian/</a>›.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#140" class="lnkocn">140</a></label>
+  <p class="bold" id="140"><a name="140"></a> <a id="hc3.3"></a>
+    <a name="c3.3" ></a><a name="h3.3" ></a>3.3 Installing live-boot and live-config
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#141" class="lnkocn">141</a></label>
+  <p class="i0" id="141">
+    <b>Note:</b> You do not need to install <i>live-boot</i> or <i>live-config</i> on your system to create customized live systems. However, doing so will do no harm and is useful for reference purposes. If you only want the documentation, you may now install the <i>live-boot-doc</i> and <i>live-config-doc</i> packages separately.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#142" class="lnkocn">142</a></label>
+  <p class="bold" id="142"><a name="142"></a> <a id="hc3.3.1"></a>
+    <a name="c3.3.1" ></a><a name="h3.3.1" ></a>3.3.1 From the Debian repository
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#143" class="lnkocn">143</a></label>
+  <p class="i0" id="143">
+    Both <i>live-boot</i> and <i>live-config</i> are available from the Debian repository as per  <a href="installation.en.html#installing-live-build">Installing live-build</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#144" class="lnkocn">144</a></label>
+  <p class="bold" id="144"><a name="144"></a> <a id="hc3.3.2"></a>
+    <a name="c3.3.2" ></a><a name="h3.3.2" ></a>3.3.2 From source
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#145" class="lnkocn">145</a></label>
+  <p class="i0" id="145">
+    To use the latest source from git, you can follow the process below. Please ensure you are familiar with the terms mentioned in  <a href="about-manual.en.html#terms">Terms</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#146" class="lnkocn">146</a></label>
+  <ul>
+  <li class="bullet" id="146">
+    Checkout the <i>live-boot</i> and <i>live-config</i> sources
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#147" class="lnkocn">147</a></label>
+  <p class="code" id="147">
+    $ git clone git://http://anonscm.debian.org/git/debian-live/live-boot.git <br>
+$ git clone git://http://anonscm.debian.org/git/debian-live/live-config.git<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#148" class="lnkocn">148</a></label>
+  <p class="i0" id="148">
+    Consult the <i>live-boot</i> and <i>live-config</i> man pages for details on customizing if that is your reason for building these packages from source.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#149" class="lnkocn">149</a></label>
+  <ul>
+  <li class="bullet" id="149">
+    Build <i>live-boot</i> and <i>live-config</i> .deb files
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#150" class="lnkocn">150</a></label>
+  <p class="i0" id="150">
+    You must build either on your target distribution or in a chroot containing your target platform: this means if your target is <b>buster</b> then you should build against <b>buster</b>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#151" class="lnkocn">151</a></label>
+  <p class="i0" id="151">
+    Use a personal builder such as <i>pbuilder</i> or <i>sbuild</i> if you need to build <i>live-boot</i> for a target distribution that differs from your build system. For example, for <b>buster</b> live images, build <i>live-boot</i> in a <b>buster</b> chroot. If your target distribution happens to match your build system distribution, you may build directly on the build system using <tt>dpkg-buildpackage</tt> (provided by the <i>dpkg-dev</i> package):
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#152" class="lnkocn">152</a></label>
+  <p class="code" id="152">
+    $ cd live-boot<br>
+$ dpkg-buildpackage -b -uc -us<br>
+$ cd ../live-config<br>
+$ dpkg-buildpackage -b -uc -us<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#153" class="lnkocn">153</a></label>
+  <ul>
+  <li class="bullet" id="153">
+    Use applicable generated .deb files
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#154" class="lnkocn">154</a></label>
+  <p class="i0" id="154">
+    As <i>live-boot</i> and <i>live-config</i> are installed by <i>live-build</i> system, installing the packages in the host system is not sufficient: you should treat the generated .deb files like any other custom packages. Since your purpose for building from source is likely to test new things over the short term before the official release, follow  <a href="customizing-package-installation.en.html#installing-modified-or-third-party-packages">Installing modified or third-party packages</a>  to temporarily include the relevant files in your configuration. In particular, notice that both packages are divided into a generic part, a documentation part and one or more back-ends. Include the generic part, only one back-end matching your configuration, and optionally the documentation. Assuming you are building a live image in the current directory and have generated all .deb files for a single version of both packages in the directory above, these bash commands would copy all of the relevant packages including default back-ends:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#155" class="lnkocn">155</a></label>
+  <p class="code" id="155">
+    $ cp ../live-boot{_,-initramfs-tools,-doc}*.deb&nbsp;&nbsp;config/packages.chroot/<br>
+$ cp ../live-config{_,-sysvinit,-doc}*.deb&nbsp;&nbsp;config/packages.chroot/<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#156" class="lnkocn">156</a></label>
+  <p class="bold" id="156"><a name="156"></a> <a id="hc3.3.3"></a>
+    <a name="c3.3.3" ></a><a name="h3.3.3" ></a>3.3.3 From 'snapshots'
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#157" class="lnkocn">157</a></label>
+  <p class="i0" id="157">
+    You can let <i>live-build</i> automatically use the latest snapshots of <i>live-boot</i> and <i>live-config</i> by configuring the package repository on debian-live.alioth.debian.org as a third-party repository in your <i>live-build</i> configuration directory.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="about-project.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="the-basics.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

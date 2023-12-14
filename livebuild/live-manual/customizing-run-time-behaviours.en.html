@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    customizing-run-time-behaviours -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-contents.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-binary.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Customizing run time behaviours
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#530" class="lnkocn">530</a></label>
+  <h1 class="norm" id="530"><a name="530"></a>
+    10. Customizing run time behaviours
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#531" class="lnkocn">531</a></label>
+  <p class="i0" id="531">
+    All configuration that is done during run time is done by <i>live-config</i>. Here are some of the most common options of <i>live-config</i> that users are interested in. A full list of all possibilities can be found in the man page of <i>live-config</i>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#532" class="lnkocn">532</a></label>
+  <p class="bold" id="532"><a name="532"></a> <a id="hc10.1"></a>
+    <a name="c10.1" ></a><a name="h10.1" ></a>10.1 Customizing the live user
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#533" class="lnkocn">533</a></label>
+  <p class="i0" id="533">
+    One important consideration is that the live user is created by <i>live-boot</i> at boot time, not by <i>live-build</i> at build time. This not only influences where materials relating to the live user are introduced in your build, as discussed in  <a href="customizing-contents.en.html#live-chroot-local-includes">Live/chroot local includes</a>,  but also any groups and permissions associated with the live user.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#534" class="lnkocn">534</a></label>
+  <p class="i0" id="534">
+    You can specify additional groups that the live user will belong to by using any of the possibilities to configure <i>live-config</i>. For example, to add the live user to the <tt>fuse</tt> group, you can either add the following file in <tt>config/includes.chroot/etc/live/config/user-setup.conf</tt>:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#535" class="lnkocn">535</a></label>
+  <p class="code" id="535">
+    LIVE_USER_DEFAULT_GROUPS="audio cdrom dip floppy video plugdev netdev powerdev scanner bluetooth fuse"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#536" class="lnkocn">536</a></label>
+  <p class="i0" id="536">
+    or use <tt>live-config.user-default-groups=audio,cdrom,dip,floppy,video,plugdev,netdev,powerdev,scanner,bluetooth,fuse</tt> as a boot parameter.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#537" class="lnkocn">537</a></label>
+  <p class="i0" id="537">
+    It is also possible to change the default username "user" and the default password "live". If you want to do that for any reason, you can easily achieve it as follows:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#538" class="lnkocn">538</a></label>
+  <p class="i0" id="538">
+    To change the default username you can simply specify it in your config:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#539" class="lnkocn">539</a></label>
+  <p class="code" id="539">
+    $ lb config --bootappend-live "boot=live components username=live-user"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#540" class="lnkocn">540</a></label>
+  <p class="i0" id="540">
+    One possible way of changing the default password is by means of a hook as described in  <a href="customizing-contents.en.html#boot-time-hooks">Boot-time hooks</a>.  In order to do that you can use the "passwd" hook from <tt>/usr/share/doc/live-config/examples/hooks</tt>, prefix it accordingly (e.g. 2000-passwd) and add it to <tt>config/includes.chroot/lib/live/config/</tt>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#541" class="lnkocn">541</a></label>
+  <p class="bold" id="541"><a name="541"></a> <a id="hcustomizing-locale-and-language"></a>
+    <a name="h10.2" ></a><a name="customizing-locale-and-language" ></a>10.2 Customizing locale and language
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#542" class="lnkocn">542</a></label>
+  <p class="i0" id="542">
+    When the live system boots, language is involved in two steps:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#543" class="lnkocn">543</a></label>
+  <ul>
+  <li class="bullet" id="543">
+    the locale generation
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#544" class="lnkocn">544</a></label>
+  <ul>
+  <li class="bullet" id="544">
+    setting the keyboard configuration
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#545" class="lnkocn">545</a></label>
+  <p class="i0" id="545">
+    The default locale when building a Live system is <tt>locales=en_US.UTF-8</tt>. To define the locale that should be generated, use the <tt>locales</tt> parameter in the <tt>--bootappend-live</tt> option of <tt>lb config</tt>, e.g.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#546" class="lnkocn">546</a></label>
+  <p class="code" id="546">
+    $ lb config --bootappend-live "boot=live components locales=de_CH.UTF-8"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#547" class="lnkocn">547</a></label>
+  <p class="i0" id="547">
+    Multiple locales may be specified as a comma-delimited list.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#548" class="lnkocn">548</a></label>
+  <p class="i0" id="548">
+    This parameter, as well as the keyboard configuration parameters indicated below, can also be used at the kernel command line. You can specify a locale by <tt>language_country</tt> (in which case the default encoding is used) or the full <tt>language_country.encoding</tt> word. A list of supported locales and the encoding for each can be found in <tt>/usr/share/i18n/SUPPORTED</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#549" class="lnkocn">549</a></label>
+  <p class="i0" id="549">
+    Both the console and X keyboard configuration are performed by <tt>live-config</tt> using the <tt>console-setup</tt> package. To configure them, use the <tt>keyboard-layouts</tt>, <tt>keyboard-variants</tt>, <tt>keyboard-options</tt> and <tt>keyboard-model</tt> boot parameters via the <tt>--bootappend-live</tt> option. Valid options for these can be found in <tt>/usr/share/X11/xkb/rules/base.lst</tt>. To find layouts and variants for a given language, try searching for the English name of the language and/or the country where the language is spoken, e.g:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#550" class="lnkocn">550</a></label>
+  <p class="code" id="550">
+    $ egrep -i '(^!|german.*switzerland)' /usr/share/X11/xkb/rules/base.lst<br>
+! model<br>
+! layout<br>
+&nbsp;&nbsp;&nbsp;ch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;German (Switzerland)<br>
+! variant<br>
+&nbsp;&nbsp;&nbsp;legacy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ch: German (Switzerland, legacy)<br>
+&nbsp;&nbsp;&nbsp;de_nodeadkeys&nbsp;&nbsp;&nbsp;ch: German (Switzerland, eliminate dead keys)<br>
+&nbsp;&nbsp;&nbsp;de_sundeadkeys&nbsp;&nbsp;ch: German (Switzerland, Sun dead keys)<br>
+&nbsp;&nbsp;&nbsp;de_mac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ch: German (Switzerland, Macintosh)<br>
+! option<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#551" class="lnkocn">551</a></label>
+  <p class="i0" id="551">
+    Note that each variant lists the layout to which it applies in the description.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#552" class="lnkocn">552</a></label>
+  <p class="i0" id="552">
+    Often, only the layout needs to be configured. For example, to get the locale files for German and Swiss German keyboard layout in X use:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#553" class="lnkocn">553</a></label>
+  <p class="code" id="553">
+    $ lb config --bootappend-live "boot=live components locales=de_CH.UTF-8 keyboard-layouts=ch"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#554" class="lnkocn">554</a></label>
+  <p class="i0" id="554">
+    However, for very specific use cases, you may wish to include other parameters. For example, to set up a French system with a French-Dvorak layout (called Bepo) on a TypeMatrix EZ-Reach 2030 USB keyboard, use:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#555" class="lnkocn">555</a></label>
+  <p class="code" id="555">
+    $ lb config --bootappend-live \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"boot=live components locales=fr_FR.UTF-8 keyboard-layouts=fr keyboard-variants=bepo keyboard-model=tm2030usb"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#556" class="lnkocn">556</a></label>
+  <p class="i0" id="556">
+    Multiple values may be specified as comma-delimited lists for each of the <tt>keyboard-*</tt> options, with the exception of <tt>keyboard-model</tt>, which accepts only one value. Please see the <tt>keyboard(5)</tt> man page for details and examples of <tt>XKBMODEL</tt>, <tt>XKBLAYOUT</tt>, <tt>XKBVARIANT</tt> and <tt>XKBOPTIONS</tt> variables. If multiple <tt>keyboard-variants</tt> values are given, they will be matched one-to-one with <tt>keyboard-layouts</tt> values (see <tt>setxkbmap(1)</tt> <tt>-variant</tt> option). Empty values are allowed; e.g. to define two layouts, the default being US QWERTY and the other being US Dvorak, use:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#557" class="lnkocn">557</a></label>
+  <p class="code" id="557">
+    $ lb config --bootappend-live \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"boot=live components keyboard-layouts=us,us keyboard-variants=,dvorak"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#558" class="lnkocn">558</a></label>
+  <p class="bold" id="558"><a name="558"></a> <a id="hpersistence"></a>
+    <a name="h10.3" ></a><a name="persistence" ></a>10.3 Persistence
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#559" class="lnkocn">559</a></label>
+  <p class="i0" id="559">
+    A live cd paradigm is a pre-installed system which runs from read-only media, like a cdrom, where writes and modifications do not survive reboots of the host hardware which runs it.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#560" class="lnkocn">560</a></label>
+  <p class="i0" id="560">
+    A live system is a generalization of this paradigm and thus supports other media in addition to CDs; but still, in its default behaviour, it should be considered read-only and all the run-time evolutions of the system are lost at shutdown.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#561" class="lnkocn">561</a></label>
+  <p class="i0" id="561">
+    'Persistence' is a common name for different kinds of solutions for saving across reboots some, or all, of this run-time evolution of the system. To understand how it works it would be handy to know that even if the system is booted and run from read-only media, modifications to the files and directories are written on writable media, typically a ram disk (tmpfs) and ram disks' data do not survive reboots.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#562" class="lnkocn">562</a></label>
+  <p class="i0" id="562">
+    The data stored on this ramdisk should be saved on a writable persistent medium like local storage media, a network share or even a session of a multisession (re)writable CD/DVD. All these media are supported in live systems in different ways, and all but the last one require a special boot parameter to be specified at boot time: <tt>persistence</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#563" class="lnkocn">563</a></label>
+  <p class="i0" id="563">
+    If the boot parameter <tt>persistence</tt> is set (and <tt>nopersistence</tt> is not set), local storage media (e.g. hard disks, USB drives) will be probed for persistence volumes during boot. It is possible to restrict which types of persistence volumes to use by specifying certain boot parameters described in the <i>live-boot</i>(7) man page. A persistence volume is any of the following:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#564" class="lnkocn">564</a></label>
+  <ul>
+  <li class="bullet" id="564">
+    a partition, identified by its GPT name.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#565" class="lnkocn">565</a></label>
+  <ul>
+  <li class="bullet" id="565">
+    a filesystem, identified by its filesystem label.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#566" class="lnkocn">566</a></label>
+  <ul>
+  <li class="bullet" id="566">
+    an image file located on the root of any readable filesystem (even an NTFS partition of a foreign OS), identified by its filename.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#567" class="lnkocn">567</a></label>
+  <p class="i0" id="567">
+    The volume label for overlays must be <tt>persistence</tt> but it will be ignored unless it contains in its root a file named <tt>persistence.conf</tt> which is used to fully customize the volume's persistence, this is to say, specifying the directories that you want to save in your persistence volume after a reboot. See  <a href="customizing-run-time-behaviours.en.html#persistence-conf">The persistence.conf file</a>  for more details.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#568" class="lnkocn">568</a></label>
+  <p class="i0" id="568">
+    Here are some examples of how to prepare a volume to be used for persistence. It can be, for instance, an ext4 partition on a hard disk or on a usb key created with, e.g.:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#569" class="lnkocn">569</a></label>
+  <p class="code" id="569">
+    # mkfs.ext4 -L persistence /dev/sdb1<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#570" class="lnkocn">570</a></label>
+  <p class="i0" id="570">
+    See also  <a href="the-basics.en.html#using-usb-extra-space">Using the space left on a USB stick</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#571" class="lnkocn">571</a></label>
+  <p class="i0" id="571">
+    If you already have a partition on your device, you could just change the label with one of the following:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#572" class="lnkocn">572</a></label>
+  <p class="code" id="572">
+    # tune2fs -L persistence /dev/sdb1 # for ext2,3,4 filesystems<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#573" class="lnkocn">573</a></label>
+  <p class="i0" id="573">
+    Here's an example of how to create an ext4-based image file to be used for persistence:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#574" class="lnkocn">574</a></label>
+  <p class="code" id="574">
+    $ dd if=/dev/null of=persistence bs=1 count=0 seek=1G # for a 1GB sized image file<br>
+$ /sbin/mkfs.ext4 -F persistence<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#575" class="lnkocn">575</a></label>
+  <p class="i0" id="575">
+    Once the image file is created, as an example, to make <tt>/usr</tt> persistent but only saving the changes you make to that directory and not all the contents of <tt>/usr</tt>, you can use the "union" option. If the image file is located in your home directory, copy it to the root of your hard drive's filesystem and mount it in <tt>/mnt</tt> as follows:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#576" class="lnkocn">576</a></label>
+  <p class="code" id="576">
+    # cp persistence /<br>
+# mount -t ext4 /persistence /mnt<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#577" class="lnkocn">577</a></label>
+  <p class="i0" id="577">
+    Then, create the <tt>persistence.conf</tt> file adding content and unmount the image file.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#578" class="lnkocn">578</a></label>
+  <p class="code" id="578">
+    # echo "/usr union" &gt;&gt; /mnt/persistence.conf<br>
+# umount /mnt<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#579" class="lnkocn">579</a></label>
+  <p class="i0" id="579">
+    Now, reboot into your live medium with the boot parameter "persistence".
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#580" class="lnkocn">580</a></label>
+  <p class="bold" id="580"><a name="580"></a> <a id="hpersistence-conf"></a>
+    <a name="h10.3.1" ></a><a name="persistence-conf" ></a>10.3.1 The persistence.conf file
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#581" class="lnkocn">581</a></label>
+  <p class="i0" id="581">
+    A volume with the label <tt>persistence</tt> must be configured by means of the <tt>persistence.conf</tt> file to make arbitrary directories persistent. That file, located on the volume's filesystem root, controls which directories it makes persistent, and in which way.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#582" class="lnkocn">582</a></label>
+  <p class="i0" id="582">
+    How custom overlay mounts are configured is described in full detail in the persistence.conf(5) man page, but a simple example should be sufficient for most uses. Let's say we want to make our home directory and APT cache persistent in an ext4 filesystem on the /dev/sdb1 partition:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#583" class="lnkocn">583</a></label>
+  <p class="code" id="583">
+    # mkfs.ext4 -L persistence /dev/sdb1<br>
+# mount -t ext4 /dev/sdb1 /mnt<br>
+# echo "/home" &gt;&gt; /mnt/persistence.conf<br>
+# echo "/var/cache/apt" &gt;&gt; /mnt/persistence.conf<br>
+# umount /mnt<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#584" class="lnkocn">584</a></label>
+  <p class="i0" id="584">
+    Then we reboot. During the first boot the contents of <tt>/home</tt> and <tt>/var/cache/apt</tt> will be copied into the persistence volume, and from then on all changes to these directories will live in the persistence volume. Please note that any paths listed in the <tt>persistence.conf</tt> file cannot contain white spaces or the special <tt>.</tt> and <tt>..</tt> path components. Also, neither <tt>/lib</tt>, <tt>/lib/live</tt> (or any of their sub-directories) nor <tt>/</tt> can be made persistent using custom mounts. As a workaround for this limitation you can add <tt>/ union</tt> to your <tt>persistence.conf</tt> file to achieve full persistence.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#585" class="lnkocn">585</a></label>
+  <p class="bold" id="585"><a name="585"></a> <a id="hc10.3.2"></a>
+    <a name="c10.3.2" ></a><a name="h10.3.2" ></a>10.3.2 Using more than one persistence store
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#586" class="lnkocn">586</a></label>
+  <p class="i0" id="586">
+    There are different methods of using multiple persistence store for different use cases. For instance, using several volumes at the same time or selecting only one, among various, for very specific purposes.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#587" class="lnkocn">587</a></label>
+  <p class="i0" id="587">
+    Several different custom overlay volumes (with their own <tt>persistence.conf</tt> files) can be used at the same time, but if several volumes make the same directory persistent, only one of them will be used. If any two mounts are "nested" (i.e. one is a sub-directory of the other) the parent will be mounted before the child so no mount will be hidden by the other. Nested custom mounts are problematic if they are listed in the same <tt>persistence.conf</tt> file. See the persistence.conf(5) man page for how to handle that case if you really need it (hint: you usually don't).
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#588" class="lnkocn">588</a></label>
+  <p class="i0" id="588">
+    One possible use case: If you wish to store the user data i.e. <tt>/home</tt> and the superuser data i.e. <tt>/root</tt> in different partitions, create two partitions with the <tt>persistence</tt> label and add a <tt>persistence.conf</tt> file in each one like this, <tt># echo "/home" &gt; persistence.conf</tt> for the first partition that will save the user's files and <tt># echo "/root" &gt; persistence.conf</tt> for the second partition which will store the superuser's files. Finally, use the <tt>persistence</tt> boot parameter.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#589" class="lnkocn">589</a></label>
+  <p class="i0" id="589">
+    If a user would need multiple persistence store of the same type for different locations or testing, such as <tt>private</tt> and <tt>work</tt>, the boot parameter <tt>persistence-label</tt> used in conjunction with the boot parameter <tt>persistence</tt> will allow for multiple but unique persistence media. An example would be if a user wanted to use a persistence partition labeled <tt>private</tt> for personal data like browser bookmarks or other types, they would use the boot parameters: <tt>persistence</tt> <tt>persistence-label=private</tt>. And to store work related data, like documents, research projects or other types, they would use the boot parameters: <tt>persistence</tt> <tt>persistence-label=work</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#590" class="lnkocn">590</a></label>
+  <p class="i0" id="590">
+    It is important to remember that each of these volumes, <tt>private</tt> and <tt>work</tt>, also needs a <tt>persistence.conf</tt> file in its root. The <i>live-boot</i> man page contains more information about how to use these labels with legacy names.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#591" class="lnkocn">591</a></label>
+  <p class="bold" id="591"><a name="591"></a> <a id="hc10.3.3"></a>
+    <a name="c10.3.3" ></a><a name="h10.3.3" ></a>10.3.3 Using persistence with encryption
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#592" class="lnkocn">592</a></label>
+  <p class="i0" id="592">
+    Using the persistence feature means that some sensible data might get exposed to risk. Especially if the persistent data is stored on a portable device such as a usb stick or an external hard drive. That is when encryption comes in handy. Even if the entire procedure might seem complicated because of the number of steps to be taken, it is really easy to handle encrypted partitions with <i>live-boot</i>. In order to use <b>luks</b>, which is the supported encryption type, you need to install <i>cryptsetup</i> both on the machine you are creating the encrypted partition with and also in the live system you are going to use the encrypted persistent partition with.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#593" class="lnkocn">593</a></label>
+  <p class="i0" id="593">
+    To install <i>cryptsetup</i> on your machine:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#594" class="lnkocn">594</a></label>
+  <p class="code" id="594">
+    # apt-get install cryptsetup<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#595" class="lnkocn">595</a></label>
+  <p class="i0" id="595">
+    To install <i>cryptsetup</i> in your live system, add it to your package-lists:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#596" class="lnkocn">596</a></label>
+  <p class="code" id="596">
+    $ lb config<br>
+$ echo "cryptsetup" &gt; config/package-lists/encryption.list.chroot<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#597" class="lnkocn">597</a></label>
+  <p class="i0" id="597">
+    Once you have your live system with <i>cryptsetup</i>, you basically only need to create a new partition, encrypt it and boot with the <tt>persistence</tt> and <tt>persistence-encryption=luks</tt> parameters. We could have already anticipated this step and added the boot parameters following the usual procedure:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#598" class="lnkocn">598</a></label>
+  <p class="code" id="598">
+    $ lb config --bootappend-live "boot=live components persistence persistence-encryption=luks"<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#599" class="lnkocn">599</a></label>
+  <p class="i0" id="599">
+    Let's go into the details for all of those who are not familiar with encryption. In the following example we are going to use a partition on a usb stick which corresponds to <tt>/dev/sdc2</tt>. Please be warned that you need to determine which partition is the one you are going to use in your specific case.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#600" class="lnkocn">600</a></label>
+  <p class="i0" id="600">
+    The first step is plugging in your usb stick and determine which device it is. The recommended method of listing devices in <i>live-manual</i> is using <tt>ls -l /dev/disk/by-id</tt>. After that, create a new partition and then, encrypt it with a passphrase as follows:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#601" class="lnkocn">601</a></label>
+  <p class="code" id="601">
+    # cryptsetup --verify-passphrase luksFormat /dev/sdc2<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#602" class="lnkocn">602</a></label>
+  <p class="i0" id="602">
+    Then open the luks partition in the virtual device mapper. Use any name you like. We use <b>live</b> here as an example:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#603" class="lnkocn">603</a></label>
+  <p class="code" id="603">
+    # cryptsetup luksOpen /dev/sdc2 live<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#604" class="lnkocn">604</a></label>
+  <p class="i0" id="604">
+    The next step is filling the device with zeros before creating the filesystem:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#605" class="lnkocn">605</a></label>
+  <p class="code" id="605">
+    # dd if=/dev/zero of=/dev/mapper/live<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#606" class="lnkocn">606</a></label>
+  <p class="i0" id="606">
+    Now, we are ready to create the filesystem. Notice that we are adding the label <tt>persistence</tt> so that the device is mounted as persistence store at boot time.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#607" class="lnkocn">607</a></label>
+  <p class="code" id="607">
+    # mkfs.ext4 -L persistence /dev/mapper/live<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#608" class="lnkocn">608</a></label>
+  <p class="i0" id="608">
+    To continue with our setup, we need to mount the device, for example in <tt>/mnt</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#609" class="lnkocn">609</a></label>
+  <p class="code" id="609">
+    # mount /dev/mapper/live /mnt<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#610" class="lnkocn">610</a></label>
+  <p class="i0" id="610">
+    And create the <tt>persistence.conf</tt> file in the root of the partition. This is, as explained before, strictly necessary. See  <a href="customizing-run-time-behaviours.en.html#persistence-conf">The persistence.conf file</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#611" class="lnkocn">611</a></label>
+  <p class="code" id="611">
+    # echo "/ union" &gt; /mnt/persistence.conf<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#612" class="lnkocn">612</a></label>
+  <p class="i0" id="612">
+    Then unmount the mount point:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#613" class="lnkocn">613</a></label>
+  <p class="code" id="613">
+    # umount /mnt<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#614" class="lnkocn">614</a></label>
+  <p class="i0" id="614">
+    And optionally, although it might be a good way of securing the data we have just added to the partition, we can close the device:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#615" class="lnkocn">615</a></label>
+  <p class="code" id="615">
+    # cryptsetup luksClose live<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#616" class="lnkocn">616</a></label>
+  <p class="i0" id="616">
+    Let's summarize the process. So far, we have created an encryption capable live system, which can be copied to a usb stick as explained in  <a href="the-basics.en.html#copying-iso-hybrid-to-usb">Copying an ISO hybrid image to a USB stick</a>.  We have also created an encrypted partition, which can be located in the same usb stick to carry it around and we have configured the encrypted partition to be used as persistence store. So now, we only need to boot the live system. At boot time, <i>live-boot</i> will prompt us for the passphrase and will mount the encrypted partition to be used for persistence.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-contents.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-binary.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

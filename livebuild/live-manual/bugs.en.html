@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    bugs -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="contributing-to-project.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="coding-style.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Reporting bugs
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#692" class="lnkocn">692</a></label>
+  <h1 class="norm" id="692"><a name="692"></a>
+    14. Reporting bugs
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#693" class="lnkocn">693</a></label>
+  <p class="i0" id="693">
+    Live systems are far from being perfect, but we want to make it as close as possible to perfect - with your help. Do not hesitate to report a bug. It is better to fill a report twice than never. However, this chapter includes recommendations on how to file good bug reports.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#694" class="lnkocn">694</a></label>
+  <p class="i0" id="694">
+    For the impatient:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#695" class="lnkocn">695</a></label>
+  <ul>
+  <li class="bullet" id="695">
+    Always check first the image status updates on our homepage at ‹<a href="http://debian-live.alioth.debian.org/" target="_top">http://debian-live.alioth.debian.org/</a>› for known issues.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#696" class="lnkocn">696</a></label>
+  <ul>
+  <li class="bullet" id="696">
+    Before submitting a bug report always try to reproduce the bug with the <b>most recent versions</b> of the branch of <i>live-build</i>, <i>live-boot</i>, <i>live-config</i> and <i>live-tools</i> that you're using (like the newest 4.x version of <i>live-build</i> if you're using <i>live-build</i> 4).
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#697" class="lnkocn">697</a></label>
+  <ul>
+  <li class="bullet" id="697">
+    Try to give <b>as specific information as possible</b> about the bug. This includes (at least) the version of <i>live-build</i>, <i>live-boot</i>, <i>live-config</i>, and <i>live-tools</i> used and the distribution of the live system you are building.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#698" class="lnkocn">698</a></label>
+  <p class="bold" id="698"><a name="698"></a> <a id="hc14.1"></a>
+    <a name="c14.1" ></a><a name="h14.1" ></a>14.1 Known issues
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#699" class="lnkocn">699</a></label>
+  <p class="i0" id="699">
+    Since Debian <b>testing</b> and Debian <b>unstable</b> distributions are moving targets, when you specify either of them as the target system distribution, a successful build may not always be possible.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#700" class="lnkocn">700</a></label>
+  <p class="i0" id="700">
+    If this causes too much difficulty for you, do not build a system based on <b>testing</b> or <b>unstable</b>, but rather, use <b>stable</b>. <i>live-build</i> always defaults to the <b>stable</b> release.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#701" class="lnkocn">701</a></label>
+  <p class="i0" id="701">
+    Currently known issues are listed under the section 'status' on our homepage at ‹<a href="http://debian-live.alioth.debian.org/" target="_top">http://debian-live.alioth.debian.org/</a>›.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#702" class="lnkocn">702</a></label>
+  <p class="i0" id="702">
+    It is out of the scope of this manual to train you to correctly identify and fix problems in packages of the development distributions, however, there are two things you can always try: If a build fails when the target distribution is <b>testing</b>, try <b>unstable</b>. If <b>unstable</b> does not work either, revert to <b>testing</b> and pin the newer version of the failing package from <b>unstable</b> (see  <a href="customizing-package-installation.en.html#apt-pinning">APT pinning</a>  for details).
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#703" class="lnkocn">703</a></label>
+  <p class="bold" id="703"><a name="703"></a> <a id="hc14.2"></a>
+    <a name="c14.2" ></a><a name="h14.2" ></a>14.2 Rebuild from scratch
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#704" class="lnkocn">704</a></label>
+  <p class="i0" id="704">
+    To ensure that a particular bug is not caused by an uncleanly built system, please always rebuild the whole live system from scratch to see if the bug is reproducible.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#705" class="lnkocn">705</a></label>
+  <p class="bold" id="705"><a name="705"></a> <a id="hc14.3"></a>
+    <a name="c14.3" ></a><a name="h14.3" ></a>14.3 Use up-to-date packages
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#706" class="lnkocn">706</a></label>
+  <p class="i0" id="706">
+    Using outdated packages can cause significant problems when trying to reproduce (and ultimately fix) your problem. Make sure your build system is up-to-date and any packages included in your image are up-to-date as well.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#707" class="lnkocn">707</a></label>
+  <p class="bold" id="707"><a name="707"></a> <a id="hcollect-information"></a>
+    <a name="h14.4" ></a><a name="collect-information" ></a>14.4 Collect information
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#708" class="lnkocn">708</a></label>
+  <p class="i0" id="708">
+    Please provide enough information with your report. Include, at least, the exact version of <i>live-build</i> where the bug is encountered and the steps to reproduce it. Please use your common sense and provide any other relevant information if you think that it might help in solving the problem.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#709" class="lnkocn">709</a></label>
+  <p class="i0" id="709">
+    To make the most out of your bug report, we require at least the following information:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#710" class="lnkocn">710</a></label>
+  <ul>
+  <li class="bullet" id="710">
+    Architecture of the host system
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#711" class="lnkocn">711</a></label>
+  <ul>
+  <li class="bullet" id="711">
+    Distribution of the host system
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#712" class="lnkocn">712</a></label>
+  <ul>
+  <li class="bullet" id="712">
+    Version of <i>live-build</i> on the host system
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#713" class="lnkocn">713</a></label>
+  <ul>
+  <li class="bullet" id="713">
+    Version of <i>debootstrap</i> on the host system
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#714" class="lnkocn">714</a></label>
+  <ul>
+  <li class="bullet" id="714">
+    Architecture of the live system
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#715" class="lnkocn">715</a></label>
+  <ul>
+  <li class="bullet" id="715">
+    Distribution of the live system
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#716" class="lnkocn">716</a></label>
+  <ul>
+  <li class="bullet" id="716">
+    Version of <i>live-boot</i> on the live system
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#717" class="lnkocn">717</a></label>
+  <ul>
+  <li class="bullet" id="717">
+    Version of <i>live-config</i> on the live system
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#718" class="lnkocn">718</a></label>
+  <ul>
+  <li class="bullet" id="718">
+    Version of <i>live-tools</i> on the live system
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#719" class="lnkocn">719</a></label>
+  <p class="i0" id="719">
+    You can generate a log of the build process by using the <tt>tee</tt> command. We recommend doing this automatically with an <tt>auto/build</tt> script (see  <a href="managing-a-configuration.en.html#managing-a-configuration">Managing a configuration</a>  for details).
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#720" class="lnkocn">720</a></label>
+  <p class="code" id="720">
+    # lb build 2&gt;&amp;1 | tee build.log<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#721" class="lnkocn">721</a></label>
+  <p class="i0" id="721">
+    At boot time, <i>live-boot</i> and <i>live-config</i> store their logfiles in <tt>/var/log/live/</tt>. Check them for error messages.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#722" class="lnkocn">722</a></label>
+  <p class="i0" id="722">
+    Additionally, to rule out other errors, it is always a good idea to tar up your <tt>config/</tt> directory and upload it somewhere (do <b>not</b> send it as an attachment to the mailing list), so that we can try to reproduce the errors you encountered. If this is difficult (e.g. due to size) you can use the output of <tt>lb config --dump</tt> which produces a summary of your config tree (i.e. lists files in subdirectories of <tt>config/</tt> but does not include them).
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#723" class="lnkocn">723</a></label>
+  <p class="i0" id="723">
+    Remember to send in any logs that were produced with English locale settings, e.g. run your <i>live-build</i> commands with a leading <tt>LC_ALL=C</tt> or <tt>LC_ALL=en_US</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#724" class="lnkocn">724</a></label>
+  <p class="bold" id="724"><a name="724"></a> <a id="hc14.5"></a>
+    <a name="c14.5" ></a><a name="h14.5" ></a>14.5 Isolate the failing case if possible
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#725" class="lnkocn">725</a></label>
+  <p class="i0" id="725">
+    If possible, isolate the failing case to the smallest possible change that breaks. It is not always easy to do this so if you cannot manage it for your report, do not worry. However, if you plan your development cycle well, using small enough change sets per iteration, you may be able to isolate the problem by constructing a simpler 'base' configuration that closely matches your actual configuration plus just the broken change set added to it. If you have a hard time sorting out which of your changes broke, it may be that you are including too much in each change set and should develop in smaller increments.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#726" class="lnkocn">726</a></label>
+  <p class="bold" id="726"><a name="726"></a> <a id="hc14.6"></a>
+    <a name="c14.6" ></a><a name="h14.6" ></a>14.6 Use the correct package to report the bug against
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#727" class="lnkocn">727</a></label>
+  <p class="i0" id="727">
+    If you do not know what component is responsible for the bug or if the bug is a general bug concerning live systems, you can fill a bug against the debian-live pseudo-package.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#728" class="lnkocn">728</a></label>
+  <p class="i0" id="728">
+    However, we would appreciate it if you try to narrow it down according to where the bug appears.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#729" class="lnkocn">729</a></label>
+  <p class="bold" id="729"><a name="729"></a> <a id="hc14.6.1"></a>
+    <a name="c14.6.1" ></a><a name="h14.6.1" ></a>14.6.1 At build time while bootstrapping
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#730" class="lnkocn">730</a></label>
+  <p class="i0" id="730">
+    <i>live-build</i> first bootstraps a basic Debian system with <i>debootstrap</i>. If a bug appears here, check if the error is related to a specific Debian package (most likely), or if it is related to the bootstrapping tool itself.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#731" class="lnkocn">731</a></label>
+  <p class="i0" id="731">
+    In both cases, this is not a bug in the live system, but rather in Debian itself and probably we cannot fix it directly. Please report such a bug against the bootstrapping tool or the failing package.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#732" class="lnkocn">732</a></label>
+  <p class="bold" id="732"><a name="732"></a> <a id="hc14.6.2"></a>
+    <a name="c14.6.2" ></a><a name="h14.6.2" ></a>14.6.2 At build time while installing packages
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#733" class="lnkocn">733</a></label>
+  <p class="i0" id="733">
+    <i>live-build</i> installs additional packages from the Debian archive and depending on the Debian distribution used and the daily archive state, it can fail. If a bug appears here, check if the error is also reproducible on a normal system.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#734" class="lnkocn">734</a></label>
+  <p class="i0" id="734">
+    If this is the case, this is not a bug in the live system, but rather in Debian - please report it against the failing package. Running <i>debootstrap</i> separately from the Live system build or running <tt>lb bootstrap --debug</tt> will give you more information.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#735" class="lnkocn">735</a></label>
+  <p class="i0" id="735">
+    Also, if you are using a local mirror and/or any sort of proxy and you are experiencing a problem, please always reproduce it first by bootstrapping from an official mirror.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#736" class="lnkocn">736</a></label>
+  <p class="bold" id="736"><a name="736"></a> <a id="hc14.6.3"></a>
+    <a name="c14.6.3" ></a><a name="h14.6.3" ></a>14.6.3 At boot time
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#737" class="lnkocn">737</a></label>
+  <p class="i0" id="737">
+    If your image does not boot, please report it to the mailing list together with the information requested in  <a href="bugs.en.html#collect-information">Collect information</a>.  Do not forget to mention, how/when the image failed exactly, whether using virtualization or real hardware. If you are using a virtualization technology of any kind, please always run it on real hardware before reporting a bug. Providing a screenshot of the failure is also very helpful.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#738" class="lnkocn">738</a></label>
+  <p class="bold" id="738"><a name="738"></a> <a id="hc14.6.4"></a>
+    <a name="c14.6.4" ></a><a name="h14.6.4" ></a>14.6.4 At run time
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#739" class="lnkocn">739</a></label>
+  <p class="i0" id="739">
+    If a package was successfully installed, but fails while actually running the Live system, this is probably a bug in the live system. However:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#740" class="lnkocn">740</a></label>
+  <p class="bold" id="740"><a name="740"></a> <a id="hc14.7"></a>
+    <a name="c14.7" ></a><a name="h14.7" ></a>14.7 Do the research
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#741" class="lnkocn">741</a></label>
+  <p class="i0" id="741">
+    Before filing the bug, please search the web for the particular error message or symptom you are getting. As it is highly unlikely that you are the only person experiencing a particular problem. There is always a chance that it has been discussed elsewhere and a possible solution, patch, or workaround has been proposed.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#742" class="lnkocn">742</a></label>
+  <p class="i0" id="742">
+    You should pay particular attention to the live systems mailing list, as well as the homepage, as these are likely to contain the most up-to-date information. If such information exists, always include the references to it in your bug report.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#743" class="lnkocn">743</a></label>
+  <p class="i0" id="743">
+    In addition, you should check the current bug lists for <i>live-build</i>, <i>live-boot</i>, <i>live-config</i> and <i>live-tools</i> to see whether something similar has already been reported.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#744" class="lnkocn">744</a></label>
+  <p class="bold" id="744"><a name="744"></a> <a id="hc14.8"></a>
+    <a name="c14.8" ></a><a name="h14.8" ></a>14.8 Where to report bugs
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#745" class="lnkocn">745</a></label>
+  <p class="i0" id="745">
+    The Live Systems Project keeps track of all bugs in the Bug Tracking System (BTS). For information on how to use the system, please see ‹<a href="https://bugs.debian.org/" target="_top">https://bugs.debian.org/</a>›. You can also submit the bugs by using the <tt>reportbug</tt> command from the package with the same name.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#746" class="lnkocn">746</a></label>
+  <p class="i0" id="746">
+    In general, you should report build time errors against the <i>live-build</i> package, boot time errors against <i>live-boot</i>, and run time errors against <i>live-config</i>. If you are unsure of which package is appropriate or need more help before submitting a bug report, please report it against the debian-live pseudo-package. We will then take care about it and reassign it where appropriate.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#747" class="lnkocn">747</a></label>
+  <p class="i0" id="747">
+    Please note that bugs found in distributions derived from Debian (such as Ubuntu and others) should <b>not</b> be reported to the Debian BTS unless they can be also reproduced on a Debian system using official Debian packages.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="contributing-to-project.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="coding-style.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

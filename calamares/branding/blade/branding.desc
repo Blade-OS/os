@@ -1,0 +1,30 @@
+---
+componentName:   blade
+welcomeStyleCalamares: true
+
+strings:
+    productName:         Blade OS
+    shortProductName:    Blade
+    version:             12
+    shortVersion:        12
+    versionedName:       Blade OS
+    shortVersionedName:  Blade
+    bootloaderEntryName: Blade OS
+    productUrl:          https://www.bladeos.xyz/
+#   supportUrl:          https://sourceforge.net/projects/eznixos/
+#   knownIssuesUrl:      https://sourceforge.net/projects/eznixos/
+#   releaseNotesUrl:     https://sourceforge.net/projects/eznixos/
+#   donateUrl:           https://sourceforge.net/projects/eznixos/   
+
+images:
+    productLogo:         "logo.png"
+    productIcon:         "logo.png"
+    productWelcome:      "languages.png"
+
+slideshow:               "show.qml"
+
+style:
+   sidebarBackground:    "#0C2840"
+   sidebarText:          "#FFFFFF"
+   sidebarTextSelect:    "#99D2FF"
+   sidebarTextHighlight: "#AEAEAE"

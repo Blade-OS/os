@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    git-repositories -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="procedures.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="examples.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Git repositories
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#815" class="lnkocn">815</a></label>
+  <h1 class="norm" id="815"><a name="815"></a>
+    17. Git repositories
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#816" class="lnkocn">816</a></label>
+  <p class="i0" id="816">
+    The list of all the available repositories of the Live Systems Project can be found at ‹<a href="http://http://anonscm.debian.org/cgit/debian-live/" target="_top">http://http://anonscm.debian.org/cgit/debian-live/</a>›. The project's git URLs have the form: <tt>protocol://http://anonscm.debian.org/git/debian-live/repository</tt>. Thus, in order to clone <i>live-manual</i> read-only, launch:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#817" class="lnkocn">817</a></label>
+  <p class="code" id="817">
+    $ git clone git://http://anonscm.debian.org/git/debian-live/live-manual.git<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#818" class="lnkocn">818</a></label>
+  <p class="i0" id="818">
+    Or,
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#819" class="lnkocn">819</a></label>
+  <p class="code" id="819">
+    $ git clone https://http://anonscm.debian.org/git/debian-live/live-manual.git<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#820" class="lnkocn">820</a></label>
+  <p class="i0" id="820">
+    Or,
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#821" class="lnkocn">821</a></label>
+  <p class="code" id="821">
+    $ git clone http://http://anonscm.debian.org/git/debian-live/live-manual.git<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#822" class="lnkocn">822</a></label>
+  <p class="i0" id="822">
+    The cloning addresses with write permission have the form: <tt>ssh://git.debian.org/git/debian-live/repository</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#823" class="lnkocn">823</a></label>
+  <p class="i0" id="823">
+    So, again, to clone <i>live-manual</i> over ssh you must type:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#824" class="lnkocn">824</a></label>
+  <p class="code" id="824">
+    $ git clone ssh://git.debian.org/git/debian-live/live-manual.git<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#825" class="lnkocn">825</a></label>
+  <p class="i0" id="825">
+    The git tree is made up of several different branches. The <b>debian</b> and the <b>debian-next</b> branches are particularly noteworthy because they contain the actual work that will eventually be included in each new release.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#826" class="lnkocn">826</a></label>
+  <p class="i0" id="826">
+    After cloning any of the existing repositories, you will be on the <b>debian</b> branch. This is appropriate to take a look at the state of the project's latest release but before starting work it is crucial to switch to the <b>debian-next</b> branch. To do so:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#827" class="lnkocn">827</a></label>
+  <p class="code" id="827">
+    $ git checkout debian-next<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#828" class="lnkocn">828</a></label>
+  <p class="i0" id="828">
+    The <b>debian-next</b> branch, which is not always fast-forward, is where all the changes are committed first before being merged into the <b>debian</b> branch. To make an analogy, it is like a testing ground. If you are working on this branch and need to pull, you will have to do a <tt>git pull --rebase</tt> so that your local modifications are staged while pulling from the server and then your changes will be put on top of it all.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#829" class="lnkocn">829</a></label>
+  <p class="bold" id="829"><a name="829"></a> <a id="hc17.1"></a>
+    <a name="c17.1" ></a><a name="h17.1" ></a>17.1 Handling multiple repositories
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#830" class="lnkocn">830</a></label>
+  <p class="i0" id="830">
+    If you intend to clone several of the live systems repositories and want to switch to the <b>debian-next</b> branch right away to check the latest code, write a patch or contribute with a translation you ought to know that the git server provides a <tt>mrconfig</tt> file to ease the handling of multiple repositories. In order to use it you need to install the <i>mr</i> package and after that, launch:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#831" class="lnkocn">831</a></label>
+  <p class="code" id="831">
+    $&nbsp;&nbsp;mr bootstrap http://debian-live.alioth.debian.org/other/mr/mrconfig<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#832" class="lnkocn">832</a></label>
+  <p class="i0" id="832">
+    This command will automatically clone and checkout to the <b>debian-next</b> branch the development repositories of the Debian packages produced by the project. These include, among others, the <i>live-images</i> repository, which contains the configurations used for the prebuilt images that the project publishes for general use. For more information on how to use this repository, see  <a href="managing-a-configuration.en.html#clone-configuration-via-git">Clone a configuration published via Git</a>
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="procedures.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="examples.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    overview-of-tools -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="the-basics.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="managing-a-configuration.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Overview of tools
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#298" class="lnkocn">298</a></label>
+  <h1 class="norm" id="298"><a name="298"></a>
+    5. Overview of tools
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#299" class="lnkocn">299</a></label>
+  <p class="i0" id="299">
+    This chapter contains an overview of the three main tools used in building live systems: <i>live-build</i>, <i>live-boot</i> and <i>live-config</i>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#300" class="lnkocn">300</a></label>
+  <p class="bold" id="300"><a name="300"></a> <a id="hlive-build"></a>
+    <a name="h5.1" ></a><a name="live-build" ></a>5.1 The live-build package
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#301" class="lnkocn">301</a></label>
+  <p class="i0" id="301">
+    <i>live-build</i> is a collection of scripts to build live systems. These scripts are also referred to as "commands".
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#302" class="lnkocn">302</a></label>
+  <p class="i0" id="302">
+    The idea behind <i>live-build</i> is to be a framework that uses a configuration directory to completely automate and customize all aspects of building a Live image.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#303" class="lnkocn">303</a></label>
+  <p class="i0" id="303">
+    Many concepts are similar to those used to build Debian packages with <i>debhelper</i>:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#304" class="lnkocn">304</a></label>
+  <ul>
+  <li class="bullet" id="304">
+    The scripts have a central location for configuring their operation. In <i>debhelper</i>, this is the <tt>debian/</tt> subdirectory of a package tree. For example, dh_install will look, among others, for a file called <tt>debian/install</tt> to determine which files should exist in a particular binary package. In much the same way, <i>live-build</i> stores its configuration entirely under a <tt>config/</tt> subdirectory.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#305" class="lnkocn">305</a></label>
+  <ul>
+  <li class="bullet" id="305">
+    The scripts are independent - that is to say, it is always safe to run each command.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#306" class="lnkocn">306</a></label>
+  <p class="i0" id="306">
+    Unlike <i>debhelper</i>, <i>live-build</i> provides the tools to generate a skeleton configuration directory. This could be considered to be similar to tools such as <i>dh-make</i>. For more information about these tools, read on, since the remainder of this section discuses the four most important commands. Note that the preceding <tt>lb</tt> is a generic wrapper for <i>live-build</i> commands.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#307" class="lnkocn">307</a></label>
+  <ul>
+  <li class="bullet" id="307">
+    <b>lb config</b>: Responsible for initializing a Live system configuration directory. See  <a href="overview-of-tools.en.html#lb-config">The lb config command</a>  for more information.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#308" class="lnkocn">308</a></label>
+  <ul>
+  <li class="bullet" id="308">
+    <b>lb build</b>: Responsible for starting a Live system build. See  <a href="overview-of-tools.en.html#lb-build">The lb build command</a>  for more information.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#309" class="lnkocn">309</a></label>
+  <ul>
+  <li class="bullet" id="309">
+    <b>lb clean</b>: Responsible for removing parts of a Live system build. See  <a href="overview-of-tools.en.html#lb-clean">The lb clean command</a>  for more information.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#310" class="lnkocn">310</a></label>
+  <p class="bold" id="310"><a name="310"></a> <a id="hlb-config"></a>
+    <a name="h5.1.1" ></a><a name="lb-config" ></a>5.1.1 The <tt>lb config</tt> command
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#311" class="lnkocn">311</a></label>
+  <p class="i0" id="311">
+    As discussed in  <a href="overview-of-tools.en.html#live-build">live-build</a>,  the scripts that make up <i>live-build</i> read their configuration with the <tt>source</tt> command from a single directory named <tt>config/</tt>. As constructing this directory by hand would be time-consuming and error-prone, the <tt>lb config</tt> command can be used to create the initial skeleton configuration tree.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#312" class="lnkocn">312</a></label>
+  <p class="i0" id="312">
+    Issuing <tt>lb config</tt> without any arguments creates the <tt>config/</tt> subdirectory which is populated with some default settings in configuration files, and two skeleton trees named <tt>auto/</tt> and <tt>local/</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#313" class="lnkocn">313</a></label>
+  <p class="code" id="313">
+    $ lb config<br>
+[2015-01-06 19:25:58] lb config<br>
+P: Creating config tree for a debian/stretch/i386 system<br>
+P: Symlinking hooks...<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#314" class="lnkocn">314</a></label>
+  <p class="i0" id="314">
+    Using <tt>lb config</tt> without any arguments would be suitable for users who need a very basic image, or who intend to provide a more complete configuration via <tt>auto/config</tt> later (see  <a href="managing-a-configuration.en.html#managing-a-configuration">Managing a configuration</a>  for details).
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#315" class="lnkocn">315</a></label>
+  <p class="i0" id="315">
+    Normally, you will want to specify some options. For example, to specify which package manager to use while building the image:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#316" class="lnkocn">316</a></label>
+  <p class="code" id="316">
+    $ lb config --apt aptitude<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#317" class="lnkocn">317</a></label>
+  <p class="i0" id="317">
+    It is possible to specify many options, such as:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#318" class="lnkocn">318</a></label>
+  <p class="code" id="318">
+    $ lb config --binary-images netboot --bootappend-live "boot=live components hostname=live-host username=live-user" ...<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#319" class="lnkocn">319</a></label>
+  <p class="i0" id="319">
+    A full list of options is available in the <tt>lb_config</tt> man page.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#320" class="lnkocn">320</a></label>
+  <p class="bold" id="320"><a name="320"></a> <a id="hlb-build"></a>
+    <a name="h5.1.2" ></a><a name="lb-build" ></a>5.1.2 The <tt>lb build</tt> command
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#321" class="lnkocn">321</a></label>
+  <p class="i0" id="321">
+    The <tt>lb build</tt> command reads in your configuration from the <tt>config/</tt> directory. It then runs the lower level commands needed to build your Live system.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#322" class="lnkocn">322</a></label>
+  <p class="bold" id="322"><a name="322"></a> <a id="hlb-clean"></a>
+    <a name="h5.1.3" ></a><a name="lb-clean" ></a>5.1.3 The <tt>lb clean</tt> command
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#323" class="lnkocn">323</a></label>
+  <p class="i0" id="323">
+    It is the job of the <tt>lb clean</tt> command to remove various parts of a build so subsequent builds can start from a clean state. By default, <tt>chroot</tt>, <tt>binary</tt> and <tt>source</tt> stages are cleaned, but the cache is left intact. Also, individual stages can be cleaned. For example, if you have made changes that only affect the binary stage, use <tt>lb clean --binary</tt> prior to building a new binary. If your changes invalidate the bootstrap and/or package caches, e.g. changes to <tt>--mode</tt>, <tt>--architecture</tt>, or <tt>--bootstrap</tt>, you must use <tt>lb clean --purge</tt>. See the <tt>lb_clean</tt> man page for a full list of options.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#324" class="lnkocn">324</a></label>
+  <p class="bold" id="324"><a name="324"></a> <a id="hlive-boot"></a>
+    <a name="h5.2" ></a><a name="live-boot" ></a>5.2 The live-boot package
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#325" class="lnkocn">325</a></label>
+  <p class="i0" id="325">
+    <i>live-boot</i> is a collection of scripts providing hooks for the <i>initramfs-tools</i>, used to generate an initramfs capable of booting live systems, such as those created by <i>live-build</i>. This includes the live system ISOs, netboot tarballs, and USB stick images.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#326" class="lnkocn">326</a></label>
+  <p class="i0" id="326">
+    At boot time it will look for read-only media containing a <tt>/live/</tt> directory where a root filesystem (often a compressed filesystem image like squashfs) is stored. If found, it will create a writable environment, using aufs, for Debian like systems to boot from.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#327" class="lnkocn">327</a></label>
+  <p class="i0" id="327">
+    More information on initial ramfs in Debian can be found in the Debian Linux Kernel Handbook at ‹<a href="http://kernel-handbook.alioth.debian.org/" target="_top">http://kernel-handbook.alioth.debian.org/</a>› in the chapter on initramfs.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#328" class="lnkocn">328</a></label>
+  <p class="bold" id="328"><a name="328"></a> <a id="hlive-config"></a>
+    <a name="h5.3" ></a><a name="live-config" ></a>5.3 The live-config package
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#329" class="lnkocn">329</a></label>
+  <p class="i0" id="329">
+    <i>live-config</i> consists of the scripts that run at boot time after <i>live-boot</i> to configure the live system automatically. It handles such tasks as setting the hostname, locales and timezone, creating the live user, inhibiting cron jobs and performing autologin of the live user.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="the-basics.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="managing-a-configuration.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

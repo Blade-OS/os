@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    customizing-contents -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-package-installation.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-run-time-behaviours.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Customizing contents
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#499" class="lnkocn">499</a></label>
+  <h1 class="norm" id="499"><a name="499"></a>
+    9. Customizing contents
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#500" class="lnkocn">500</a></label>
+  <p class="i0" id="500">
+    This chapter discusses fine-tuning customization of the live system contents beyond merely choosing which packages to include. Includes allow you to add or replace arbitrary files in your live system image, hooks allow you to execute arbitrary commands at different stages of the build and at boot time, and preseeding allows you to configure packages when they are installed by supplying answers to debconf questions.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#501" class="lnkocn">501</a></label>
+  <p class="bold" id="501"><a name="501"></a> <a id="hincludes"></a>
+    <a name="h9.1" ></a><a name="includes" ></a>9.1 Includes
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#502" class="lnkocn">502</a></label>
+  <p class="i0" id="502">
+    While ideally a live system would include files entirely provided by unmodified packages, it is sometimes convenient to provide or modify some content by means of files. Using includes, it is possible to add (or replace) arbitrary files in your live system image. <i>live-build</i> provides two mechanisms for using them:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#503" class="lnkocn">503</a></label>
+  <ul>
+  <li class="bullet" id="503">
+    Chroot local includes: These allow you to add or replace files to the chroot/Live filesystem. Please see  <a href="customizing-contents.en.html#live-chroot-local-includes">Live/chroot local includes</a>  for more information.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#504" class="lnkocn">504</a></label>
+  <ul>
+  <li class="bullet" id="504">
+    Binary local includes: These allow you to add or replace files in the binary image. Please see  <a href="customizing-contents.en.html#binary-local-includes">Binary local includes</a>  for more information.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#505" class="lnkocn">505</a></label>
+  <p class="i0" id="505">
+    Please see  <a href="about-manual.en.html#terms">Terms</a>  for more information about the distinction between the "Live" and "binary" images.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#506" class="lnkocn">506</a></label>
+  <p class="bold" id="506"><a name="506"></a> <a id="hlive-chroot-local-includes"></a>
+    <a name="h9.1.1" ></a><a name="live-chroot-local-includes" ></a>9.1.1 Live/chroot local includes
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#507" class="lnkocn">507</a></label>
+  <p class="i0" id="507">
+    Chroot local includes can be used to add or replace files in the chroot/Live filesystem so that they may be used in the Live system. A typical use is to populate the skeleton user directory (<tt>/etc/skel</tt>) used by the Live system to create the live user's home directory. Another is to supply configuration files that can be simply added or replaced in the image without processing; see  <a href="customizing-contents.en.html#chroot-local-hooks">Chroot local hooks</a>  if processing is needed.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#508" class="lnkocn">508</a></label>
+  <p class="i0" id="508">
+    To include files, simply add them to your <tt>config/includes.chroot</tt> directory. This directory corresponds to the root directory <tt>/</tt> of the live system. For example, to add a file <tt>/var/www/index.html</tt> in the live system, use:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#509" class="lnkocn">509</a></label>
+  <p class="code" id="509">
+    $ mkdir -p config/includes.chroot/var/www<br>
+$ cp /path/to/my/index.html config/includes.chroot/var/www<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#510" class="lnkocn">510</a></label>
+  <p class="i0" id="510">
+    Your configuration will then have the following layout:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#511" class="lnkocn">511</a></label>
+  <p class="code" id="511">
+    -- config<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[...]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- includes.chroot<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;`-- var<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`-- www<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`-- index.html<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[...]<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#512" class="lnkocn">512</a></label>
+  <p class="i0" id="512">
+    Chroot local includes are installed after package installation so that files installed by packages are overwritten.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#513" class="lnkocn">513</a></label>
+  <p class="bold" id="513"><a name="513"></a> <a id="hbinary-local-includes"></a>
+    <a name="h9.1.2" ></a><a name="binary-local-includes" ></a>9.1.2 Binary local includes
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#514" class="lnkocn">514</a></label>
+  <p class="i0" id="514">
+    To include material such as documentation or videos on the medium filesystem so that it is accessible immediately upon insertion of the medium without booting the Live system, you can use binary local includes. This works in a similar fashion to chroot local includes. For example, suppose the files <tt>~/video_demo.*</tt> are demo videos of the live system described by and linked to by an HTML index page. Simply copy the material to <tt>config/includes.binary/</tt> as follows:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#515" class="lnkocn">515</a></label>
+  <p class="code" id="515">
+    $ cp ~/video_demo.* config/includes.binary/<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#516" class="lnkocn">516</a></label>
+  <p class="i0" id="516">
+    These files will now appear in the root directory of the live medium.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#517" class="lnkocn">517</a></label>
+  <p class="bold" id="517"><a name="517"></a> <a id="hhooks"></a>
+    <a name="h9.2" ></a><a name="hooks" ></a>9.2 Hooks
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#518" class="lnkocn">518</a></label>
+  <p class="i0" id="518">
+    Hooks allow commands to be run in the chroot and binary stages of the build in order to customize the image. Depending on whether you are building a live image or a regular system image you have to place your hooks in <tt>config/hooks/live</tt> or <tt>config/hooks/normal</tt> respectively. These are frequently referred to as local hooks because they are executed inside the build environment.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#519" class="lnkocn">519</a></label>
+  <p class="i0" id="519">
+    There are also boot-time hooks that allow you to run commands once the image has already been built, during the boot process.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#520" class="lnkocn">520</a></label>
+  <p class="bold" id="520"><a name="520"></a> <a id="hchroot-local-hooks"></a>
+    <a name="h9.2.1" ></a><a name="chroot-local-hooks" ></a>9.2.1 Chroot local hooks
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#521" class="lnkocn">521</a></label>
+  <p class="i0" id="521">
+    To run commands in the chroot stage, create a hook script with a <tt>.hook.chroot</tt> suffix containing the commands either in the <tt>config/hooks/live</tt> or <tt>config/hooks/normal</tt> directories. The hook will run in the chroot after the rest of your chroot configuration has been applied, so remember to ensure your configuration includes all packages and files your hook needs in order to run. See the example chroot hook scripts for various common chroot customization tasks provided in <tt>/usr/share/doc/live-build/examples/hooks</tt> which you can copy or symlink to use them in your own configuration.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#522" class="lnkocn">522</a></label>
+  <p class="bold" id="522"><a name="522"></a> <a id="hc9.2.2"></a>
+    <a name="c9.2.2" ></a><a name="h9.2.2" ></a>9.2.2 Binary local hooks
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#523" class="lnkocn">523</a></label>
+  <p class="i0" id="523">
+    To run commands in the binary stage, create a hook script with a <tt>.hook.binary</tt> suffix containing the commands either in the <tt>config/hooks/live</tt> or <tt>config/hooks/normal</tt> directories. The hook will run after all other binary commands are run, but before binary_checksums, the very last binary command. The commands in your hook do not run in the chroot, so take care not to modify any files outside of the build tree, or you may damage your build system! See the example binary hook scripts for various common binary customization tasks provided in <tt>/usr/share/doc/live-build/examples/hooks</tt> which you can copy or symlink to use them in your own configuration.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#524" class="lnkocn">524</a></label>
+  <p class="bold" id="524"><a name="524"></a> <a id="hboot-time-hooks"></a>
+    <a name="h9.2.3" ></a><a name="boot-time-hooks" ></a>9.2.3 Boot-time hooks
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#525" class="lnkocn">525</a></label>
+  <p class="i0" id="525">
+    To execute commands at boot time, you can supply <i>live-config</i> hooks as explained in the "Customization" section of its man page. Examine <i>live-config</i>'s own hooks provided in <tt>/lib/live/config/</tt>, noting the sequence numbers. Then provide your own hook prefixed with an appropriate sequence number, either as a chroot local include in <tt>config/includes.chroot/lib/live/config/</tt>, or as a custom package as discussed in  <a href="customizing-package-installation.en.html#installing-modified-or-third-party-packages">Installing modified or third-party packages</a>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#526" class="lnkocn">526</a></label>
+  <p class="bold" id="526"><a name="526"></a> <a id="hc9.3"></a>
+    <a name="c9.3" ></a><a name="h9.3" ></a>9.3 Preseeding Debconf questions
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#527" class="lnkocn">527</a></label>
+  <p class="i0" id="527">
+    Files in the <tt>config/preseed/</tt> directory suffixed with <tt>.cfg</tt> followed by the stage (<tt>.chroot</tt> or <tt>.binary</tt>) are considered to be debconf preseed files and are installed by <i>live-build</i> using <tt>debconf-set-selections</tt> during the corresponding stage.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#528" class="lnkocn">528</a></label>
+  <p class="i0" id="528">
+    For more information about debconf, please see <tt>debconf(7)</tt> in the <i>debconf</i> package.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-package-installation.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-run-time-behaviours.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

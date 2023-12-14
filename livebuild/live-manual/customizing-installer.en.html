@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    customizing-installer -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-binary.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="contributing-to-project.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Customizing Debian Installer
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#633" class="lnkocn">633</a></label>
+  <h1 class="norm" id="633"><a name="633"></a>
+    12. Customizing Debian Installer
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#634" class="lnkocn">634</a></label>
+  <p class="i0" id="634">
+    Live system images can be integrated with Debian Installer. There are a number of different types of installation, varying in what is included and how the installer operates.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#635" class="lnkocn">635</a></label>
+  <p class="i0" id="635">
+    Please note the careful use of capital letters when referring to the "Debian Installer" in this section - when used like this we refer explicitly to the official installer for the Debian system, not anything else. It is often seen abbreviated to "d-i".
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#636" class="lnkocn">636</a></label>
+  <p class="bold" id="636"><a name="636"></a> <a id="hc12.1"></a>
+    <a name="c12.1" ></a><a name="h12.1" ></a>12.1 Types of Debian Installer
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#637" class="lnkocn">637</a></label>
+  <p class="i0" id="637">
+    The three main types of installer are:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#638" class="lnkocn">638</a></label>
+  <p class="i0" id="638">
+    <b>"Normal" Debian Installer</b>: This is a normal live system image with a separate kernel and initrd which (when selected from the appropriate bootloader) launches into a standard Debian Installer instance, just as if you had downloaded a CD image of Debian and booted it. Images containing a live system and such an otherwise independent installer are often referred to as "combined images".
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#639" class="lnkocn">639</a></label>
+  <p class="i0" id="639">
+    On such images, Debian is installed by fetching and installing .deb packages using <i>debootstrap</i>, from local media or some network-based network, resulting in a default Debian system being installed to the hard disk.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#640" class="lnkocn">640</a></label>
+  <p class="i0" id="640">
+    This whole process can be preseeded and customized in a number of ways; see the relevant pages in the Debian Installer manual for more information. Once you have a working preseeding file, <i>live-build</i> can automatically put it in the image and enable it for you.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#641" class="lnkocn">641</a></label>
+  <p class="i0" id="641">
+    <b>"Live" Debian Installer</b>: This is a live system image with a separate kernel and initrd which (when selected from the appropriate bootloader) launches into an instance of the Debian Installer.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#642" class="lnkocn">642</a></label>
+  <p class="i0" id="642">
+    Installation will proceed in an identical fashion to the "normal" installation described above, but at the actual package installation stage, instead of using <i>debootstrap</i> to fetch and install packages, the live filesystem image is copied to the target. This is achieved with a special udeb called <i>live-installer</i>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#643" class="lnkocn">643</a></label>
+  <p class="i0" id="643">
+    After this stage, the Debian Installer continues as normal, installing and configuring items such as bootloaders and local users, etc.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#644" class="lnkocn">644</a></label>
+  <p class="i0" id="644">
+    <b>Note:</b> to support both normal and live installer entries in the bootloader of the same live medium, you must disable <i>live-installer</i> by preseeding <tt>live-installer/enable=false</tt>.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#645" class="lnkocn">645</a></label>
+  <p class="i0" id="645">
+    <b>"Desktop" Debian Installer</b>: Regardless of the type of Debian Installer included, <tt>d-i</tt> can be launched from the Desktop by clicking on an icon. This is user friendlier in some situations. In order to make use of this, the <i>debian-installer-launcher</i> package needs to be included.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#646" class="lnkocn">646</a></label>
+  <p class="i0" id="646">
+    Note that by default, <i>live-build</i> does not include Debian Installer images in the images, it needs to be specifically enabled with <tt>lb config</tt>. Also, please note that for the "Desktop" installer to work, the kernel of the live system must match the kernel <tt>d-i</tt> uses for the specified architecture. For example:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#647" class="lnkocn">647</a></label>
+  <p class="code" id="647">
+    $ lb config --architectures i386 --linux-flavours 586 \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--debian-installer live<br>
+$ echo debian-installer-launcher &gt;&gt; config/package-lists/my.list.chroot<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#648" class="lnkocn">648</a></label>
+  <p class="bold" id="648"><a name="648"></a> <a id="hc12.2"></a>
+    <a name="c12.2" ></a><a name="h12.2" ></a>12.2 Customizing Debian Installer by preseeding
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#649" class="lnkocn">649</a></label>
+  <p class="i0" id="649">
+    As described in the Debian Installer Manual, Appendix B at ‹<a href="https://www.debian.org/releases/stable/i386/apb.html" target="_top">https://www.debian.org/releases/stable/i386/apb.html</a>›, "Preseeding provides a way to set answers to questions asked during the installation process, without having to manually enter the answers while the installation is running. This makes it possible to fully automate most types of installation and even offers some features not available during normal installations." This kind of customization is best accomplished with <i>live-build</i> by placing the configuration in a <tt>preseed.cfg</tt> file included in <tt>config/includes.installer/</tt>. For example, to preseed setting the locale to <tt>en_US</tt>:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#650" class="lnkocn">650</a></label>
+  <p class="code" id="650">
+    $ echo "d-i debian-installer/locale string en_US" \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt; config/includes.installer/preseed.cfg<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#651" class="lnkocn">651</a></label>
+  <p class="bold" id="651"><a name="651"></a> <a id="hc12.3"></a>
+    <a name="c12.3" ></a><a name="h12.3" ></a>12.3 Customizing Debian Installer content
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#652" class="lnkocn">652</a></label>
+  <p class="i0" id="652">
+    For experimental or debugging purposes, you might want to include locally built <tt>d-i</tt> component udeb packages. Place these in <tt>config/packages.binary/</tt> to include them in the image. Additional or replacement files and directories may be included in the installer initrd as well, in a similar fashion to  <a href="customizing-contents.en.html#live-chroot-local-includes">Live/chroot local includes</a>,  by placing the material in <tt>config/includes.installer/</tt>.
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="customizing-binary.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="contributing-to-project.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    procedures -
+    Live Systems Manual
+  </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="dc.title" content="Live Systems Manual" />
+  <meta name="dc.author" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.publisher" content="Live Systems Project <debian-live@lists.debian.org>" />
+  <meta name="dc.date" content="2015-09-22"  />
+  <meta name="dc.rights" content="Copyright: Copyright (C) 2006-2015 Live Systems Project \\ License: This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. \\  \\ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. \\  \\ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. \\  \\ The complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL-3 file." />
+
+  <meta name="generator" content="SiSU 7.2.1_pre_rel of 2019w35/4 (2019-09-05) (n*x and Ruby!)" />
+    <link rel="generator" href="http://www.sisudoc.org/" />
+  <link rel="shortcut icon" href="../_sisu/image/rb7.ico" />
+
+  <link href="../../_sisu/css/html.css" rel="stylesheet">
+</head>
+<body lang="en">
+<a name="top" id="top"></a><table summary="segment navigation band with banner" bgcolor="#ffffff" width="100%"><tr>
+<td width="20%" align="left">
+ <table summary="home button / home information" border="0" cellpadding="3" cellspacing="0">
+ <tr><td align="left" bgcolor="#ffffff">
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org/manual" target="_top">
+    Live manual
+  </a></p>
+  <p class="tiny_left"><a href="http://debian-live.alioth.debian.org" target="_top">
+    Live Systems
+  </a></p>
+ </td></tr>
+ </table>
+</td>
+<td width="75%" align="center">
+  
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+</td>
+<td width="5%" align="right">
+  <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="coding-style.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="git-repositories.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+</td></tr>
+</table><div class="content0">
+<h1 class="tiny">
+    Live Systems Manual
+  </h1>
+</div><div class="content0">
+<h1 class="tiny">
+    Procedures
+  </h1>
+</div><div class="content0"><div class="substance">
+  <label class="ocn"><a href="#795" class="lnkocn">795</a></label>
+  <h1 class="norm" id="795"><a name="795"></a>
+    16. Procedures
+  </h1>
+</div><div class="substance">
+  <label class="ocn"><a href="#796" class="lnkocn">796</a></label>
+  <p class="i0" id="796">
+    This chapter documents the procedures within the Live Systems Project for various tasks that need cooperation with other teams in Debian.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#797" class="lnkocn">797</a></label>
+  <p class="bold" id="797"><a name="797"></a> <a id="hc16.1"></a>
+    <a name="c16.1" ></a><a name="h16.1" ></a>16.1 Major Releases
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#798" class="lnkocn">798</a></label>
+  <p class="i0" id="798">
+    Releasing a new stable major version of Debian includes a lot of different teams working together to make it happen. At some point, the Live team comes in and builds live system images. The requirements to do this are:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#799" class="lnkocn">799</a></label>
+  <ul>
+  <li class="bullet" id="799">
+    A mirror containing the released versions for the debian and debian-security archives which the debian-live buildd can access.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#800" class="lnkocn">800</a></label>
+  <ul>
+  <li class="bullet" id="800">
+    The names of the image need to be known (e.g. debian-live-VERSION-ARCH-FLAVOUR.iso).
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#801" class="lnkocn">801</a></label>
+  <ul>
+  <li class="bullet" id="801">
+    The data from debian-cd needs to be synced (udeb exclude lists).
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#802" class="lnkocn">802</a></label>
+  <ul>
+  <li class="bullet" id="802">
+    Images are built and mirrored on cdimage.debian.org.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#803" class="lnkocn">803</a></label>
+  <p class="bold" id="803"><a name="803"></a> <a id="hc16.2"></a>
+    <a name="c16.2" ></a><a name="h16.2" ></a>16.2 Point Releases
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#804" class="lnkocn">804</a></label>
+  <ul>
+  <li class="bullet" id="804">
+    Again, we need updated mirrors of debian and debian-security.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#805" class="lnkocn">805</a></label>
+  <ul>
+  <li class="bullet" id="805">
+    Images are built and mirrored on cdimage.debian.org.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#806" class="lnkocn">806</a></label>
+  <ul>
+  <li class="bullet" id="806">
+    Send announcement mail.
+  </li>
+  </ul>
+</div><div class="substance">
+  <label class="ocn"><a href="#807" class="lnkocn">807</a></label>
+  <p class="bold" id="807"><a name="807"></a> <a id="hc16.2.1"></a>
+    <a name="c16.2.1" ></a><a name="h16.2.1" ></a>16.2.1 Last Point Release of a Debian Release
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#808" class="lnkocn">808</a></label>
+  <p class="i0" id="808">
+    Remember to adjust both chroot and binary mirrors when building the last set of images for a Debian release after it has been moved away from ftp.debian.org to archive.debian.org. That way, old prebuilt live images are still useful without user modifications.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#809" class="lnkocn">809</a></label>
+  <p class="bold" id="809"><a name="809"></a> <a id="hc16.2.2"></a>
+    <a name="c16.2.2" ></a><a name="h16.2.2" ></a>16.2.2 Point release announcement template
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#810" class="lnkocn">810</a></label>
+  <p class="i0" id="810">
+    An announcement mail for point releases can be generated using the template below and the following command:
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#811" class="lnkocn">811</a></label>
+  <p class="code" id="811">
+    $ sed \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-e 's|@MAJOR@|9.0|g' \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-e 's|@MINOR@|9.0.1|g' \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-e 's|@CODENAME@|stretch|g' \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-e 's|@ANNOUNCE@|2017/msgXXXXX.html|g'<br>
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#812" class="lnkocn">812</a></label>
+  <p class="i0" id="812">
+    Please check the mail carefully before sending and pass it to others for proof-reading.
+  </p>
+</div><div class="substance">
+  <label class="ocn"><a href="#813" class="lnkocn">813</a></label>
+  <p class="code" id="813">
+    Updated Live @MAJOR@: @MINOR@ released<br><br>
+The Live Systems Project is pleased to announce the @MINOR@ update of the<br>
+Live images for the stable distribution Debian @MAJOR@ (codename "@CODENAME@").<br><br>
+The images are available for download at:<br><br>
+&nbsp;&nbsp;&nbsp;&lt;http://debian-live.alioth.debian.org/cdimage/release/current/&gt;<br> <br>
+and later at:<br><br>
+&nbsp;&nbsp;&nbsp;&lt;http://cdimage.debian.org/cdimage/release/current-live/&gt;<br> <br>
+This update includes the changes of the Debian @MINOR@ release:<br><br>
+&nbsp;&nbsp;&nbsp;&lt;https://lists.debian.org/debian-announce/@ANNOUNCE@&gt;<br> <br>
+Additionally it includes the following Live-specific changes:<br><br>
+&nbsp;&nbsp;* [INSERT LIVE-SPECIFIC CHANGE HERE]<br>
+&nbsp;&nbsp;* [INSERT LIVE-SPECIFIC CHANGE HERE]<br>
+&nbsp;&nbsp;* [LARGER ISSUES MAY DESERVE THEIR OWN SECTION]<br><br>
+About Live Systems<br>
+------------------<br>
+The Live Systems Project produces the tools used to build official<br>
+live systems and the official live images themselves for Debian.<br><br>
+About Debian<br>
+------------<br>
+The Debian Project is an association of Free Software developers who<br>
+volunteer their time and effort in order to produce the completely free<br>
+operating system Debian.<br><br>
+Contact Information<br>
+-------------------<br>
+For further information, please visit the Live Systems web pages at<br>
+&lt;http://debian-live.alioth.debian.org/&gt;, or contact the Live Systems team at<br>
+&lt;debian-live@lists.debian.org&gt;.<br>
+  </p>
+</div></div><br><div class="main_column">
+  <table summary="segment navigation band" bgcolor="#ffffff" width="100%"><tr>
+  <td width="70%" align="center">
+    
+<table summary="segment navigation available documents types: toc,doc,pdf,concordance" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  
+  
+</tr></table>
+  </td>
+  <td width="5%" align="right">
+    <table summary="segment navigation pre/next" border="0" cellpadding="3" cellspacing="0">
+<tr>
+<td align="center" bgcolor="#ffffff">
+  <a href="coding-style.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_prev_red.png" alt="&lt;&lt;&nbsp;previous" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="toc.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_up_red.png" alt="toc" />
+  </a>
+</td>
+<td align="center" bgcolor="#ffffff">
+  <a href="git-repositories.en.html" target="_top">
+    <img border="0" width="22" height="22" src="../../_sisu/image_sys/arrow_next_red.png" alt="next&nbsp;&gt;&gt;" />
+  </a>
+</td>
+<td>
+</td></tr>
+</table>
+  </td></tr>
+  </table>
+  
+</div><div class="main_column">
+
+<a name="bottom" id="bottom"></a>
+<a name="end" id="end"></a>
+</div></div></body>
+</html>
