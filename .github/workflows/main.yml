@@ -28,4 +28,4 @@ jobs:
         apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git
         git clone https://github.com/Blade-OS/os.git
         cd os/
-        ./build.sh
+        ./build
