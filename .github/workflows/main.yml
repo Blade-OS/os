@@ -24,5 +24,6 @@ jobs:
 
     - name: Build ISO
       run: |
+        apt update -y
         apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux
         ./build.sh
