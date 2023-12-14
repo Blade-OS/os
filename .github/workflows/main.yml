@@ -25,5 +25,7 @@ jobs:
     - name: Build ISO
       run: |
         apt update -y
-        apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux
+        apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git
+        git clone https://github.com/Blade-OS/os.git
+        cd os/
         ./build.sh
