@@ -30,6 +30,7 @@ jobs:
         cd os/
         ./build
         mv blade/blade-"$(date -u +%y%m%d)"-amd64.hybrid.iso ~/blade.iso
+        cd ../
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
@@ -48,5 +49,5 @@ jobs:
         prerelease: true
         title: "Bookworm automated preview build"
         files: |
-            ~/blade.iso
+            *.iso
       
