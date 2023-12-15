@@ -1,4 +1,4 @@
-name: monthly-build
+name: monthly-build-x86_64
 
 on:
   push:
@@ -29,13 +29,13 @@ jobs:
         git clone https://github.com/Blade-OS/os.git
         cd os/
         ./build
-        mv blade/blade/blade-"$(date +%Y%m%d)"-amd64.hybrid.iso blade.iso
+        mv blade/blade-"$(date -u +%y%m%d)"-amd64.hybrid.iso blade.iso
 
     - name: Upload ISO
       uses: actions/upload-artifact@v4
       with:
-        name: ISO
-        path: os/blade/blade/blade.iso
+        name: image-x86_64
+        path: os/blade/blade.iso
         if-no-files-found: error
         retention-days: 90
         compression-level: 0
