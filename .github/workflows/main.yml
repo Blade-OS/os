@@ -19,7 +19,7 @@ jobs:
       options: --privileged
 
     steps:
-    - name: Clone build scripts
+    - name: Clone source code
       uses: actions/checkout@v4
 
     - name: Build ISO
@@ -29,3 +29,12 @@ jobs:
         git clone https://github.com/Blade-OS/os.git
         cd os/
         ./build
+
+    - name: Upload ISO
+      uses: actions/upload-artifact@v4
+      with:
+        name: ISO
+        path: os/blade/blade-"$(date +%Y%m%d)"-amd64.hybrid.iso
+        if-no-files-found: error
+        retention-days: 90
+        compression-level: 0
