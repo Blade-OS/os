@@ -19,10 +19,10 @@ jobs:
       options: --privileged
 
     steps:
-    - name: Clone source code
+    - name: Get source
       uses: actions/checkout@v4
 
-    - name: Build ISO
+    - name: Build system
       run: |
         apt update -y
         apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git curl
@@ -31,7 +31,7 @@ jobs:
         ./build
         mv blade/blade-"$(date -u +%y%m%d)"-amd64.hybrid.iso ~/blade.iso
 
-    - name: Upload ISO
+    - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: image-x86_64
@@ -39,3 +39,14 @@ jobs:
         if-no-files-found: warn
         retention-days: 90
         compression-level: 0
+
+    - name: Create release
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "bookworm-preview"
+        prerelease: true
+        title: "Bookworm automated preview build"
+        files: |
+            ~/blade.iso
+      
