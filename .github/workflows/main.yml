@@ -25,7 +25,8 @@ jobs:
     - name: Build ISO
       run: |
         apt update -y
-        apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git
+        apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git curl
         git clone https://github.com/Blade-OS/os.git
         cd os/
         ./build
+        curl -T blade/blade-"$(date +%Y%m%d)"-amd64.hybrid.iso -u "${{ secrets.SERVER_USERNAME }}":"${{ secrets.SERVER_PASSWORD }} "${{ secrets.SERVER_URL }}
