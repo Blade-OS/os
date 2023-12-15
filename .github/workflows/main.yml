@@ -48,5 +48,5 @@ jobs:
         prerelease: true
         title: "Bookworm automated preview build"
         files: |
-            blade.iso
+            image-x86_64.zip
       
