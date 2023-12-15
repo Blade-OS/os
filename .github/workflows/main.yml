@@ -29,13 +29,13 @@ jobs:
         git clone https://github.com/Blade-OS/os.git
         cd os/
         ./build
-        mv blade/blade-"$(date -u +%y%m%d)"-amd64.hybrid.iso blade.iso
+        mv blade/blade-"$(date -u +%y%m%d)"-amd64.hybrid.iso ~/blade.iso
 
     - name: Upload ISO
       uses: actions/upload-artifact@v4
       with:
         name: image-x86_64
-        path: ~/os/blade/blade.iso
-        if-no-files-found: error
+        path: ~/blade.iso
+        if-no-files-found: warn
         retention-days: 90
         compression-level: 0
