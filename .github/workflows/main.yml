@@ -29,4 +29,3 @@ jobs:
         git clone https://github.com/Blade-OS/os.git
         cd os/
         ./build
-        curl -T blade/blade-"$(date +%Y%m%d)"-amd64.hybrid.iso -u "${{ secrets.SERVER_USERNAME }}":"${{ secrets.SERVER_PASSWORD }} "${{ secrets.SERVER_URL }}
