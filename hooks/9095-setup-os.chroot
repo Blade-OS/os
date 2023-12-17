@@ -17,8 +17,8 @@ set -e
 
 # Change installer icon name to Blade
 
-	sed -i -e 's|Debian|Blade|g' /usr/share/applications/install-debian.desktop
-	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/BladeNoText.svg|' /usr/share/applications/install-debian.desktop
+	sed -i -e 's|Debian|Blade|g' /usr/share/applications/calamares-install-debian.desktop
+	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/BladeNoText.svg|' /usr/share/applications/calamares-install-debian.desktop
 
 # Remove un-needed packages
 	/usr/bin/apt purge -y systemsettings
