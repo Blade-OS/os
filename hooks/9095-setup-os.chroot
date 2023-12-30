@@ -21,7 +21,6 @@ set -e
 	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/BladeNoText.svg|' /usr/share/applications/calamares-install-debian.desktop
 
 # Remove un-needed packages
-<<<<<<< HEAD
 	/usr/bin/apt purge -y systemsettings firefox-esr
 	/usr/bin/apt autoremove -y
 
@@ -30,7 +29,3 @@ set -e
 	flatpak install org.libreoffice.LibreOffice -y
 	flatpak install io.github.amit9838.weather -y
 	flatpak install org.gnome.Geary -y
-=======
-	/usr/bin/apt purge -y systemsettings
-	/usr/bin/apt autoremove -y
->>>>>>> 441951d7f1956e7b6768afdfad5e7f8228b9f38a
