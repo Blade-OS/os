@@ -69,6 +69,9 @@ cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/debia
 cp ../os-release $WKDIR/$BLDDIR/config/includes.chroot/etc/
 cp ../issue $WKDIR/$BLDDIR/config/includes.chroot/etc/
 
+# Copy resolv.conf from host to chroot for online actions
+cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf
+
 # Uncomment below line if you have packages in the misc64 folder to include:
 # cp $WKDIR/$FLDIR/misc64/* $WKDIR/$BLDDIR/config/packages.chroot/
 

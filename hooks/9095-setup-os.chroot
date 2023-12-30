@@ -21,5 +21,11 @@ set -e
 	# sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/BladeNoText.svg|' /usr/share/applications/install-debian.desktop
 
 # Remove un-needed packages
-	/usr/bin/apt purge -y systemsettings
+	/usr/bin/apt purge -y systemsettings firefox-esr
 	/usr/bin/apt autoremove -y
+
+# Install flatpak
+	flatpak install org.mozilla.firefox/x86_64/stable -y
+	flatpak install org.libreoffice.LibreOffice -y
+	flatpak install io.github.amit9838.weather -y
+	flatpak install org.gnome.Geary -y
