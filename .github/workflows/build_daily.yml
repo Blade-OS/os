@@ -1,11 +1,11 @@
-name: monthly-build-x86_64
+name: daily-build-x86_64
 
 on:
   push:
     branches:
-      - main
+      - daily
   schedule:
-    - cron: "0 0 1 1-12 *"
+    - cron: "0 0 * * *"
   workflow_dispatch: {}
 
 jobs:
@@ -26,9 +26,9 @@ jobs:
       run: |
         apt update -y
         apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git curl
-        git clone https://github.com/Blade-OS/os.git
+        git clone https://github.com/Blade-OS/os.git -b daily
         cd os/
-        ./build
+        ./build_daily
         mv blade/blade-"$(date -u +%y%m%d)"-amd64.hybrid.iso ~/blade.iso
         cd ../
 
@@ -45,9 +45,9 @@ jobs:
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "bookworm-preview"
+        automatic_release_tag: "daily-build"
         prerelease: true
-        title: "Bookworm automated preview build"
+        title: "Daily automated testing build"
         files: |
-            *.iso
+            *.zip
       
