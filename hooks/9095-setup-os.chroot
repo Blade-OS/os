@@ -10,26 +10,16 @@ set -e
 	ln -sf /etc/skel/.face /etc/skel/.face.icon
 
 # Rebrand into Blade OS
-	mkdir -p /usr/share/icons/desktop-base/emblems/
-	mkdir -p /usr/share/pixmaps/
-
-	cp /usr/share/icons/BladeNoText.svg /usr/share/icons/desktop-base/emblems/emblem-debian.svg
-	cp /usr/share/icons/bladeOS.png /usr/share/pixmaps/debian-logo.png
-
-	sed -i -e 's|https://www.debian.org/|https://www.bladeos.xyz/|g' /etc/os-release
-	sed -i -e 's|Debian|Blade|g' /etc/os-release
-	sed -i -e 's|GNU/Linux|OS|g' /etc/os-release
+	systemctl enable --now bladeos.service
 
 # Change installer icon & name to Blade
-	sed -i -e 's|Debian|Blade|g' /usr/share/applications/calamares-install-debian.desktop
-	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/BladeNoText.svg|' /usr/share/applications/calamares-install-debian.desktop
+	sed -i -e 's|Debian|Blade|g' /usr/share/applications/install-debian.desktop
+	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/BladeNoText.svg|' /usr/share/applications/install-debian.desktop
 
 # Remove un-needed packages
 	/usr/bin/apt purge -y systemsettings firefox-esr
 	/usr/bin/apt autoremove -y
 
 # Install flatpak
-	flatpak install org.mozilla.firefox/x86_64/stable -y
-	flatpak install org.libreoffice.LibreOffice -y
-	flatpak install io.github.amit9838.weather -y
-	flatpak install org.gnome.Geary -y
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+	flatpak install org.mozilla.firefox/x86_64/stable org.libreoffice.LibreOffice io.github.amit9838.weather org.gnome.Geary org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark -y

@@ -1,0 +1,14 @@
+[Unit]
+Description=Blade OS Service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=sed -i -e 's|https://www.debian.org/|https://www.bladeos.xyz/|g' /etc/os-release
+ExecStart=sed -i -e 's|Debian|Blade|g' /etc/os-release
+ExecStart=sed -i -e 's|GNU/Linux|OS|g' /etc/os-release
+ExecStart=mkdir -p /usr/share/icons/desktop-base/emblems/
+ExecStart=mkdir -p /usr/share/pixmaps/
+
+[Install]
+WantedBy=multi-user.target
