@@ -10,7 +10,7 @@ set -e
 	ln -sf /etc/skel/.face /etc/skel/.face.icon
 
 # Rebrand into Blade OS
-	systemctl enable --now bladeos.service
+	systemctl enable bladeos.service
 
 # Change installer icon & name to Blade
 	sed -i -e 's|Debian|Blade|g' /usr/share/applications/install-debian.desktop
