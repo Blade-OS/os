@@ -45,9 +45,9 @@ jobs:
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "bookworm-preview"
+        automatic_release_tag: "daily-build"
         prerelease: true
-        title: "Bookworm automated preview build"
+        title: "Daily automated testing build"
         files: |
-            *.iso
+            *.zip
       

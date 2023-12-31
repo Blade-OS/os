@@ -9,14 +9,18 @@ set -e
 # Change live user
 	ln -sf /etc/skel/.face /etc/skel/.face.icon
 
-# Add logos
+# Rebrand into Blade OS
 	mkdir -p /usr/share/icons/desktop-base/emblems/
 	mkdir -p /usr/share/pixmaps/
+
 	cp /usr/share/icons/BladeNoText.svg /usr/share/icons/desktop-base/emblems/emblem-debian.svg
 	cp /usr/share/icons/bladeOS.png /usr/share/pixmaps/debian-logo.png
 
-# Change installer icon name to Blade
+	sed -i -e 's|https://www.debian.org/|https://www.bladeos.xyz/|g' /etc/os-release
+	sed -i -e 's|Debian|Blade|g' /etc/os-release
+	sed -i -e 's|GNU/Linux|OS|g' /etc/os-release
 
+# Change installer icon & name to Blade
 	sed -i -e 's|Debian|Blade|g' /usr/share/applications/calamares-install-debian.desktop
 	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/BladeNoText.svg|' /usr/share/applications/calamares-install-debian.desktop
 

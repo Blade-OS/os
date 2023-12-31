@@ -45,9 +45,9 @@ jobs:
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "bookworm-preview"
+        automatic_release_tag: "bladeos-1"
         prerelease: true
-        title: "Bookworm automated preview build"
+        title: "Automated monthly build"
         files: |
-            *.iso
+            *.zip
       

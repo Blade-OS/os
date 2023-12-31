@@ -20,7 +20,7 @@ cd $BLDDIR
 
 # Set up build environment
 
-lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution sid --archive-areas "main contrib non-free non-free-firmware" --updates false --security true --cache true --apt-recommends true --firmware-binary true --firmware-chroot true --win32-loader false --iso-application $BLDDIR --iso-preparer NovusOh --iso-publisher Blade --image-name "$BLDDIR-$(date -u +"%y%m%d")" --iso-volume "$BLDDIR-$(date -u +"%y%m%d")" --checksums sha512 --clean --color
+lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution testing --archive-areas "main contrib non-free non-free-firmware" --updates false --security true --cache true --apt-recommends true --firmware-binary true --firmware-chroot true --win32-loader false --iso-application $BLDDIR --iso-preparer NovusOh --iso-publisher Blade --image-name "$BLDDIR-$(date -u +"%y%m%d")" --iso-volume "$BLDDIR-$(date -u +"%y%m%d")" --checksums sha512 --clean --color
 
 # Install desktop and applications
 
@@ -66,7 +66,6 @@ cp ../icons/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/icons/
 cp ../backgrounds/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/backgrounds/
 cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/vendor-logos/
 cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/debian-logos/
-cp ../os-release $WKDIR/$BLDDIR/config/includes.chroot/etc/
 cp ../issue $WKDIR/$BLDDIR/config/includes.chroot/etc/
 
 # Copy resolv.conf from host to chroot for online actions
