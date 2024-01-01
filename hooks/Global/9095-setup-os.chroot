@@ -7,7 +7,7 @@ set -e
 	echo "blade" >> /etc/hostname
 
 # Change live user
-	ln -sf /usr/share/icons/.face /etc/skel/.face
+	ln -sf /usr/share/icons/User /etc/skel/.face
 	ln -sf /etc/skel/.face /etc/skel/.face.icon
 
 # Rebrand into Blade OS
@@ -24,9 +24,9 @@ set -e
 	ln -sf /usr/share/blade/scripts/* /usr/bin/
 
 # Remove un-needed packages
-	/usr/bin/apt purge -y systemsettings firefox-esr
+	/usr/bin/apt purge -y firefox-esr
 	/usr/bin/apt autoremove -y
 
-# Install flatpak
+# Setup flatpak
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-	flatpak install org.mozilla.firefox/x86_64/stable org.libreoffice.LibreOffice io.github.amit9838.weather org.gnome.Geary org.gnome.Cheese org.gnome.Music org.gnome.World.Secrets org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark -y
+	flatpak install org.mozilla.firefox/x86_64/stable org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark -y

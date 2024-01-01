@@ -9,6 +9,7 @@ rootuser () {
 
 rootuser
 echo "Currently uninstalling GNOME."
-sudo apt remove -y gvfs-backends gnome-core gnome-software gnome-software-plugin-flatpak gnome-tweaks gnome-shell-extension-appindicator  gnome-shell-extension-manager
-systemctl disable gdm
+apt remove -y gnome-shell gvfs-backends gnome-core gnome-software gnome-software-plugin-flatpak gnome-tweaks gnome-shell-extension-appindicator  gnome-shell-extension-manager
+apt autoremove -y
+systemctl disable display-manager
 echo "GNOME has been uninstalled."

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+# Remove un-needed packages
+	/usr/bin/apt purge -y systemsettings
+
+# Install flatpak
+	flatpak install org.libreoffice.LibreOffice io.github.amit9838.weather org.gnome.Geary org.gnome.Cheese org.gnome.Music org.gnome.World.Secrets -y

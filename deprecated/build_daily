@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Blade OS
 # By NovusOh & based on eznixOS by eznix (https://sourceforge.net/projects/eznixos/)
 # (GNU/General Public License version 3.0)
 
@@ -21,13 +20,13 @@ cd $BLDDIR
 
 # Set up build environment
 
-lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution bookworm --archive-areas "main contrib non-free non-free-firmware" --updates true --security true --cache true --apt-recommends true --firmware-binary true --firmware-chroot true --win32-loader false --iso-application $BLDDIR --iso-preparer NovusOh --iso-publisher Blade --image-name "$BLDDIR-$(date -u +"%y%m%d")" --iso-volume "$BLDDIR-$(date -u +"%y%m%d")" --checksums sha512 --clean --color
+lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution testing --archive-areas "main contrib non-free non-free-firmware" --updates false --security true --cache true --apt-recommends true --firmware-binary true --firmware-chroot true --win32-loader false --iso-application $BLDDIR --iso-preparer NovusOh --iso-publisher Blade --image-name "$BLDDIR-$(date -u +"%y%m%d")" --iso-volume "$BLDDIR-$(date -u +"%y%m%d")" --checksums sha512 --clean --color
 
 # Install desktop and applications
 
 echo "accountsservice dconf-cli gnome-keyring gvfs-backends gvfs-fuse light-locker gnome-core gnome-software flatpak gnome-software-plugin-flatpak gnome-tweaks gnome-shell-extension-appindicator appstream gnome-shell-extension-manager" > $WKDIR/$BLDDIR/config/package-lists/gnomedesktop.list.chroot
 
-echo "aisleriot alsa-utils apt-transport-https autoconf automake btrfs-progs build-essential cdtool cdrdao cdrskin cifs-utils cryptsetup cryptsetup-initramfs cups cups-filters curl dbus-user-session dbus-x11 debconf debhelper dh-autoreconf dialog dirmngr dkms dos2unix dosfstools dvdauthor exfatprogs faac faad fakeroot ffmpeg flac foomatic-db foomatic-db-engine frei0r-plugins fuse3 ghostscript gir1.2-ibus-1.0 gnome-disk-utility gparted grub-pc gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good haveged htop hunspell-en-us hyphen-en-us ibus ibus-data ibus-gtk ibus-gtk3 iftop im-config inxi isolinux iw jfsutils lame less libegl1-mesa libibus-1.0-5 libgl1-mesa-glx libqt5opengl5 libnss-mdns libsmbclient libxcb-xtest0 libxvidcore4 linux-headers-amd64 live-build lsb-release lshw mencoder menu mjpegtools mpg321 mtools mythes-en-us neofetch netcat-openbsd ntfs-3g nvidia-detect openconnect openvpn openvpn-systemd-resolved os-prober p7zip-full p7zip-rar pciutils perl plymouth plymouth-label plymouth-themes plymouth-x11 policykit-1 printer-driver-gutenprint python3-ibus-1.0 rar samba-common-bin smbclient sox squashfs-tools streamripper sudo syslinux syslinux-common testdisk timeshift twolame udisks2 upower unrar unzip wget x11-common x265 x264 xauth xclip xdg-utils xfsprogs xorg xserver-xorg-input-all xserver-xorg-video-all xorriso xterm zip zstd bleachbit" > $WKDIR/$BLDDIR/config/package-lists/extrapackages.list.chroot
+echo "aisleriot alsa-utils apt-transport-https autoconf automake btrfs-progs build-essential cdtool cdrdao cdrskin cifs-utils cryptsetup cryptsetup-initramfs cups cups-filters curl dbus-user-session dbus-x11 debconf debhelper dh-autoreconf dialog dirmngr dkms dos2unix dosfstools dvdauthor exfatprogs faac faad fakeroot ffmpeg flac foomatic-db foomatic-db-engine frei0r-plugins fuse3 ghostscript gir1.2-ibus-1.0 gnome-disk-utility gparted grub-pc gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good haveged htop hunspell-en-us hyphen-en-us ibus ibus-data ibus-gtk ibus-gtk3 iftop im-config inxi isolinux iw jfsutils lame less libibus-1.0-5 libqt5opengl5 libnss-mdns libsmbclient libxcb-xtest0 libxvidcore4 linux-headers-amd64 live-build lsb-release lshw mencoder menu mjpegtools mpg321 mtools mythes-en-us neofetch netcat-openbsd ntfs-3g nvidia-detect openconnect openvpn openvpn-systemd-resolved os-prober p7zip-full p7zip-rar pciutils perl plymouth plymouth-label plymouth-themes plymouth-x11 policykit-1 printer-driver-gutenprint python3-ibus-1.0 rar samba-common-bin smbclient sox squashfs-tools streamripper sudo syslinux syslinux-common testdisk timeshift twolame udisks2 upower unrar unzip wget x11-common x265 x264 xauth xclip xdg-utils xfsprogs xorg xserver-xorg-input-all xserver-xorg-video-all xorriso xterm zip zstd bleachbit" > $WKDIR/$BLDDIR/config/package-lists/extrapackages.list.chroot
 
 echo "atmel-firmware bluez-firmware firmware-linux-free midisport-firmware firmware-misc-nonfree firmware-amd-graphics firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-intel-sound firmware-iwlwifi firmware-libertas firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-myricom firmware-netronome firmware-netxen firmware-qcom-media firmware-qcom-soc firmware-qlogic firmware-realtek firmware-samsung firmware-siano firmware-ti-connectivity firmware-sof-signed firmware-zd1211" > $WKDIR/$BLDDIR/config/package-lists/firmware.list.chroot
 
@@ -53,25 +52,19 @@ mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/icons/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/vendor-logos/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/debian-logos/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/systemd/system/
-mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/blade/scripts/
 
 # Copy files into the chroot
 cp -r ../bootloaders/ $BLDDIR/config/
-cp -r ../skel/global/ $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
+cp -r ../skel/ $WKDIR/$BLDDIR/config/includes.chroot/etc/
 cp -r ../themes/ $WKDIR/$BLDDIR/config/includes.chroot/usr/share/
 cp -r ../plymouth $WKDIR/$BLDDIR/config/includes.chroot/usr/share/
 cp -r ../Services/* $WKDIR/$BLDDIR/config/includes.chroot/etc/systemd/system/
-cp ../SystemScripts/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/blade/scripts/
-cp ../hooks/Global* $WKDIR/$BLDDIR/config/hooks/normal/
+cp ../hooks/* $WKDIR/$BLDDIR/config/hooks/normal/
 cp ../icons/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/icons/
 cp ../backgrounds/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/backgrounds/
 cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/vendor-logos/
 cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/debian-logos/
 cp ../issue $WKDIR/$BLDDIR/config/includes.chroot/etc/
-
-# Include edition file
-cp ../hooks/GNOME* $WKDIR/$BLDDIR/config/hooks/normal/
-cp -r ../skel/gnome/ $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 
 # Copy resolv.conf from host to chroot for online actions
 cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf
