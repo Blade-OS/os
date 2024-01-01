@@ -1,11 +1,11 @@
-name: daily-build-x86_64
+name: monthly-build-xfce-x86_64
 
 on:
   push:
     branches:
-      - daily
+      - main
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 1 1-12 *"
   workflow_dispatch: {}
 
 jobs:
@@ -26,9 +26,9 @@ jobs:
       run: |
         apt update -y
         apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git curl
-        git clone https://github.com/Blade-OS/os.git -b daily
+        git clone https://github.com/Blade-OS/os.git
         cd os/
-        ./build_daily
+        ./build_xfce
         mv blade/blade-"$(date -u +%y%m%d)"-amd64.hybrid.iso ~/blade.iso
         cd ../
 
@@ -40,14 +40,4 @@ jobs:
         if-no-files-found: warn
         retention-days: 90
         compression-level: 0
-
-    - name: Create release
-      uses: "marvinpinto/action-automatic-releases@latest"
-      with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "daily-build"
-        prerelease: true
-        title: "Daily automated testing build"
-        files: |
-            *.zip
       
