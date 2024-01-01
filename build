@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Codename Novo -- Version: 1 -- by NovusOh & based on eznixOS by eznix (https://sourceforge.net/projects/eznixos/)
+# Codename Novo -- by NovusOh & based on eznixOS by eznix (https://sourceforge.net/projects/eznixos/)
 # (GNU/General Public License version 3.0)
 
 # Step by Step Live-Build
@@ -52,6 +52,7 @@ mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/icons/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/vendor-logos/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/debian-logos/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/systemd/system/
+mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/blade/scripts/
 
 # Copy files into the chroot
 cp -r ../bootloaders/ $BLDDIR/config/
@@ -59,6 +60,7 @@ cp -r ../skel/ $WKDIR/$BLDDIR/config/includes.chroot/etc/
 cp -r ../themes/ $WKDIR/$BLDDIR/config/includes.chroot/usr/share/
 cp -r ../plymouth $WKDIR/$BLDDIR/config/includes.chroot/usr/share/
 cp -r ../Services/* $WKDIR/$BLDDIR/config/includes.chroot/etc/systemd/system/
+cp ../SystemScripts/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/blade/scripts/
 cp ../hooks/* $WKDIR/$BLDDIR/config/hooks/normal/
 cp ../icons/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/icons/
 cp ../backgrounds/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/backgrounds/

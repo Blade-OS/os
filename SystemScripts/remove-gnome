@@ -1,0 +1,14 @@
+rootuser () {
+  if [[ "$EUID" = 0 ]]; then
+    continue
+  else
+    echo "ERROR: Please run as root."
+    exit 1
+  fi
+}
+
+rootuser
+echo "Currently uninstalling GNOME."
+sudo apt remove -y gvfs-backends gnome-core gnome-software gnome-software-plugin-flatpak gnome-tweaks gnome-shell-extension-appindicator  gnome-shell-extension-manager
+systemctl disable gdm
+echo "GNOME has been uninstalled."

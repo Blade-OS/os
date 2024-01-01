@@ -1,0 +1,14 @@
+rootuser () {
+  if [[ "$EUID" = 0 ]]; then
+    continue
+  else
+    echo "ERROR: Please run as root."
+    exit 1
+  fi
+}
+
+rootuser
+echo "Currently installing KDE."
+sudo apt install -y accountsservice akregator ark breeze-gtk-theme breeze-icon-theme gwenview k3b kate kcalc kde-cli-tools kde-cli-tools-data kde-config-cddb kde-config-cron kde-config-gtk-style kde-config-plymouth kde-config-screenlocker kde-config-sddm kde-config-systemd kde-config-tablet kde-plasma-desktop kde-spectacle khelpcenter konq-plugins kwalletmanager libpam-kwallet5 normalize-audio okular plasma-dataengines-addons plasma-nm plasma-pa plymouth-theme-breeze polkit-kde-agent-1 plasma-discover plasma-discover-backend-flatpak print-manager pulseaudio qbittorrent sddm sddm-theme-breeze sddm-theme-debian-breeze skanlite sweeper systemsettings
+systemctl enable sddm
+echo "KDE has been installed."

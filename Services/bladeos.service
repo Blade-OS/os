@@ -8,6 +8,7 @@ ExecStart=sed -i -e 's|https://www.debian.org/|https://www.bladeos.xyz/|g' /etc/
 ExecStart=sed -i -e 's|Debian|Blade|g' /etc/os-release
 ExecStart=sed -i -e 's|GNU/Linux|OS|g' /etc/os-release
 ExecStart=cp -f /usr/share/icons/BladeNoText.svg /usr/share/desktop-base/emblems/emblem-debian.svg
+ExecStart=cp -f /usr/share/icons/BladeNoText.svg /usr/share/icons/vendor/scalable/emblems/emblem-vendor.svg
 ExecStart=cp -f /usr/share/icons/BladeOS.png /usr/share/pixmaps/debian-logo.png
 ExecStart=mkdir -p /usr/share/pixmaps/
 

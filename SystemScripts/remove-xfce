@@ -1,0 +1,14 @@
+rootuser () {
+  if [[ "$EUID" = 0 ]]; then
+    continue
+  else
+    echo "ERROR: Please run as root."
+    exit 1
+  fi
+}
+
+rootuser
+echo "Currently uninstalling XFCE."
+sudo apt remove -y accountsservice arc-theme asunder atril dconf-cli galculator gnome-nettool gnome-software gnome-software-plugin-flatpak gnome-system-tools greybird-gtk-theme gthumb guvcview gvfs-backends gvfs-fuse light-locker lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings mousepad network-manager-gnome network-manager-openconnect-gnome network-manager-openvpn-gnome numix-gtk-theme pavucontrol pulseaudio remmina simple-scan system-config-printer tango-icon-theme transmission-gtk xarchiver xfce4 xfce4-goodies xfce4-power-manager xfce4-terminal xscreensaver
+systemctl enable lightdm
+echo "XFCE has been uninstalled."
