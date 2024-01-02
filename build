@@ -62,7 +62,7 @@ cp -r ../plymouth $WKDIR/$BLDDIR/config/includes.chroot/usr/share/
 cp -r ../Services/* $WKDIR/$BLDDIR/config/includes.chroot/etc/systemd/system/
 cp ../SystemScripts/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/blade/scripts/
 cp ../hooks/Global/* $WKDIR/$BLDDIR/config/hooks/normal/
-cp ../skel/global/* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
+cp ../skel/global/.* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 cp ../icons/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/icons/
 cp ../backgrounds/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/backgrounds/
 cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/vendor-logos/
@@ -71,7 +71,7 @@ cp ../issue $WKDIR/$BLDDIR/config/includes.chroot/etc/
 
 # Include edition files
 cp ../hooks/GNOME/* $WKDIR/$BLDDIR/config/hooks/normal/
-cp ../skel/gnome/* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
+cp -r ../skel/gnome/.* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 
 # Copy resolv.conf from host to chroot for online actions
 cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf

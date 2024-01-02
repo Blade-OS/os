@@ -71,7 +71,7 @@ cp ../issue $WKDIR/$BLDDIR/config/includes.chroot/etc/
 
 # Include edition files
 cp ../hooks/KDE/* $WKDIR/$BLDDIR/config/hooks/normal/
-cp ../skel/kde/* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
+cp ../skel/kde/.* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 
 # Copy resolv.conf from host to chroot for online actions
 cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf
