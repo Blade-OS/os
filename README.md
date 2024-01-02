@@ -7,7 +7,16 @@ A simple Debian based Linux distro that gets things set up easily.
 Blade OS (GNOME) - Best for people coming from Mac OS.
 Blade OS K (Plasma) - Best for people coming from Windows.
 XBlade OS (XFCE) - Best for lower end and/or older systems.
-Blade OS Server - Coming soon.
+Blade OS Home Server - Create & manage your server with a small desktop.
+
+# Milestones:
+GNOME Edition - Complete
+XFCE Edition - WIP
+KDE Edition - Currently not working on it
+Home Server - Currently not working on it
+Utilities - 1 completed, still WIP
+
+# Although the GNOME edition is complete, that does NOT mean that the OS is complete as a whole. So expect some internal changes in newer builds.
 
 # How to build (WIP)
 Builds are usually automated via GitHub actions. However if you want to build manually, you can run ```build``` as root. There's other editions that you can build.
