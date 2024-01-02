@@ -55,6 +55,10 @@ mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/debian-log
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/systemd/system/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/blade/scripts/
 
+# Include edition file
+cp ../hooks/KDE* $WKDIR/$BLDDIR/config/hooks/normal/
+cp ../skel/kde/* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
+
 # Copy files into the chroot
 cp -r ../bootloaders/ $BLDDIR/config/
 cp -r ../skel/global/ $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
@@ -68,10 +72,6 @@ cp ../backgrounds/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/backgrounds/
 cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/vendor-logos/
 cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/debian-logos/
 cp ../issue $WKDIR/$BLDDIR/config/includes.chroot/etc/
-
-# Include edition file
-cp ../hooks/KDE* $WKDIR/$BLDDIR/config/hooks/normal/
-cp -r ../skel/kde/ $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 
 # Copy resolv.conf from host to chroot for online actions
 cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf

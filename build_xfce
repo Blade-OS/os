@@ -25,7 +25,7 @@ lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux
 
 # Install desktop and applications
 
-echo "accountsservice akregator ark breeze-gtk-theme breeze-icon-theme gwenview k3b kate kcalc kde-cli-tools kde-cli-tools-data kde-config-cddb kde-config-cron kde-config-gtk-style kde-config-plymouth kde-config-screenlocker kde-config-sddm kde-config-systemd kde-config-tablet kde-plasma-desktop kde-spectacle khelpcenter kwalletmanager libpam-kwallet5 normalize-audio okular plasma-dataengines-addons plasma-nm plasma-pa plymouth-theme-breeze polkit-kde-agent-1 plasma-discover plasma-discover-backend-flatpak print-manager pulseaudio qbittorrent sddm sddm-theme-breeze sddm-theme-debian-breeze skanlite sweeper systemsettings" > $WKDIR/$BLDDIR/config/package-lists/kdeplasma.list.chroot
+echo "accountsservice arc-theme asunder atril dconf-cli galculator gnome-nettool gnome-software gnome-software-plugin-flatpak gnome-system-tools greybird-gtk-theme gthumb guvcview gvfs-backends gvfs-fuse light-locker lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings mousepad network-manager-gnome network-manager-openconnect-gnome network-manager-openvpn-gnome numix-gtk-theme pavucontrol pulseaudio remmina simple-scan system-config-printer tango-icon-theme transmission-gtk xarchiver xfce4 xfce4-goodies xfce4-power-manager xfce4-terminal xscreensaver" > $WKDIR/$BLDDIR/config/package-lists/xfce4.list.chroot
 
 echo "aisleriot alsa-utils apt-transport-https autoconf automake btrfs-progs build-essential cdtool cdrdao cdrskin cifs-utils cryptsetup cryptsetup-initramfs cups cups-filters curl dbus-user-session dbus-x11 debconf debhelper dh-autoreconf dialog dirmngr dkms dos2unix dosfstools dvdauthor exfatprogs faac faad fakeroot ffmpeg flac foomatic-db foomatic-db-engine frei0r-plugins fuse3 ghostscript gir1.2-ibus-1.0 gnome-disk-utility gparted grub-pc gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good haveged htop hunspell-en-us hyphen-en-us ibus ibus-data ibus-gtk ibus-gtk3 iftop im-config inxi isolinux iw jfsutils lame less libegl1-mesa libibus-1.0-5 libgl1-mesa-glx libqt5opengl5 libnss-mdns libsmbclient libxcb-xtest0 libxvidcore4 linux-headers-amd64 live-build lsb-release lshw mencoder menu mjpegtools mpg321 mtools mythes-en-us neofetch netcat-openbsd ntfs-3g nvidia-detect openconnect openvpn openvpn-systemd-resolved os-prober p7zip-full p7zip-rar pciutils perl plymouth plymouth-label plymouth-themes plymouth-x11 policykit-1 printer-driver-gutenprint python3-ibus-1.0 rar samba-common-bin smbclient sox squashfs-tools streamripper sudo syslinux syslinux-common testdisk timeshift twolame udisks2 upower unrar unzip wget x11-common x265 x264 xauth xclip xdg-utils xfsprogs xorg xserver-xorg-input-all xserver-xorg-video-all xorriso xterm zip zstd bleachbit" > $WKDIR/$BLDDIR/config/package-lists/extrapackages.list.chroot
 
@@ -55,6 +55,10 @@ mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/debian-log
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/systemd/system/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/blade/scripts/
 
+# Include edition file
+cp ../hooks/XFCE* $WKDIR/$BLDDIR/config/hooks/normal/
+cp ../skel/xfce/* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
+
 # Copy files into the chroot
 cp -r ../bootloaders/ $BLDDIR/config/
 cp -r ../skel/global/ $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
@@ -68,10 +72,6 @@ cp ../backgrounds/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/backgrounds/
 cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/vendor-logos/
 cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/debian-logos/
 cp ../issue $WKDIR/$BLDDIR/config/includes.chroot/etc/
-
-# Include edition file
-cp ../hooks/XFCE* $WKDIR/$BLDDIR/config/hooks/normal/
-cp -r ../skel/xfce/ $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 
 # Copy resolv.conf from host to chroot for online actions
 cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf
