@@ -55,23 +55,23 @@ mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/debian-log
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/systemd/system/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/blade/scripts/
 
-# Include edition file
-cp ../hooks/XFCE* $WKDIR/$BLDDIR/config/hooks/normal/
-cp ../skel/xfce/* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
-
 # Copy files into the chroot
 cp -r ../bootloaders/ $BLDDIR/config/
-cp -r ../skel/global/ $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 cp -r ../themes/ $WKDIR/$BLDDIR/config/includes.chroot/usr/share/
 cp -r ../plymouth $WKDIR/$BLDDIR/config/includes.chroot/usr/share/
 cp -r ../Services/* $WKDIR/$BLDDIR/config/includes.chroot/etc/systemd/system/
 cp ../SystemScripts/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/blade/scripts/
-cp ../hooks/Global* $WKDIR/$BLDDIR/config/hooks/normal/
+cp ../hooks/Global/* $WKDIR/$BLDDIR/config/hooks/normal/
+cp ../skel/global/* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 cp ../icons/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/icons/
 cp ../backgrounds/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/backgrounds/
 cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/vendor-logos/
 cp ../logos/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/desktop-base/debian-logos/
 cp ../issue $WKDIR/$BLDDIR/config/includes.chroot/etc/
+
+# Include edition files
+cp ../hooks/XFCE/* $WKDIR/$BLDDIR/config/hooks/normal/
+cp ../skel/xfce/* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 
 # Copy resolv.conf from host to chroot for online actions
 cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf
