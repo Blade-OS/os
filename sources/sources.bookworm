@@ -1,3 +1,6 @@
+# Blade OS
+deb https://deb.bladeos.xyz/ bookworm main
+
 # Main
 deb https://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
 # deb-src https://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware

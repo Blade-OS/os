@@ -11,10 +11,16 @@ Blade OS Home Server - Create & manage your server with a small desktop.
 
 # Milestones:
 GNOME Edition - Complete
+
 XFCE Edition - WIP
+
 KDE Edition - Currently not working on it
+
 Home Server - Currently not working on it
-Utilities - 1 completed, still WIP
+
+Repository - Somewhat complete, some fixing may be needed.
+
+Utilities - Moving to repo.
 
 # Although the GNOME edition is complete, that does NOT mean that the OS is complete as a whole. So expect some internal changes in newer builds.
 
