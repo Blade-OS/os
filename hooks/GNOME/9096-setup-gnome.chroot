@@ -3,7 +3,15 @@
 set -e
 
 # Remove un-needed packages
+	/usr/bin/apt install -y bladeos-gnome-extensions bladeos-gnome-shell adw-gtk3-theme
 	/usr/bin/apt purge -y systemsettings
 
+# Install colloid theme
+git clone https://github.com/vinceliuice/Colloid-icon-theme.git
+cd Colloid-icon-theme
+./install.sh
+cd ../
+rm -rf Colloid-icon-theme/
+
 # Install flatpak
-	flatpak install org.libreoffice.LibreOffice io.github.amit9838.weather -y
+	flatpak install org.libreoffice.LibreOffice -y

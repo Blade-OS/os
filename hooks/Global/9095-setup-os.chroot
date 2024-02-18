@@ -6,19 +6,16 @@ set -e
 	rm /etc/hostname
 	echo "blade" >> /etc/hostname
 
-# Change live user
-	ln -sf /usr/share/icons/User /etc/skel/.face
-	ln -sf /etc/skel/.face /etc/skel/.face.icon
-
-# Rebrand into Blade OS
-	systemctl enable bladeos.service
-	sed -i -e 's|https://www.debian.org/|https://www.bladeos.xyz/|g' /etc/os-release
-	sed -i -e 's|Debian|Blade|g' /etc/os-release
-	sed -i -e 's|GNU/Linux|OS|g' /etc/os-release
+# Install Blade OS core
+curl https://deb.bladeos.xyz/dists/bookworm/bladeos.gpg -o /etc/apt/trusted.gpg.d/bladeos.gpg
+curl https://deb.bladeos.xyz/dists/bookworm/main/binary-all/bladeos-repo.deb -o /etc/bladeos-repo.deb
+/usr/bin/dpkg -i /etc/bladeos-repo.deb
+rm -f /etc/bladeos-repo.deb
+/usr/bin/apt update -y && /usr/bin/apt upgrade -y
 
 # Change installer icon & name to Blade
 	sed -i -e 's|Debian|Blade|g' /usr/share/applications/install-debian.desktop
-	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/BladeNoText.svg|' /usr/share/applications/install-debian.desktop
+	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/desktop-base/scalable/emblems/emblem-debian.svg|' /usr/share/applications/install-debian.desktop
 
 # Link scripts to /usr/bin
 	ln -sf /usr/share/blade/scripts/* /usr/bin/
