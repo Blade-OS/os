@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# Blade OS K
+# By NovusOh & based on eznixOS by eznix (https://sourceforge.net/projects/eznixos/)
+# (GNU/General Public License version 3.0)
+
+# Step by Step Live-Build
+
+# Assign work, files, and build directory variables
+
+WKDIR="$(pwd)"
+FLDIR="blade"
+BLDDIR="blade"
+
+# Remove icon cache cleaning hook, create the build staging folder, and cd into it
+
+[[ -f /usr/share/live/build/hooks/normal/9000-remove-gnome-icon-cache.hook.chroot ]] && rm /usr/share/live/build/hooks/normal/9000-remove-gnome-icon-cache.hook.chroot
+
+mkdir $BLDDIR
+cd $BLDDIR
+
+# Set up build environment
+
+lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution bookworm --archive-areas "main contrib non-free non-free-firmware" --updates true --security true --cache true --apt-recommends true --firmware-binary true --firmware-chroot true --win32-loader false --iso-application $BLDDIR --iso-preparer NovusOh --iso-publisher Blade --image-name "$BLDDIR-$(date -u +"%y%m%d")" --iso-volume "$BLDDIR-$(date -u +"%y%m%d")" --checksums sha512 --clean --color
+
+# Install desktop and applications
+
+echo "accountsservice arc-theme asunder atril dconf-cli galculator gnome-nettool gnome-software gnome-software-plugin-flatpak gnome-system-tools greybird-gtk-theme gthumb guvcview gvfs-backends gvfs-fuse light-locker lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings mousepad network-manager-gnome network-manager-openconnect-gnome network-manager-openvpn-gnome numix-gtk-theme pavucontrol pulseaudio remmina simple-scan system-config-printer tango-icon-theme transmission-gtk xarchiver xfce4 xfce4-goodies xfce4-power-manager xfce4-terminal xscreensaver" > $WKDIR/$BLDDIR/config/package-lists/xfce4.list.chroot
+
+echo "aisleriot alsa-utils apt-transport-https autoconf automake btrfs-progs build-essential cdtool cdrdao cdrskin cifs-utils cryptsetup cryptsetup-initramfs cups cups-filters curl dbus-user-session dbus-x11 debconf debhelper dh-autoreconf dialog dirmngr dkms dos2unix dosfstools dvdauthor exfatprogs faac faad fakeroot ffmpeg flac foomatic-db foomatic-db-engine frei0r-plugins fuse3 ghostscript gir1.2-ibus-1.0 gnome-disk-utility gparted grub-pc gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good haveged htop hunspell-en-us hyphen-en-us ibus ibus-data ibus-gtk ibus-gtk3 iftop im-config inxi isolinux iw jfsutils lame less libegl1-mesa libibus-1.0-5 libgl1-mesa-glx libqt5opengl5 libnss-mdns libsmbclient libxcb-xtest0 libxvidcore4 linux-headers-amd64 live-build lsb-release lshw mencoder menu mjpegtools mpg321 mtools mythes-en-us neofetch netcat-openbsd ntfs-3g nvidia-detect openconnect openvpn openvpn-systemd-resolved os-prober p7zip-full p7zip-rar pciutils perl plymouth plymouth-label plymouth-themes plymouth-x11 policykit-1 printer-driver-gutenprint python3-ibus-1.0 rar samba-common-bin smbclient sox squashfs-tools streamripper sudo syslinux syslinux-common testdisk timeshift twolame udisks2 upower unrar unzip wget x11-common x265 x264 xauth xclip xdg-utils xfsprogs xorg xserver-xorg-input-all xserver-xorg-video-all xorriso xterm zip zstd bleachbit" > $WKDIR/$BLDDIR/config/package-lists/extrapackages.list.chroot
+
+echo "atmel-firmware bluez-firmware firmware-linux-free midisport-firmware firmware-misc-nonfree firmware-amd-graphics firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-intel-sound firmware-iwlwifi firmware-libertas firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-myricom firmware-netronome firmware-netxen firmware-qcom-media firmware-qcom-soc firmware-qlogic firmware-realtek firmware-samsung firmware-siano firmware-ti-connectivity firmware-sof-signed firmware-zd1211" > $WKDIR/$BLDDIR/config/package-lists/firmware.list.chroot
+
+echo "efibootmgr grub-common grub-pc-bin grub2-common grub-efi-amd64 grub-efi-amd64-bin grub-efi-amd64-signed grub-efi-ia32-bin libefiboot1 libefivar1 mokutil os-prober shim-helpers-amd64-signed shim-signed shim-signed-common shim-unsigned" > $WKDIR/$BLDDIR/config/package-lists/grubs.list.binary
+
+# Uncomment below line to include more Broadcom WiFi drivers:
+echo "b43-fwcutter firmware-b43-installer firmware-b43legacy-installer" > $WKDIR/$BLDDIR/config/package-lists/bcmfirmware.list.chroot
+
+#  Include the Calamares Installer
+
+mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/
+cp -r ../calamares/ $WKDIR/$BLDDIR/config/includes.chroot/etc/
+echo "calamares calamares-settings-debian" > $WKDIR/$BLDDIR/config/package-lists/calamares.list.chroot
+
+# Make folders in the chroot
+
+mkdir -p $WKDIR/$BLDDIR/config/hooks/normal/
+mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/local/bin/
+mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/apt/trusted.gpg.d
+mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/.config/
+mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/applications/
+
+# Copy files into the chroot
+cp -r ../bootloaders/ $BLDDIR/config/
+cp ../hooks/Global/* $WKDIR/$BLDDIR/config/hooks/normal/
+cp ../skel/global/.* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
+
+# Include edition files
+cp ../hooks/XFCE/* $WKDIR/$BLDDIR/config/hooks/normal/
+
+# Copy resolv.conf from host to chroot for online actions
+cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf
+
+# Uncomment below line if you have packages in the misc64 folder to include:
+# cp $WKDIR/$FLDIR/misc64/* $WKDIR/$BLDDIR/config/packages.chroot/
+
+# Start the build process
+
+lb build
+
+# Disclaimer:
+# THIS SOFTWARE IS PROVIDED BY EZNIX “AS IS” AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+# EVENT SHALL EZNIX BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+# IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+

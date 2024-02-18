@@ -1,4 +1,4 @@
-name: gnome-monthly-x86_64
+name: xfce-monthly-x86_64
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
         apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git curl
         git clone https://github.com/Blade-OS/os.git
         cd os/
-        ./build
+        ./build_xfce
         mv blade/blade-"$(date -u +%y%m%d)"-amd64.hybrid.iso ~/blade.iso
         cd ../
 

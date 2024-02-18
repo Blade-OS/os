@@ -3,4 +3,12 @@
 set -e
 
 # Remove un-needed packages
+	/usr/bin/apt install -y adw-gtk3-theme
 	/usr/bin/apt purge -y systemsettings
+
+# Install colloid theme
+git clone https://github.com/vinceliuice/Colloid-icon-theme.git
+cd Colloid-icon-theme
+./install.sh
+cd ../
+rm -rf Colloid-icon-theme/
