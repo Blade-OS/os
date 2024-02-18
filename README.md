@@ -1,7 +1,7 @@
 # Blade OS (Version 24)
 A simple Debian based Linux distro that gets things set up easily.
 
-[![monthly-build-x86_64](https://github.com/Blade-OS/os/actions/workflows/build_monthly.yml/badge.svg)](https://github.com/Blade-OS/os/actions/workflows/build_monthly.yml) [![monthly-build-kde-x86_64](https://github.com/Blade-OS/os/actions/workflows/build_k_monthly.yml/badge.svg)](https://github.com/Blade-OS/os/actions/workflows/build_k_monthly.yml) [![monthly-build-xfce-x86_64](https://github.com/Blade-OS/os/actions/workflows/build_x_monthly.yml/badge.svg)](https://github.com/Blade-OS/os/actions/workflows/build_x_monthly.yml)
+[![monthly-build-x86_64](https://github.com/Blade-OS/os/actions/workflows/build_monthly.yml/badge.svg)](https://github.com/Blade-OS/os/actions/workflows/build_monthly.yml) [![monthly-build-xfce-x86_64](https://github.com/Blade-OS/os/actions/workflows/build_x_monthly.yml/badge.svg)](https://github.com/Blade-OS/os/actions/workflows/build_x_monthly.yml)
 
 # Editions
 Blade OS (GNOME) - Best for people coming from Mac OS.
