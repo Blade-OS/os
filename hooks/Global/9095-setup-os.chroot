@@ -16,6 +16,7 @@ rm -f /etc/bladeos-repo.deb
 
 # Change installer icon & name to Blade
 	sed -i -e 's|Debian|Blade|g' /usr/share/applications/install-debian.desktop
+	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/Colloid-dark/apps/scalable/system-software-install.svg|' /usr/share/applications/install-debian.desktop
 
 # Link scripts to /usr/bin
 	ln -sf /usr/share/blade/scripts/* /usr/bin/
