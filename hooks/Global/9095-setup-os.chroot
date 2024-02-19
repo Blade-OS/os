@@ -12,10 +12,10 @@ curl https://deb.bladeos.xyz/dists/bookworm/main/binary-all/bladeos-repo.deb -o 
 /usr/bin/dpkg -i /etc/bladeos-repo.deb
 rm -f /etc/bladeos-repo.deb
 /usr/bin/apt update -y && /usr/bin/apt upgrade -y
+/usr/bin/apt install ufw gufw -y
 
 # Change installer icon & name to Blade
 	sed -i -e 's|Debian|Blade|g' /usr/share/applications/install-debian.desktop
-	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/desktop-base/scalable/emblems/emblem-debian.svg|' /usr/share/applications/install-debian.desktop
 
 # Link scripts to /usr/bin
 	ln -sf /usr/share/blade/scripts/* /usr/bin/
@@ -23,6 +23,7 @@ rm -f /etc/bladeos-repo.deb
 # Remove un-needed packages
 	/usr/bin/apt purge -y firefox-esr
 	/usr/bin/apt autoremove -y
+	/usr/bin/apt clean
 
 # Setup flatpak
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
