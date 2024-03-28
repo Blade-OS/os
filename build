@@ -54,14 +54,14 @@ mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/applications/
 cp -r ../bootloaders/ $BLDDIR/config/
 cp ../hooks/Global/* $WKDIR/$BLDDIR/config/hooks/normal/
 cp ../skel/global/.* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
-cp ../splash.jpg /usr/share/live/build/bootloaders/
-cp ../splash.jpg /usr/share/live/build/bootloaders/extlinux/
-cp ../splash.jpg /usr/share/live/build/bootloaders/grub-legacy/
-cp ../splash.jpg /usr/share/live/build/bootloaders/grub-pc/
-cp ../splash.jpg /usr/share/live/build/bootloaders/isolinux/
-cp ../splash.jpg /usr/share/live/build/bootloaders/pxelinux/
-cp ../splash.jpg /usr/share/live/build/bootloaders/syslinux/
-cp ../splash.jpg /usr/share/live/build/bootloaders/syslinux_common/
+cp ../splash.png /usr/share/live/build/bootloaders/
+cp ../splash.png /usr/share/live/build/bootloaders/extlinux/
+cp ../splash.png /usr/share/live/build/bootloaders/grub-legacy/
+cp ../splash.png /usr/share/live/build/bootloaders/grub-pc/
+cp ../splash.png /usr/share/live/build/bootloaders/isolinux/
+cp ../splash.png /usr/share/live/build/bootloaders/pxelinux/
+cp ../splash.png /usr/share/live/build/bootloaders/syslinux/
+cp ../splash.png /usr/share/live/build/bootloaders/syslinux_common/
 
 # Include edition files
 cp ../hooks/GNOME/* $WKDIR/$BLDDIR/config/hooks/normal/
