@@ -25,12 +25,6 @@ rm -f /etc/bladeos-repo.deb
 	/usr/bin/apt autoremove -y
 	/usr/bin/apt clean
 
-# Add backports
-echo "
-deb http://deb.debian.org/debian bookworm-backports main contrib non-free
-deb-src http://deb.debian.org/debian bookworm-backports main contrib non-free
-" > /etc/apt/sources.list
-
 # Pin backports
 echo "Package: *
 Pin: release n=bookworm-backports
