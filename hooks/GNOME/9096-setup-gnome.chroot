@@ -9,8 +9,8 @@ set -e
 	/usr/bin/apt clean
 
 # Install colloid theme
-wget https://github.com/vinceliuice/Colloid-icon-theme/archive/refs/tags/2023-07-01.tar.gz
-tar -xf 2023-07-01.tar.gz 2023-07-01/
+curl https://github.com/vinceliuice/Colloid-icon-theme/archive/refs/tags/2023-07-01.tar.gz
+tar -xf 2023-07-01.tar.gz
 cd 2023-07-01/
 ./install.sh
 cd ../
