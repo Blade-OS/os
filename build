@@ -21,7 +21,7 @@ cd $BLDDIR
 
 # Set up build environment
 
-lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution bookworm --archive-areas "main contrib non-free non-free-firmware" --updates true --security true --cache true --apt-recommends true --firmware-binary true --firmware-chroot true --win32-loader false --iso-application $BLDDIR --iso-preparer NovusOh --iso-publisher Blade --image-name "$BLDDIR-$(date -u +"%y%m%d")" --iso-volume "$BLDDIR-$(date -u +"%y%m%d")" --checksums sha512 --clean --color
+lb config --binary-images iso-hybrid --debian-installer live --debian-installer-gui true --mode debian --architectures amd64 --linux-flavours amd64 --distribution bookworm --archive-areas "main contrib non-free non-free-firmware" --updates true --security true --cache true --apt-recommends true --firmware-binary true --firmware-chroot true --win32-loader false --iso-application $BLDDIR --iso-preparer NovusOh --iso-publisher Blade --image-name "$BLDDIR-$(date -u +"%y%m%d")" --iso-volume "$BLDDIR-$(date -u +"%y%m%d")" --checksums sha512 --clean --color
 
 # Install desktop and applications
 
