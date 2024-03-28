@@ -23,7 +23,6 @@ curl https://deb.bladeos.xyz/dists/bookworm/main/binary-all/bladeos-repo.deb -o 
 /usr/bin/dpkg -i /etc/bladeos-repo.deb
 rm -f /etc/bladeos-repo.deb
 /usr/bin/apt update -y && /usr/bin/apt upgrade -y
-/usr/bin/apt install ufw gufw -y
 
 # Change installer icon & name to Blade
 	sed -i -e 's|Debian|Blade|g' /usr/share/applications/install-debian.desktop
