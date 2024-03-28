@@ -9,12 +9,11 @@ set -e
 	/usr/bin/apt clean
 
 # Install colloid theme
-curl https://github.com/vinceliuice/Colloid-icon-theme/archive/refs/tags/2023-07-01.tar.gz
-tar -xf 2023-07-01.tar.gz
-cd 2023-07-01/
+git clone https://github.com/vinceliuice/Colloid-icon-theme.git
+cd Colloid-icon-theme
 ./install.sh
 cd ../
-rm -rf 2023-07-01.tar.gz 2023-07-01/
+rm -rf Colloid-icon-theme/
 
 # Install flatpak
 	flatpak install org.libreoffice.LibreOffice -y
