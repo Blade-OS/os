@@ -6,17 +6,6 @@ set -e
 	rm /etc/hostname
 	echo "blade" >> /etc/hostname
 
-# Add backports
-echo "
-deb http://deb.debian.org/debian bookworm-backports main contrib non-free
-deb-src http://deb.debian.org/debian bookworm-backports main contrib non-free
-" > /etc/apt/sources.list
-
-# Pin backports
-echo "Package: *
-Pin: release n=bookworm-backports
-Pin-Priority: 900" > /etc/apt/preferences.d/99debian-backports
-
 # Install Blade OS core
 curl https://deb.bladeos.xyz/dists/bookworm/bladeos.gpg -o /etc/apt/trusted.gpg.d/bladeos.gpg
 curl https://deb.bladeos.xyz/dists/bookworm/main/binary-all/bladeos-repo.deb -o /etc/bladeos-repo.deb
