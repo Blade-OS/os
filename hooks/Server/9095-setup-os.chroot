@@ -20,6 +20,9 @@ rm -f /etc/bladeos-repo.deb
 # Link scripts to /usr/bin
 	ln -sf /usr/share/blade/scripts/* /usr/bin/
 
+# Enable services
+	systemctl enable cockpit.socket
+
 # Remove un-needed packages
 	/usr/bin/apt autoremove -y
 	/usr/bin/apt clean
