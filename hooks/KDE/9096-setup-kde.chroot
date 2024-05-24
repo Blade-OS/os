@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -e
-
-# Install flatpak
-	flatpak install org.libreoffice.LibreOffice org.kde.kdenlive org.kde.krita -y

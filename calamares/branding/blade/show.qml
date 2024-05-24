@@ -108,7 +108,7 @@ Presentation
                 anchors.horizontalCenterOffset: 0
                 font.pixelSize: parent.width *.020
                 color: 'white'
-                text: qsTr("<b>All your Debian packages work with Blade! If there's no Flatpak version of an app you're looking for, Most likely you can install it as a deb!<br/>")
+                text: qsTr("<b>Most of your Debian & Flatpak packages work with Blade!<br/>")
                 wrapMode: Text.WordWrap
                 width: parent.width / 1.4
                 horizontalAlignment: Text.AlignHCenter

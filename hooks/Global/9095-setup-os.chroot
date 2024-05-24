@@ -25,6 +25,12 @@ rm -f /etc/bladeos-repo.deb
 	/usr/bin/apt autoremove -y
 	/usr/bin/apt clean
 
+# Enable services
+	systemctl enable ufw
+
+# Enable firewall
+	ufw enable
+
 # Setup flatpak
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 	flatpak install org.mozilla.firefox/x86_64/stable org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark -y
