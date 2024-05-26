@@ -1,4 +1,4 @@
-name: gnome-monthly-x86_64
+name: plasma-monthly-x86_64
 
 on:
   push:
