@@ -30,4 +30,4 @@ rm -f /etc/bladeos-repo.deb
 
 # Setup flatpak
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-	flatpak install org.mozilla.firefox/x86_64/stable org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark -y
+	flatpak install org.mozilla.firefox/x86_64/stable -y
