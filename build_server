@@ -70,7 +70,7 @@ cp ../splash.png /usr/share/live/build/bootloaders/syslinux_common/
 
 # Include edition files
 cp ../hooks/GNOME-Server/* $WKDIR/$BLDDIR/config/hooks/normal/
-cp -r ../skel/gnome/.* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
+cp -r ../skel/gnome-server/.* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 
 # Copy resolv.conf from host to chroot for online actions
 cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf

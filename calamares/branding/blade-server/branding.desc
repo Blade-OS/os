@@ -10,7 +10,7 @@ strings:
     versionedName:       Blade OS Server
     shortVersionedName:  Blade
     bootloaderEntryName: Blade OS Server
-    productUrl:          https://bladeos.xyz/
+    productUrl:          https://bladeos.xyz/server
 #   supportUrl:          https://bladeos.xyz/support
 #   knownIssuesUrl:      https://bladeos.xyz/issues
 #   releaseNotesUrl:     https://bladeos.xyz/notes
@@ -27,4 +27,4 @@ style:
    sidebarBackground:    "#303030"
    sidebarText:          "#ABABAB"
    sidebarTextSelect:    "#FFFFFF"
-   sidebarTextHighlight: "#3E8FA8"
+   sidebarTextHighlight: "#3EA842"
