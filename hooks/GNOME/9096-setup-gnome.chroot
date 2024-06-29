@@ -9,11 +9,12 @@ set -e
 	/usr/bin/apt clean
 
 # Install colloid theme
-git clone https://github.com/vinceliuice/Colloid-icon-theme.git
-cd Colloid-icon-theme
+wget https://github.com/vinceliuice/Colloid-icon-theme/archive/refs/tags/2024-02-28.zip
+unzip -qq 2024-02-28.zip
+cd Colloid-icon-theme-2024-02-28/
 ./install.sh
 cd ../
-rm -rf Colloid-icon-theme/
+rm -rf Colloid-icon-theme-2024-02-28/
 
 # Install flatpak
 	flatpak install org.libreoffice.LibreOffice org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark -y
