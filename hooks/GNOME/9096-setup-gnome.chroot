@@ -11,6 +11,7 @@ set -e
 # Install colloid theme
 wget https://github.com/vinceliuice/Colloid-icon-theme/archive/refs/tags/2024-02-28.zip
 unzip -qq 2024-02-28.zip
+rm -rf 2024-02-28.zip
 cd Colloid-icon-theme-2024-02-28/
 ./install.sh
 cd ../
