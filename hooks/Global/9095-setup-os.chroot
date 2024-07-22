@@ -7,8 +7,8 @@ set -e
 	echo "blade" >> /etc/hostname
 
 # Install Blade OS core
-curl https://deb.bladeos.xyz/blade/dists/bookworm/bladeos.gpg -o /etc/apt/trusted.gpg.d/bladeos.gpg
-curl https://deb.bladeos.xyz/blade/dists/bookworm/main/binary-all/bladeos-repo.deb -o /etc/bladeos-repo.deb
+curl https://deb.bladeos.xyz/blade/dists/trixie/bladeos.gpg -o /etc/apt/trusted.gpg.d/bladeos.gpg
+curl https://deb.bladeos.xyz/blade/dists/trixie/main/binary-all/bladeos-repo.deb -o /etc/bladeos-repo.deb
 /usr/bin/dpkg -i /etc/bladeos-repo.deb
 rm -f /etc/bladeos-repo.deb
 /usr/bin/apt update -y && /usr/bin/apt upgrade -y

@@ -5,8 +5,8 @@ welcomeStyleCalamares: true
 strings:
     productName:         Blade OS
     shortProductName:    Blade
-    version:             24
-    shortVersion:        24
+    version:             Alpha
+    shortVersion:        Alpha
     versionedName:       Blade OS
     shortVersionedName:  Blade
     bootloaderEntryName: Blade OS
