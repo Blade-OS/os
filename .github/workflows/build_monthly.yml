@@ -28,6 +28,7 @@ jobs:
         apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git curl
         ./build
         mv blade/blade-"$(date -u +%y%m%d)"-amd64.hybrid.iso ~/blade.iso
+	rm -rf blade/
         cd ../
 
     - name: Upload artifact
