@@ -8,5 +8,5 @@ Builds are usually automated via GitHub actions. However, if you want to build i
 
 ```apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso git curl```
 
-Build Desktop Edition - `build`
-Build Server Edition - `build_server`
+Build - `build`
+Build Basic - `build_basic`

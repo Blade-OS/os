@@ -1,4 +1,4 @@
-name: main-monthly-x86_64
+name: basic-monthly-x86_64
 
 on:
   push:
@@ -26,7 +26,7 @@ jobs:
       run: |
         apt update -y
         apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git curl
-        ./build
+        ./build_basic
         mv blade/blade-"$(date -u +%y%m%d)"-amd64.hybrid.iso ~/blade.iso
         rm -rf blade/
         cd ../

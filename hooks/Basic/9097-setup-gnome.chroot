@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+# Remove non-Basic packages
+	/usr/bin/apt purge -y bladeos-gnome-extensions gnome-calculator totem gnome-contacts eog evince gnome-text-editor
+	/usr/bin/apt autopurge -y
+	/usr/bin/apt clean
+
+# Remove flatpak
+	flatpak remove org.libreoffice.LibreOffice -y
