@@ -17,8 +17,8 @@ rm -f /etc/bladeos-repo.deb
 /usr/bin/apt update -y && /usr/bin/apt upgrade -y
 
 # Change installer icon & name to Blade
-	sed -i -e 's|Debian|Blade|g' /usr/share/applications/install-debian.desktop
-	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/Colloid-dark/apps/scalable/system-software-install.svg|' /usr/share/applications/install-debian.desktop
+#	sed -i -e 's|Debian|Blade|g' /usr/share/applications/install-debian.desktop
+#	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/Colloid-dark/apps/scalable/system-software-install.svg|' /usr/share/applications/install-debian.desktop
 
 # Remove un-needed packages
 	/usr/bin/apt purge -y firefox-esr
