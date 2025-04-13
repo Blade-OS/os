@@ -3,7 +3,7 @@
 set -e
 
 # Remove un-needed packages
-	/usr/bin/apt install -y bladeos-gnome-extensions bladeos-gnome-shell adw-gtk3-theme
+	/usr/bin/apt install -y bladeos-gnome-extensions adw-gtk3-theme
 	/usr/bin/apt purge -y systemsettings
 	/usr/bin/apt autoremove -y
 	/usr/bin/apt clean
