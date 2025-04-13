@@ -6,6 +6,9 @@ set -e
 	rm /etc/hostname
 	echo "blade" >> /etc/hostname
 
+# Modernize apt sources
+	/usr/bin/apt modernize-sources
+
 # Install Blade OS core
 curl https://deb.bladeos.xyz/blade/dists/trixie/bladeos.gpg -o /etc/apt/trusted.gpg.d/bladeos.gpg
 curl https://deb.bladeos.xyz/blade/dists/trixie/main/binary-all/bladeos-repo.deb -o /etc/bladeos-repo.deb
@@ -30,4 +33,4 @@ rm -f /etc/bladeos-repo.deb
 
 # Setup flatpak
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-	flatpak install org.mozilla.firefox/x86_64/stable -y
+	flatpak install org.mozilla.firefox -y
