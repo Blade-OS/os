@@ -31,7 +31,7 @@ echo "ufw git aisleriot alsa-utils apt-transport-https autoconf automake btrfs-p
 
 echo "atmel-firmware bluez-firmware firmware-linux-free midisport-firmware firmware-misc-nonfree firmware-amd-graphics firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-intel-sound firmware-iwlwifi firmware-libertas firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-myricom firmware-netronome firmware-netxen firmware-qcom-media firmware-qcom-soc firmware-qlogic firmware-realtek firmware-samsung firmware-siano firmware-ti-connectivity firmware-sof-signed firmware-zd1211" > $WKDIR/$BLDDIR/config/package-lists/firmware.list.chroot
 
-echo "efibootmgr grub-common grub2-common grub-efi-arm64 grub-efi-arm64-bin grub-efi-arm64-signed u-boot libefiboot1 libefivar1 mokutil os-prober shim-helpers-arm64-signed shim-signed shim-signed-common shim-unsigned" > $WKDIR/$BLDDIR/config/package-lists/grubs.list.binary
+echo "efibootmgr grub-common grub2-common grub-efi-arm64 grub-efi-arm64-bin grub-efi-arm64-signed u-boot-tools u-boot-tegra u-boot-sunxi u-boot-qemu libefiboot1 libefivar1 mokutil os-prober shim-helpers-arm64-signed shim-signed shim-signed-common shim-unsigned" > $WKDIR/$BLDDIR/config/package-lists/grubs.list.binary
 
 # Uncomment below line to include more Broadcom WiFi drivers:
 echo "b43-fwcutter firmware-b43-installer firmware-b43legacy-installer" > $WKDIR/$BLDDIR/config/package-lists/bcmfirmware.list.chroot
