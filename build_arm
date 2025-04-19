@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Blade OS
+# Blade OS ARM
 # By NovusOh & based on eznixOS by eznix (https://sourceforge.net/projects/eznixos/)
 # (GNU/General Public License version 3.0)
 
@@ -25,7 +25,7 @@ lb config --binary-images iso-hybrid --mode debian --architectures arm64 --linux
 
 # Install desktop and applications
 
-echo "accountsservice dconf-cli gufw gnome-keyring gvfs-backends gvfs-fuse light-locker gnome-core gnome-software flatpak gnome-software-plugin-flatpak gnome-tweaks appstream gnome-shell-extension-manager gnome-initial-setup geary cheese rhythmbox fastfetch" > $WKDIR/$BLDDIR/config/package-lists/gnomedesktop.list.chroot
+echo "accountsservice dconf-cli gufw gnome-keyring gvfs-backends gvfs-fuse light-locker gnome-core gnome-software flatpak gnome-software-plugin-flatpak gnome-tweaks appstream gnome-shell-extension-manager gnome-initial-setup geary rhythmbox fastfetch" > $WKDIR/$BLDDIR/config/package-lists/gnomedesktop.list.chroot
 
 echo "ufw git aisleriot alsa-utils apt-transport-https autoconf automake btrfs-progs build-essential cdtool cdrdao cdrskin cifs-utils cryptsetup cryptsetup-initramfs cups cups-filters curl dbus-user-session dbus-x11 debconf debhelper dh-autoreconf dialog dirmngr dkms dos2unix dosfstools dvdauthor exfatprogs faac faad fakeroot ffmpeg flac foomatic-db foomatic-db-engine frei0r-plugins fuse3 ghostscript gir1.2-ibus-1.0 gnome-disk-utility gparted gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good haveged htop hunspell-en-us hyphen-en-us ibus ibus-data ibus-gtk ibus-gtk3 iftop im-config inxi isolinux iw jfsutils lame less libibus-1.0-5 libqt5opengl5 libnss-mdns libsmbclient libxcb-xtest0 libxvidcore4 linux-headers-arm64 live-build lsb-release lshw mencoder menu mjpegtools mpg321 mtools mythes-en-us netcat-openbsd ntfs-3g nvidia-detect openconnect openvpn openvpn-systemd-resolved os-prober p7zip-full pciutils perl plymouth plymouth-label plymouth-themes plymouth-x11 polkitd printer-driver-gutenprint python3-ibus-1.0 samba-common-bin smbclient sox squashfs-tools streamripper sudo testdisk timeshift twolame udisks2 upower unzip wget x11-common x265 x264 xauth xclip xdg-utils xfsprogs xorg xserver-xorg-input-all xserver-xorg-video-all xorriso xterm zip zstd bleachbit" > $WKDIR/$BLDDIR/config/package-lists/extrapackages.list.chroot
 
@@ -48,13 +48,11 @@ mkdir -p $WKDIR/$BLDDIR/config/hooks/normal/
 mkdir -p $WKDIR/$BLDDIR/config/archives/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/local/bin/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/apt/trusted.gpg.d
-mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/.config/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/applications/
 
 # Copy files into the chroot
 cp -r ../bootloaders/ $BLDDIR/config/
 cp ../hooks/Global/* $WKDIR/$BLDDIR/config/hooks/normal/
-cp ../skel/global/.* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 cp ../splash.png /usr/share/live/build/bootloaders/
 cp ../splash.png /usr/share/live/build/bootloaders/extlinux/
 cp ../splash.png /usr/share/live/build/bootloaders/grub-legacy/
@@ -66,7 +64,6 @@ cp ../splash.png /usr/share/live/build/bootloaders/syslinux_common/
 
 # Include edition files
 cp ../hooks/GNOME/* $WKDIR/$BLDDIR/config/hooks/normal/
-cp -r ../skel/gnome/.* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
 
 # Copy resolv.conf from host to chroot for online actions
 cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf
