@@ -2,11 +2,11 @@
 
 set -e
 
-# Remove un-needed packages
-	/usr/bin/apt install -y bladeos-desktop adw-gtk3-theme colloid-icon-theme gnome-terminal
+# Install desktop
+	/usr/bin/apt install -y bladeos-desktop
 
 # Remove un-needed packages
-	/usr/bin/apt purge -y firefox-esr systemsettings gnome-session
+	/usr/bin/apt purge -y firefox-esr systemsettings
 	/usr/bin/apt autopurge -y
 	/usr/bin/apt clean
 
