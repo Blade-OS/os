@@ -18,7 +18,7 @@ rm -f /etc/bladeos-repo.deb
 
 # Change installer icon & name to Blade
 	sed -i -e 's|Debian|Blade|g' /usr/share/applications/calamares-install-debian.desktop
-	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/Colloid-dark/apps/scalable/system-software-install.svg|' /usr/share/applications/calamares-install-debian.desktop
+	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/Colloid/apps/scalable/system-installer.svg|' /usr/share/applications/calamares-install-debian.desktop
 
 # Remove un-needed packages
 	/usr/bin/apt purge -y firefox-esr
