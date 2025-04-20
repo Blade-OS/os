@@ -20,17 +20,8 @@ rm -f /etc/bladeos-repo.deb
 	sed -i -e 's|Debian|Blade|g' /usr/share/applications/calamares-install-debian.desktop
 	sed -i -e 's|^ *Icon=install-debian|Icon=/usr/share/icons/Colloid/apps/scalable/system-os-installer.svg|' /usr/share/applications/calamares-install-debian.desktop
 
-# Remove un-needed packages
-	/usr/bin/apt purge -y firefox-esr
-	/usr/bin/apt autoremove -y
-	/usr/bin/apt clean
-
 # Enable services
 	systemctl enable ufw
 
 # Enable firewall
 	ufw enable
-
-# Setup flatpak
-	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-	flatpak install org.mozilla.firefox -y
