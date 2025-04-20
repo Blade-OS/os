@@ -3,14 +3,11 @@
 set -e
 
 # Remove un-needed packages
-	/usr/bin/apt install -y bladeos-desktop adw-gtk3-theme colloid-icon-theme
-	/usr/bin/apt purge -y systemsettings
-	/usr/bin/apt autoremove -y
-	/usr/bin/apt clean
+	/usr/bin/apt install -y bladeos-desktop adw-gtk3-theme colloid-icon-theme gnome-terminal
 
 # Remove un-needed packages
-	/usr/bin/apt purge -y firefox-esr
-	/usr/bin/apt autoremove -y
+	/usr/bin/apt purge -y firefox-esr systemsettings gnome-session
+	/usr/bin/apt autopurge -y
 	/usr/bin/apt clean
 
 # Setup flatpak
