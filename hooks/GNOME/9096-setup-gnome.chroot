@@ -8,5 +8,13 @@ set -e
 	/usr/bin/apt autoremove -y
 	/usr/bin/apt clean
 
+# Remove un-needed packages
+	/usr/bin/apt purge -y firefox-esr
+	/usr/bin/apt autoremove -y
+	/usr/bin/apt clean
+
+# Setup flatpak
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
 # Install flatpak
-	flatpak install org.libreoffice.LibreOffice org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark -y
+	flatpak install org.mozilla.firefox org.libreoffice.LibreOffice org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark -y
