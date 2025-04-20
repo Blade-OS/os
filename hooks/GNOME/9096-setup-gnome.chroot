@@ -6,9 +6,13 @@ set -e
 	/usr/bin/apt install -y bladeos-desktop
 
 # Remove un-needed packages
-	/usr/bin/apt purge -y firefox-esr systemsettings
+	/usr/bin/apt purge -y firefox-esr systemsettings gnome-session
 	/usr/bin/apt autopurge -y
 	/usr/bin/apt clean
+
+# Live GDM patch
+	ln -sf /usr/share/wayland-sessions/bladeos.desktop /usr/share/wayland-sessions/gnome.desktop
+	ln -sf /usr/share/xsessions/bladeos.desktop /usr/share/xsessions/gnome.desktop
 
 # Setup flatpak
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
