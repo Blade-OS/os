@@ -1,11 +1,11 @@
 /* === This file is part of Calamares - <http://github.com/calamares> ===
  *
  *   Copyright 2015, Teo Mrnjavac <teo@kde.org>
+ *   Copyright 2018-2019, Jonathan Carter <jcc@debian.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
+ *   the Free Software Foundation, or (at your option) any later version.
  *
  *   Calamares is distributed in the hope that it will be useful,
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -14,8 +14,6 @@
  *
  *   You should have received a copy of the GNU General Public License
  *   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
- * 
- *   Novo custom settings
  */
 
 import QtQuick 2.0;
@@ -26,123 +24,28 @@ Presentation
     id: presentation
 
     Timer {
-        id: advanceTimer
-        interval: 30000
-        running: true
+        interval: 20000
         repeat: true
         onTriggered: presentation.goToNextSlide()
     }
 
     Slide {
-        anchors.fill: parent
-        anchors.verticalCenterOffset: 0
-
-
         Image {
             id: background1
             source: "slide1.png"
-            width: parent.width; height: parent.height          
-            horizontalAlignment: Image.AlignCenter
-    		verticalAlignment: Image.AlignTop
-
-            anchors.fill: parent
-
-            Text {
-                anchors.centerIn: parent
-                anchors.verticalCenterOffset: 165
-                anchors.horizontalCenterOffset: 0
-                font.pixelSize: parent.width *.020
-                color: 'white'
-                text: qsTr("<b>Welcome to Blade OS! A distro that gets you started quickly!<br/>")
-                wrapMode: Text.WordWrap
-                width: parent.width / 1.4
-                horizontalAlignment: Text.AlignHCenter
-            }
+            width: 467; height: 280
+            fillMode: Image.PreserveAspectFit
+            anchors.centerIn: parent
+        }
+        Text {
+            anchors.horizontalCenter: background1.horizontalCenter
+            anchors.top: background1.bottom
+            text: qsTr("Thanks for installing Blade OS!<br/>"+
+                  "The rest of the installation is automated and should complete in a few minutes.")
+            wrapMode: Text.WordWrap
+            width: 600
+            horizontalAlignment: Text.Center
         }
     }
 
-    Slide {
-        anchors.fill: parent
-        anchors.verticalCenterOffset: 0
-
-        Image {
-            id: background2
-            source: "slide1.png"
-            width: parent.width; height: parent.height          
-            horizontalAlignment: Image.AlignCenter
-    		verticalAlignment: Image.AlignTop
-
-            anchors.fill: parent
-
-            Text {
-                anchors.centerIn: parent
-                anchors.verticalCenterOffset: 163
-                anchors.horizontalCenterOffset: 0
-                font.pixelSize: parent.width *.020
-                color: 'white'
-                text: qsTr("<b>Easy to use! You can install apps via the Software center.<br/>")
-                
-                wrapMode: Text.WordWrap
-                width: parent.width / 1.4
-                horizontalAlignment: Text.AlignHCenter
-            }
-        }
-    }
-
-	Slide {
-        anchors.fill: parent
-        anchors.verticalCenterOffset: 0
-
-        Image {
-            id: background3
-            source: "slide1.png"
-            width: parent.width; height: parent.height          
-            horizontalAlignment: Image.AlignCenter
-    		verticalAlignment: Image.AlignTop
-
-            anchors.fill: parent
-
-            Text {
-                anchors.centerIn: parent
-                anchors.verticalCenterOffset: 165
-                anchors.horizontalCenterOffset: 0
-                font.pixelSize: parent.width *.020
-                color: 'white'
-                text: qsTr("<b>Most of your Debian & Flatpak packages work with Blade!<br/>")
-                wrapMode: Text.WordWrap
-                width: parent.width / 1.4
-                horizontalAlignment: Text.AlignHCenter
-            }
-        }
-    }
-
-    Slide {
-        anchors.fill: parent
-        anchors.verticalCenterOffset: 0
-
-        Image {
-            id: background4
-            source: "slide1.png"
-            width: parent.width; height: parent.height
-            horizontalAlignment: Image.AlignCenter
-    		verticalAlignment: Image.AlignTop
-    		
-            anchors.fill: parent
-
-            Text {
-                anchors.centerIn: parent
-                anchors.verticalCenterOffset: 165
-                anchors.horizontalCenterOffset: 0
-                font.pixelSize: parent.width *.020
-                color: 'white'
-                text: qsTr("<b>Thanks for trying Blade OS! The rest of this install is automated and will be done shortly.<br/>")
-                wrapMode: Text.WordWrap
-                width: parent.width / 1.4
-                horizontalAlignment: Text.AlignHCenter
-            }
-        }
-    }
-
-    Component.onCompleted: advanceTimer.running = true
 }
-

@@ -1,20 +1,27 @@
 ---
 componentName:   blade
 welcomeStyleCalamares: true
+welcomeExpandingLogo: true
+windowExpanding: normal
+windowSize: 800px,580px
+windowPlacement: center
 
 strings:
     productName:         Blade OS
     shortProductName:    Blade
-    version:             Alpha
-    shortVersion:        Alpha
-    versionedName:       Blade OS
-    shortVersionedName:  Blade
+    version:             25
+    shortVersion:        25
+    versionedName:       Blade OS 25
+    shortVersionedName:  Blade OS 25
     bootloaderEntryName: Blade OS
     productUrl:          https://bladeos.xyz/
-#   supportUrl:          https://bladeos.xyz/support
-#   knownIssuesUrl:      https://bladeos.xyz/issues
-#   releaseNotesUrl:     https://bladeos.xyz/notes
-#   donateUrl:           https://bladeos.xyz/donate
+    supportUrl:          https://bladeos.xyz/
+    knownIssuesUrl:      https://bladeos.xyz/
+    releaseNotesUrl:     https://bladeos.xyz/
+    donateUrl:           https://bladeos.xyz/
+
+sidebar: widget
+navigation: widget
 
 images:
     productLogo:         "logo.png"
@@ -24,7 +31,9 @@ images:
 slideshow:               "show.qml"
 
 style:
-   sidebarBackground:    "#303030"
-   sidebarText:          "#ABABAB"
-   sidebarTextSelect:    "#FFFFFF"
-   sidebarTextHighlight: "#3E8FA8"
+   SidebarBackground:    "#303030"
+   SidebarText:          "#ABABAB"
+   SidebarTextCurrent:   "#fbfbfb"
+   SidebarBackgroundCurrent: "#303030"
+
+slideshowAPI: 2
