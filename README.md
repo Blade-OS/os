@@ -1,5 +1,5 @@
-# Blade OS (Version 24)
-A simple Debian based Linux distro that gets things set up easily.
+# Blade OS Version 25 (Gloomy Summit)
+A Debian based Linux distro that allows things to get done quickly.
 
 [![monthly-build-x86_64](https://github.com/Blade-OS/os/actions/workflows/build_monthly.yml/badge.svg)](https://github.com/Blade-OS/os/actions/workflows/build_monthly.yml)
 
@@ -8,5 +8,5 @@ Builds are usually automated via GitHub actions. However, if you want to build i
 
 ```apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso git curl```
 
-Build Desktop Edition - `build`
-Build Server Edition - `build_server`
+Build for x64 - `build`
+Build for arm64 - `build_arm`
