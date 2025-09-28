@@ -34,7 +34,7 @@ echo "atmel-firmware bluez-firmware firmware-linux-free midisport-firmware firmw
 echo "efibootmgr grub-common grub-pc-bin grub2-common grub-efi-amd64 grub-efi-amd64-bin grub-efi-amd64-signed grub-efi-ia32-bin libefiboot1 libefivar1 mokutil os-prober shim-helpers-amd64-signed shim-signed shim-signed-common shim-unsigned" > $WKDIR/$BLDDIR/config/package-lists/grubs.list.binary
 
 # Uncomment below line to include more Broadcom WiFi drivers:
-echo "b43-fwcutter firmware-b43-installer firmware-b43legacy-installer" > $WKDIR/$BLDDIR/config/package-lists/bcmfirmware.list.chroot
+# echo "b43-fwcutter firmware-b43-installer firmware-b43legacy-installer" > $WKDIR/$BLDDIR/config/package-lists/bcmfirmware.list.chroot
 
 #  Include the Calamares Installer
 
