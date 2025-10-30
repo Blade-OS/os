@@ -14,7 +14,7 @@ curl https://deb.bladeos.xyz/blade/dists/trixie/bladeos.gpg -o /etc/apt/trusted.
 curl https://deb.bladeos.xyz/blade/dists/trixie/main/binary-all/bladeos-repo.deb -o /etc/bladeos-repo.deb
 /usr/bin/dpkg -i /etc/bladeos-repo.deb
 rm -f /etc/bladeos-repo.deb
-/usr/bin/apt update -y && /usr/bin/apt upgrade -y
+/usr/bin/apt reinstall base-files desktop-base -y
 
 # Change installer icon & name to Blade
 	sed -i -e 's|Debian|Blade|g' /usr/share/applications/calamares-install-debian.desktop
