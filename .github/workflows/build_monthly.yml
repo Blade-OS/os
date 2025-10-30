@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     container:
-      image: debian:latest
+      image: debian:bookworm
       volumes:
         - /proc:/proc
       options: --privileged
@@ -27,6 +27,7 @@ jobs:
         apt update -y
         apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git curl
         ./build
+	find blade/ type -f -not -name '*.iso'-delete
         mv blade/blade-"$(date -u +%y%m%d)"-amd64.hybrid.iso ~/blade.iso
         rm -rf blade/
         cd ../
