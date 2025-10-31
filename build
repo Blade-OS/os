@@ -21,7 +21,7 @@ cd $BLDDIR
 
 # Set up build environment
 
-lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution trixie --archive-areas "main contrib non-free non-free-firmware" --updates true --security true --cache true --apt-recommends true --firmware-binary true --firmware-chroot true --win32-loader false --iso-application $BLDDIR --iso-preparer NovusOh --iso-publisher Blade --image-name "$BLDDIR-$(date -u +"%y%m%d")" --iso-volume "$BLDDIR-$(date -u +"%y%m%d")" --checksums sha512 --clean --color
+lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution trixie --archive-areas "main contrib non-free non-free-firmware" --debian-installer none --updates true --security true --cache true --apt-recommends true --firmware-binary true --firmware-chroot true --win32-loader false --iso-application $BLDDIR --iso-preparer NovusOh --iso-publisher Blade --image-name "$BLDDIR-$(date -u +"%y%m%d")" --iso-volume "$BLDDIR-$(date -u +"%y%m%d")" --checksums sha512 --clean --color
 
 # Install desktop and applications
 
@@ -29,7 +29,11 @@ echo "ufw git alsa-utils apt-transport-https autoconf automake btrfs-progs build
 
 echo "atmel-firmware bluez-firmware firmware-linux-free midisport-firmware firmware-misc-nonfree firmware-amd-graphics firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-intel-sound firmware-iwlwifi firmware-libertas firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-myricom firmware-netronome firmware-netxen firmware-qcom-media firmware-qcom-soc firmware-qlogic firmware-realtek firmware-samsung firmware-siano firmware-ti-connectivity firmware-sof-signed firmware-zd1211" > $WKDIR/$BLDDIR/config/package-lists/firmware.list.chroot
 
-echo "efibootmgr grub-common libefiboot1 libefivar1 mokutil os-prober shim-helpers-amd64-signed shim-signed shim-signed-common shim-unsigned" > $WKDIR/$BLDDIR/config/package-lists/grubs.list.binary
+# Set up bootloader
+
+echo "efibootmgr grub-efi grub-efi-amd64 grub-efi-amd64-bin grub-efi-amd64-signed grub-efi-amd64-unsigned mokutil libefiboot1 libefivar1 shim-helpers-amd64-signed shim-signed shim-signed-common shim-unsigned" > $WKDIR/$BLDDIR/config/package-lists/grub-efi.list.binary
+
+echo "grub-pc grub-pc-bin grub-common grub2-common" > $WKDIR/$BLDDIR/config/package-lists/grub-pc.list.binary
 
 # Uncomment below line to include more Broadcom WiFi drivers:
 echo "b43-fwcutter firmware-b43-installer firmware-b43legacy-installer" > $WKDIR/$BLDDIR/config/package-lists/bcmfirmware.list.chroot
