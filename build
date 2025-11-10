@@ -31,7 +31,11 @@ echo "atmel-firmware bluez-firmware firmware-linux-free midisport-firmware firmw
 
 # Set up GRUB
 
-echo "efibootmgr grub-efi grub-efi-amd64 grub-efi-amd64-bin grub-efi-amd64-signed grub-efi-amd64-unsigned mokutil libefiboot1 libefivar1 shim-helpers-amd64-signed shim-signed shim-signed-common shim-unsigned grub-pc grub-pc-bin grub-common grub2-common" > $WKDIR/$BLDDIR/config/package-lists/grub.list.binary
+# BIOS Environment (Pre-Included)
+echo "grub-pc grub-pc-bin grub-common grub2-common" > $WKDIR/$BLDDIR/config/package-lists/grub-pc.list.chroot
+
+# UEFI Environment
+echo "efibootmgr grub-efi grub-efi-amd64 grub-efi-amd64-bin grub-efi-amd64-signed grub-efi-amd64-unsigned mokutil libefiboot1 libefivar1 shim-helpers-amd64-signed shim-signed shim-signed-common shim-unsigned" > $WKDIR/$BLDDIR/config/package-lists/grub-efi.list.binary
 
 # Uncomment below line to include more Broadcom WiFi drivers:
 echo "b43-fwcutter firmware-b43-installer firmware-b43legacy-installer" > $WKDIR/$BLDDIR/config/package-lists/bcmfirmware.list.chroot
