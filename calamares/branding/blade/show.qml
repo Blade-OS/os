@@ -23,29 +23,39 @@ Presentation
 {
     id: presentation
 
+    function nextSlide() {
+       presentation.goToNextSlide();
+    }
+
     Timer {
-        interval: 20000
+        id: advanceTimer
+        interval: 60000
+        running: true
         repeat: true
-        onTriggered: presentation.goToNextSlide()
+        onTriggered: nextSlide()
     }
 
     Slide {
-        Image {
-            id: background1
-            source: "slide1.png"
-            width: 467; height: 280
-            fillMode: Image.PreserveAspectFit
-            anchors.centerIn: parent
-        }
-        Text {
-            anchors.horizontalCenter: background1.horizontalCenter
-            anchors.top: background1.bottom
-            text: qsTr("Thanks for installing Blade OS!<br/>"+
-                  "The rest of the installation is automated and should complete in a few minutes.")
-            wrapMode: Text.WordWrap
-            width: 600
-            horizontalAlignment: Text.Center
+           anchors.fill: parent
+        Rectangle {
+            anchors.fill: parent
+            border.width: 0
+            color: "#051531"
+            Image {
+                id: slide1
+                source: "slide1.png"
+                fillMode: Image.PreserveAspectFit
+                anchors.fill: parent
+            }
         }
     }
 
+    function onActivate() {
+        console.log("QML Component (default slideshow) activated");
+        presentation.currentSlide = 0;
+    }
+
+    function onLeave() {
+        console.log("QML Component (default slideshow) deactivated");
+    }
 }
